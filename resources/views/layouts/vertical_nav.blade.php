@@ -6,5 +6,87 @@
                 <span class = "menu-title">Accueil</span>
             </a>
         </li>
+        @if (session('type') == 'Admin')
+            <li class = "nav-item">
+                <a class = "nav-link" href = "{{url('/profil')}}">
+                    <i class = "mdi mdi-account menu-icon"></i>
+                    <span class = "menu-title">Profil</span>
+                </a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "collapse" href = "#user" aria-expanded = "false" aria-controls = "user">
+                    <i class = "mdi mdi-account-search menu-icon"></i>
+                    <span class = "menu-title">Utilisateurs</span>
+                </a>
+                <div class = "collapse" id = "user">
+                    <ul class = "nav flex-column sub-menu">
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('add-user')}}">Ajouter des utilisateurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter des utilisateurs</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "collapse" href = "#achat" aria-expanded = "false" aria-controls = "achat">
+                    <i class = "mdi mdi-more menu-icon"></i>
+                    <span class = "menu-title">Achat</span>
+                </a>
+                <div class = "collapse" id = "achat">
+                    <ul class = "nav flex-column sub-menu">
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Caisse</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des achats</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les achats</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des fournisseurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les fournisseurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Avancées</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "collapse" href = "#vente" aria-expanded = "false" aria-controls = "vente">
+                    <i class = "mdi mdi-sale menu-icon"></i>
+                    <span class = "menu-title">Vente</span>
+                </a>
+                <div class = "collapse" id = "vente">
+                    <ul class = "nav flex-column sub-menu">
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Caisse</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les ventes</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des clients</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les clients</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "collapse" href = "#stock" aria-expanded = "false" aria-controls = "stock">
+                    <i class = "mdi mdi-stocking menu-icon"></i>
+                    <span class = "menu-title">Stock</span>
+                </a>
+                <div class = "collapse" id = "stock">
+                    <ul class = "nav flex-column sub-menu">
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter le stock</a></li>
+                    </ul>
+                </div>
+            </li>
+            @elseif (session('type') == 'User')
+            <li class = "nav-item">
+                <a class = "nav-link" href = "{{url('/profil')}}">
+                    <i class = "mdi mdi-account menu-icon"></i>
+                    <span class = "menu-title">Profil</span>
+                </a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "collapse" href = "#vente" aria-expanded = "false" aria-controls = "vente">
+                    <i class = "mdi mdi-sale menu-icon"></i>
+                    <span class = "menu-title">Vente</span>
+                </a>
+                <div class = "collapse" id = "vente">
+                    <ul class = "nav flex-column sub-menu">
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Caisse</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les ventes</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des clients</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les clients</a></li>
+                    </ul>
+                </div>
+            </li>
+        @endif
     </ul>
 </nav>

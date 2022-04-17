@@ -51,6 +51,22 @@
                         </a>
                     </div>
                 <li>
+            @else
+            <li class = "nav-item nav-profile dropdown">
+                    <a class = "nav-link dropdown-toggle" href = "javascript:void(0)" data-toggle = "dropdown" id = "profil">
+                        <img src = "{{$informations['image']}}" alt = "profil"/>
+                    </a>
+                    <div class = "dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby = "profileDropdown">
+                        <a class = "dropdown-item" href = "{{url('/profil')}}">
+                            <i class = "ti-user text-primary"></i>
+                            Profil
+                        </a>    
+                        <a class = "dropdown-item" onclick = "questionDeconnexion()">
+                            <i class = "ti-power-off text-primary"></i>
+                            Déconnexion
+                        </a>
+                    </div>
+                <li>
             @endif
         </ul>
     </div>

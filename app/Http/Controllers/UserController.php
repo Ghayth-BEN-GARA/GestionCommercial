@@ -18,6 +18,22 @@
                 return redirect()->route('home');
             }
 
+            else if($this->verifyCompte($request)){
+                return back()->with('erreur', 'Aucun compte trouvé avec ce CIN..');
+            }
+
+            else if(!$this->verifyCompte($request) && $this->getPasswordCompte($request->cin) == md5($request->password)){
+                if($this->getTypeCompte($request->cin) == "Admin"){
+                    $this->creerSession($request->cin,"Admin");
+                    return redirect()->route('home');
+                }
+
+                else{
+                    $this->creerSession($request->cin,"User");
+                    return redirect()->route('home');
+                }
+            }
+
             else{
                 return back()->with('erreur', 'Le CIN ou / et le mot de passe saisi est invalide..');
             }
@@ -37,12 +53,22 @@
             return (Session::get('type')); 
         }
 
+        public function getUsernameSessionActive(){
+            return (Session::get('username')); 
+        }
+
         public function getInformationSessionActive($type){
             if($type == "Administrateur"){
                 return [
                     "fullname" => "Administrateur",
-                    "image" => "images/logo/favicon.png",
-                    "fonction" => "Directeur" 
+                    "image" => "images/logo/favicon.png"
+                ];
+            }
+
+            else{
+                return [
+                    "fullname" => $this->getPrenomPersonne($this->getUsernameSessionActive()." ".$this->getNomPersonne($this->getUsernameSessionActive())),
+                    "image" => "images/uploads/".$this->getUsernameSessionActive().'/'.$this->getPhotoPersonne($this->getUsernameSessionActive())
                 ];
             }
         }
@@ -125,6 +151,26 @@
                 $image->setCinAttribute($cin);     
                 return $image->save();              
             }
+        }
+
+        public function getPasswordCompte($cin){
+            return Compte::where('cin', $cin)->first()->getPasswordAttribute();
+        }
+
+        public function getTypeCompte($cin){
+            return Compte::where('cin', $cin)->first()->getTypeAttribute();
+        }
+
+        public function getNomPersonne($cin){
+            return Personne::where('cin', $cin)->first()->getNomAttribute();
+        }
+
+        public function getPrenomPersonne($cin){
+            return Personne::where('cin', $cin)->first()->getPrenomAttribute();
+        }
+
+        public function getPhotoPersonne($cin){
+            return Image::where('cin', $cin)->first()->getPhotoAttribute();
         }
     }
 ?>
