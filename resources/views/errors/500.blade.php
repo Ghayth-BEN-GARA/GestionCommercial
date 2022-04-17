@@ -15,7 +15,7 @@
                                 </div>
                                 <div class = "col-lg-6 error-page-divider text-lg-left pl-lg-4">
                                     <h2>Désolé !</h2>
-                                    <h3 class="font-weight-light">Vous n'étes pas autorisé à voir cette page!</h3>
+                                    <h3 class="font-weight-light">Vous n'êtes pas autorisé à consulter cette page !</h3>
                                 </div>
                             </div>
                             <div class = "row mt-5">
