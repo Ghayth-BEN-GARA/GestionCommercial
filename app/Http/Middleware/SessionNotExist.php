@@ -15,6 +15,11 @@
             if(!Session()->has('username')){
                 return view('errors.404');
             }
+
+            else if(Session()->has('username') && (Session()->get('type') == "user") &&
+            ($request->url() == url('/add-user'))){
+                return view('errors.500');
+            }
             return $next($request);
         }
     }

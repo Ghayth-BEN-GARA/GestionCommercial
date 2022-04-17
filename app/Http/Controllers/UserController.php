@@ -51,5 +51,10 @@
                 return redirect()->route('login');
             }
         }
+
+        public function openAddUser(){
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            return view('user.add_user',compact('informations'));
+        }
     }
 ?>

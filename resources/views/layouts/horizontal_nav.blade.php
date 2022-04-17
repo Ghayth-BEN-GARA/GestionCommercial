@@ -28,7 +28,7 @@
                     </a>
                     <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "compte">
                         <p class = "mb-0 font-weight-normal float-left dropdown-header">Comptes</p>
-                        <a class = "dropdown-item preview-item">
+                        <a class = "dropdown-item preview-item" href = "{{url('/add-user')}}">
                             <div class = "preview-thumbnail">
                                 <div class = "preview-icon bg-info">
                                     <i class = "ti-user mx-0"></i>
