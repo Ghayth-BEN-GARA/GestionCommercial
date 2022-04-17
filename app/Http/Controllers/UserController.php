@@ -11,7 +11,7 @@
         public function loginCompte(Request $request){
             if($request->cin == "12345678" && $request->password == "admin"){
                 $this->creerSession($request->cin,"Administrateur");
-                $this->openHome();
+                return redirect()->route('home');
             }
 
             else{
@@ -25,7 +25,22 @@
         }
 
         public function openHome(){
-            return view('home');
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            return view('home',compact('informations'));
+        }
+
+        public function getTypeSessionActive(){
+            return (Session::get('type')); 
+        }
+
+        public function getInformationSessionActive($type){
+            if($type == "Administrateur"){
+                return [
+                    "fullname" => "Administrateur du dépôt",
+                    "image" => "images/logo/favicon.png",
+                    "fonction" => "Directeur" 
+                ];
+            }
         }
     }
 ?>

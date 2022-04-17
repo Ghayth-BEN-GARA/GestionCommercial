@@ -28830,7 +28830,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper .brand-logo-mini img {
-  width: calc(70px - 30px);
+  width: calc(70px - 37px);
   max-width: 100%;
   margin: auto;
 }
@@ -29009,7 +29009,7 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile img {
   width: 40px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile.dropdown .dropdown-toggle:after {
