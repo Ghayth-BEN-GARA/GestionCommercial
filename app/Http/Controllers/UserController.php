@@ -42,5 +42,14 @@
                 ];
             }
         }
+
+        public function logoutCompte(){
+            Session::forget('username');
+            Session::forget('type');
+            Session::flush();
+            if (!Session::has('username')){
+                return redirect()->route('login');
+            }
+        }
     }
 ?>

@@ -12,7 +12,8 @@
     |
     */
 
-    Route::get('/', [UserController::class, 'openSignIn'])->middleware('session');
+    Route::get('/', [UserController::class, 'openSignIn'])->middleware('session')->name('login');
     Route::post('/signin', [UserController::class, 'loginCompte']);
     Route::get('/home', [UserController::class, 'openHome'])->middleware('notsession')->name('home');
+    Route::get('/logout', [UserController::class, 'logoutCompte']);
 ?>

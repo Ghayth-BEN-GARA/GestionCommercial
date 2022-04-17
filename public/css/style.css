@@ -11033,7 +11033,7 @@ textarea.is-invalid.tt-hint {
 .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a {
   display: inline-block;
   font-weight: 400;
-  color: #1F1F1F;
+  color: white;
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -11053,7 +11053,7 @@ textarea.is-invalid.tt-hint {
 }
 
 .btn:hover, .fc button:hover, .ajax-upload-dragdrop .ajax-file-upload:hover, .swal2-modal .swal2-buttonswrapper .swal2-styled:hover, .wizard > .actions a:hover {
-  color: #1F1F1F;
+  color: white;
   text-decoration: none;
 }
 
@@ -15719,7 +15719,7 @@ button.bg-success:hover,
 button.bg-success:focus,
 .swal2-modal .swal2-buttonswrapper button.swal2-styled.swal2-confirm:focus,
 .settings-panel .color-tiles button.tiles.success:focus {
-  background-color: #429842 !important;
+  background-color: #F7941E !important;
 }
 
 .bg-info, .settings-panel .color-tiles .tiles.info {
@@ -15841,7 +15841,7 @@ button.bg-dark:focus,
 }
 
 .border-success, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm {
-  border-color: #57B657 !important;
+  border-color: #F7941E !important;
 }
 
 .border-info {
