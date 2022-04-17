@@ -13368,7 +13368,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #F7941E;
 }
 
 .nav-fill > .nav-link,
@@ -18895,7 +18895,7 @@ button.bg-dark:focus,
 }
 
 .text-primary, .list-wrapper .completed .remove {
-  color: #4B49AC !important;
+  color: #F7941E !important;
 }
 
 a.text-primary:hover, .list-wrapper .completed a.remove:hover, a.text-primary:focus, .list-wrapper .completed a.remove:focus {
@@ -28591,7 +28591,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
-  background: #4B49AC;
+  background: #F7941E;
   position: relative;
 }
 
@@ -28622,7 +28622,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded="true"] {
-  background: #4B49AC;
+  background: #F7941E;
   color: #fff;
 }
 
@@ -28768,6 +28768,7 @@ div.tagsinput span.tag a {
   }
   .sidebar-offcanvas.active {
     right: 0;
+  
   }
 }
 

@@ -36,7 +36,7 @@
         public function getInformationSessionActive($type){
             if($type == "Administrateur"){
                 return [
-                    "fullname" => "Administrateur du dépôt",
+                    "fullname" => "Administrateur",
                     "image" => "images/logo/favicon.png",
                     "fonction" => "Directeur" 
                 ];
