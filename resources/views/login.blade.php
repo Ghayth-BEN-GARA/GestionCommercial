@@ -3,4 +3,5 @@
         <head>
             @include ('layouts.head')
         </head>
+       
     </html>

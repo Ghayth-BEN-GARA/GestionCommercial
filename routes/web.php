@@ -12,5 +12,5 @@
     |
     */
 
-    Route::get('/', [UserController::class, 'openSignIn']);
+    Route::get('/', [UserController::class, 'openSignIn'])->middleware('session');
 ?>
