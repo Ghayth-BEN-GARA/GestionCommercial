@@ -3,11 +3,6 @@ body {
     background-color: #f8fafb;
 }
 
-p {
-    color: #b3b3b3;
-    font-weight: 300;
-}
-
 h1,
 h2,
 h3,
@@ -243,10 +238,4 @@ h2 {
 .control--checkbox input:disabled:checked~.control__indicator {
     background-color: #6c63ff;
     opacity: .2;
-}
-
-.error {
-    color: #f90a0a;
-    text-align: center;
-    font-size: 12px;
 }

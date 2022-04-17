@@ -13,4 +13,5 @@
     */
 
     Route::get('/', [UserController::class, 'openSignIn'])->middleware('session');
+    Route::post('/signin', [UserController::class, 'loginCompte']);
 ?>

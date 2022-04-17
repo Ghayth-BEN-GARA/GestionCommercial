@@ -11,13 +11,23 @@
                         <img src = "{{asset('login/images/undraw_remotely_2j6y.svg')}}" alt = "Image" class = "img-fluid">
                     </div>
                     <div class = "col-md-6 contents">
+                        @if (Session::has('erreur'))
+                            <div class = "container">
+                                <div class = "alert alert-danger alert-dismissible fade show" role = "alert">
+                                    <p><strong>Désolé !</strong> {{session()->get('erreur')}}</p>
+                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
+                                        <span aria-hidden = "true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
                         <div class = "row justify-content-center">
                             <div class = "col-md-8">
                                 <div class = "mb-4">
                                 <h3>Connexion</h3>
                                 <p class = "mb-4">Content de te revoir !<br>Connectez-vous pour continuer.</p>
                             </div>
-                            <form action = "{{url('/login')}}" method = "post" name = "f" id = "f">
+                            <form action = "{{url('/signin')}}" method = "post" name = "f" id = "f">
                                 @csrf
                                 <div class = "form-group first">
                                     <input type = "text" class = "form-control" id = "cin" name = "cin" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Entrez votre CIN.." required>
