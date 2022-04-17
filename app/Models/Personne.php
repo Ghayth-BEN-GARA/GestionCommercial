@@ -3,6 +3,10 @@
     use Illuminate\Database\Eloquent\Model;
 
     class Personne extends Model{
+        protected $table = 'personnes';
+        protected $primaryKey = 'id';
+        public $timestamps = false;
+        public $incrementing = false;
         /**
          * The attributes that are mass assignable.
          *

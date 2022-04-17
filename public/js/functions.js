@@ -35,3 +35,33 @@ async function chargement(message) {
 function ouvrirRoot(root) {
     location.href = root;
 }
+
+function verifierCompte(){
+    $.ajax({
+        url: '/verify-cin-user',
+        type: "get",
+        cache: true,
+        data: { cin: $('#cin').val() },
+        success: function(data) {
+            if(data.trim() == 'admin'){
+                $('#cin_error').html('Veuillez entrer un CIN valide..');
+                $('#btn_submit').prop('disabled', true);
+           }
+
+            else if(data.trim() == false){
+                $('#cin_error').html('Un autre compte est déjà créé avec ce CIN..');
+                $('#btn-submit').prop('disabled', true);
+            }   
+
+            else{
+                $('#cin_error').val('');
+                $('#btn-submit').prop('disabled', false);
+            }
+        }
+    })
+}
+
+function initialiserCIN(){
+    $('#cin_error').html('');
+    $('#btn-submit').prop('disabled', true);
+}

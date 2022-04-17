@@ -15,6 +15,25 @@
                                 <div class = "card">
                                     <div class = "card-body">
                                         <h4 class = "card-title">Compte</h4>
+                                        @if (Session::has('erreur'))
+                                            <div class = "container">
+                                                <div class = "alert alert-danger alert-dismissible fade show" role = "alert">
+                                                    <p><strong>Désolé !</strong> {{session()->get('erreur')}}</p>
+                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
+                                                        <span aria-hidden = "true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        @elseif (Session::has('success'))
+                                            <div class = "container">
+                                                <div class = "alert alert-success alert-dismissible fade show" role = "alert">
+                                                    <p><strong>Trés bien !</strong> {{session()->get('success')}}</p>
+                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
+                                                        <span aria-hidden = "true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        @endif
                                         <p class = "card-description">Créer un compte</p>
                                         <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/add-personne')}}" enctype = "multipart/form-data">
                                             @csrf    
@@ -84,9 +103,10 @@
                                                             <div class = "input-group">
                                                                 <input type = "number" class = "form-control" name = "cin" id = "cin" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez le CIN.." required/>
                                                                 <div class = "input-group-append">
-                                                                    <button class = "btn btn-sm btn-primary" type = "button">Vérifier</button>
+                                                                    <button class = "btn btn-sm btn-primary" type = "button" onclick = "verifierCompte()">Vérifier</button>
                                                                 </div>
                                                             </div>
+                                                            <span class = "error" id = "cin_error"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,7 +114,7 @@
                                                     <div class = "form-group row">
                                                         <label class = "col-sm-3 col-form-label">Password</label>
                                                         <div class = "col-sm-9">
-                                                            <input type = "text" class = "form-control" name = "password" id = "password" placeholder = "Saisissez le mot de passe.." required/>
+                                                            <input type = "password" class = "form-control" name = "password" id = "password" placeholder = "Saisissez le mot de passe.." required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -116,7 +136,7 @@
                                                     <div class = "form-group row">
                                                         <label class = "col-sm-3 col-form-label">Image</label>
                                                         <div class = "col-sm-9">
-                                                            <input type = "file" class = "file-upload-default" name = "img[]" id = "image" required/>
+                                                            <input type = "file" class = "file-upload-default" name = "image" id = "image" required accept = "image/jpeg"/>
                                                             <div class = "input-group col-xs-12">
                                                                 <input type = "text" class ="form-control file-upload-info" disabled placeholder = "Séléctionner une image">
                                                                 <span class = "input-group-append">
@@ -129,7 +149,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type = "submit" class = "btn btn-primary mr-2" disabled>Créer un compte</button>
+                                            <button type = "submit" class = "btn btn-primary mr-2" disabled id = "btn-submit">Créer un compte</button>
                                             <button type = "reset" class = "btn btn-light">Annuler</button>
                                         </form>
                                     </div>
@@ -143,5 +163,10 @@
         </div>
         @include ('layouts.script')
         <script src = "{{asset('js/file-upload.js')}}"></script>
+        <script>
+            $('#cin').on('input',function(){
+                initialiserCIN();
+            });
+        </script>
     </body>
 </html>

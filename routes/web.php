@@ -16,5 +16,7 @@
     Route::post('/signin', [UserController::class, 'loginCompte']);
     Route::get('/home', [UserController::class, 'openHome'])->middleware('notsession')->name('home');
     Route::get('/logout', [UserController::class, 'logoutCompte']);
-    Route::get('/add-user', [UserController::class, 'openAddUser'])->middleware('notsession');
+    Route::get('/add-user', [UserController::class, 'openAddCompte'])->middleware('notsession');
+    Route::get('/verify-cin-user', [UserController::class, 'verifyCompte']);
+    Route::post('/add-personne', [UserController::class, 'storeCompte']);
 ?>

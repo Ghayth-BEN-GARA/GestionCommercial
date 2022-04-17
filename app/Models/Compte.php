@@ -3,7 +3,11 @@
     use Illuminate\Database\Eloquent\Model;
     use Carbon\Carbon;
 
-    class User extends Model{
+    class Compte extends Model{
+        protected $table = 'comptes';
+        protected $primaryKey = 'cin';
+        public $timestamps = false;
+        public $incrementing = false;
         /**
          * The attributes that are mass assignable.
          *
@@ -51,6 +55,10 @@
 
         public function getHeureCreationAttribute(){
             return Carbon::createFromFormat('H:i:s', $this->attributes['heure_creation'])->format('H:i');
+        }
+
+        public function setHeureCreationAttribute(){
+            $this->attributes['heure_creation'] = date('H:i:s');
         }
     }
 ?>

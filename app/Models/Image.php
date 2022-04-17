@@ -3,6 +3,10 @@
     use Illuminate\Database\Eloquent\Model;
 
     class Image extends Model{
+        protected $table = 'Images';
+        protected $primaryKey = 'id';
+        public $timestamps = false;
+        public $incrementing = false;
         /**
          * The attributes that are mass assignable.
          *

@@ -27,7 +27,7 @@
                         <span class = "count"></span>
                     </a>
                     <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "compte">
-                        <p class = "mb-0 font-weight-normal float-left dropdown-header">Comptes</p>
+                        <p class = "mb-0 font-weight-normal float-left dropdown-header">Utilisateurs</p>
                         <a class = "dropdown-item preview-item" href = "{{url('/add-user')}}">
                             <div class = "preview-thumbnail">
                                 <div class = "preview-icon bg-info">
