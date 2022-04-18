@@ -68,7 +68,7 @@
             else{
                 return [
                     "fullname" => $this->getPrenomPersonne($this->getUsernameSessionActive()) ." ".$this->getNomPersonne($this->getUsernameSessionActive()),
-                    "image" => "images/uploads/".$this->getUsernameSessionActive().'/'.$this->getPhotoPersonne($this->getUsernameSessionActive()),
+                    "image" => $this->getPhotoPersonne($this->getUsernameSessionActive()),
                     "tel" => $this->getMobilePersonne($this->getUsernameSessionActive()),
                     "cin" => $this->getUsernameSessionActive(),
                     "nom" => $this->getNomPersonne($this->getUsernameSessionActive()),
@@ -178,7 +178,15 @@
         }
 
         public function getPhotoPersonne($cin){
-            return Image::where('cin', $cin)->first()->getPhotoAttribute();
+            $image = Image::where('cin', $cin)->first();
+            if($image == null){
+                return 'images/faces/user.png';
+            }
+
+            else{
+                $im = $image->getPhotoAttribute();
+                return "images/uploads/".$this->getUsernameSessionActive().'/'.$im;
+            }
         }
 
         public function getMobilePersonne($cin){
@@ -205,6 +213,53 @@
         public function openEditImageProfil(){
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
             return view('user.edit_image_user',compact('informations'));
+        }
+
+        public function deleteImage(){
+            File::deleteDirectory(public_path('images/uploads/'.$this->getUsernameSessionActive()));
+            if(Image::where('cin',$this->getUsernameSessionActive())->delete()){
+                return back()->with('success', 'Votre photo de profil a été supprimée avec succès.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de supprimer votre photo de profil.');
+            }
+        }
+
+        public function verifyPhoto($cin){
+            return Image::where('cin', $cin)->get()->isEmpty();
+        }
+
+        public function updateImage(Request $request){
+            if(!$this->verifyPhoto($this->getUsernameSessionActive())){
+                if($request->hasFile('image')){
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = date('Y-m-d') . '_' . time() . '.' .$extension;
+                    File::deleteDirectory(public_path('images/uploads/'.$this->getUsernameSessionActive()));
+                    $file->move('images/uploads/'.$this->getUsernameSessionActive(),$filename);
+                    $image = Image::where('cin',$this->getUsernameSessionActive())->update([
+                        'photo'=>$filename,
+                        'cin'=>$this->getUsernameSessionActive()
+                    ]);
+                    if($image){
+                        return back()->with('success', 'Votre photo de profil a été modifié avec succès.');
+                    }
+
+                    else{
+                        return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre photo de profil.');
+                    }
+                }
+            }
+            else{
+                if($this->creerImage($request,$this->getUsernameSessionActive())){
+                    return back()->with('success', 'Votre photo de profil a été modifié avec succès.');
+                }
+
+                else{
+                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre photo de profil.');
+                }
+            }
         }
     }
 ?>

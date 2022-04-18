@@ -64,10 +64,11 @@
                                                 <h5 class = "delete-im">Si vous le souhaitez, vous pouvez supprimer votre photo de profil en cliquant sur<a href = "{{url('/delete-image')}}"> Supprimer l'image</a></b></h5>
                                             </div>
                                             <br>
-                                            <form class = "forms-sample" id = "f" name = "f" method = "post" action = "#">
+                                            <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/update-image')}}" enctype = "multipart/form-data">
+                                                @csrf    
                                                 <div class = "form-group">
                                                     <label>Image de profil</label>
-                                                    <input type = "file" name = "image" id = "image" class = "file-upload-default" required>
+                                                    <input type = "file" class = "file-upload-default" name = "image" id = "image" required required accept = "image/jpeg">
                                                     <div class = "input-group col-xs-12">
                                                         <input type = "text" class = "form-control file-upload-info" disabled placeholder = "Modifier l'image de profil..">
                                                         <span class = "input-group-append">
@@ -75,6 +76,8 @@
                                                         </span>
                                                     </div>
                                                 </div>
+                                                <button type = "submit" class = "btn btn-primary mr-2" id = "btn-submit">Modifier</button>
+                                                <button type = "reset" class = "btn btn-light">Annuler</button>
                                             </form>
                                         </div>
                                     </div>
