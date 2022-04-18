@@ -21,7 +21,7 @@
                                         <div class = "justify-content-end d-flex">
                                             <div class = "dropdown flex-md-grow-1 flex-xl-grow-0">
                                                 <button class = "btn btn-sm btn-light bg-white" type = "button" id = "currentdate" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "true">
-                                                    <i class = "mdi"></i> Aujourd'hui {{date('D d F Y',strtotime(date('D F Y')))}}
+                                                    <i class = "mdi"></i> Aujourd'hui {{date('D d F Y')}}
                                                 </button>
                                             </div>
                                         </div>

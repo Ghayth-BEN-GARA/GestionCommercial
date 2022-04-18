@@ -28598,7 +28598,7 @@ div.tagsinput span.tag a {
 .sidebar .nav .nav-item.active > .nav-link i,
 .sidebar .nav .nav-item.active > .nav-link .menu-title,
 .sidebar .nav .nav-item.active > .nav-link .menu-arrow {
-  color: #fff;
+  color: white;
 }
 
 .sidebar .nav .nav-item.active > .nav-link i.menu-arrow::before {
@@ -28608,7 +28608,7 @@ div.tagsinput span.tag a {
 .sidebar .nav .nav-item:hover > .nav-link i,
 .sidebar .nav .nav-item:hover > .nav-link .menu-title,
 .sidebar .nav .nav-item:hover > .nav-link .menu-arrow {
-  color: #fff;
+  color: white;
 }
 
 .sidebar .nav:not(.sub-menu) {
@@ -28623,7 +28623,7 @@ div.tagsinput span.tag a {
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded="true"] {
   background: #F7941E;
-  color: #fff;
+  color: white;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link {
@@ -28632,21 +28632,21 @@ div.tagsinput span.tag a {
 
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] {
   border-radius: 8px 8px 0 0;
-  background: #4B49AC;
+  background: #F7941E;
   color: #fff;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item.active {
-  background: #4B49AC;
+  background: #F7941E;
 }
 
 .sidebar .nav.sub-menu {
   margin-bottom: 0;
   margin-top: 0;
   list-style: none;
-  padding: 0.25rem 0 0 3.07rem;
-  background: #4B49AC;
-  padding-bottom: 12px;
+  padding: 0.25rem 0 0 2.0rem;
+  background: #F7941E;
+  padding-bottom: 6px;
 }
 
 .sidebar .nav.sub-menu .nav-item {
@@ -28667,14 +28667,14 @@ div.tagsinput span.tag a {
   color: #fff;
   padding: 0.7rem 1rem;
   position: relative;
-  font-size: 0.875rem;
+  font-size: 12px;
   line-height: 1;
   height: auto;
   border-top: 0;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: #ffffff;
+  color: white;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
@@ -28699,19 +28699,19 @@ div.tagsinput span.tag a {
 }
 
 .sidebar-dark .sidebar .nav .nav-item .nav-link i.menu-icon {
-  color: #FFFFFF;
+  color: white;
 }
 
 .sidebar-dark .sidebar .nav .nav-item .nav-link .menu-title {
-  color: inherit;
+  color: white;
 }
 
 .sidebar-dark .sidebar .nav .nav-item .nav-link[aria-expanded="true"] .menu-title {
-  color: #FFFFFF;
+  color: white;
 }
 
 .sidebar-dark .sidebar .nav .nav-item.active > .nav-link {
-  background: #4B49AC;
+  background: #F7941E;
 }
 
 .sidebar-dark .sidebar .nav .nav-item.active > .nav-link .menu-title,
@@ -28720,7 +28720,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar-dark .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
-  background: #4B49AC;
+  background: #F7941E;
   color: #fff;
 }
 

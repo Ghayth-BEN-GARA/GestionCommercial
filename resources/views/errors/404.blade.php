@@ -15,7 +15,7 @@
                                 </div>
                                 <div class = "col-lg-6 error-page-divider text-lg-left pl-lg-4">
                                     <h2>Désolé !</h2>
-                                    <h3 class = "font-weight-light">La page que vous recherchez est introuvable.</h3>
+                                    <h3 class = "font-weight-light">La page que vous cherchez est introuvable.</h3>
                                 </div>
                             </div>
                             <div class = "row mt-5">
