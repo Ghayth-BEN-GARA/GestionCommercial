@@ -301,5 +301,24 @@
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
             return view('user.edit_user',compact('informations'));
         }
+
+        public function updateUser(Request $request){
+            $user = Personne::where('cin',$this->getUsernameSessionActive())->update([
+                'nom'=>$request->nom,
+                'prenom'=>$request->prenom,
+                'genre'=>$request->genre,
+                'naissance'=>$request->naissance,
+                'tel'=>$request->mobile,
+                'adresse'=>$request->adresse
+            ]);
+
+            if($user){
+                return back()->with('success', 'Vos informations ont été modifié avec succès.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier vos informations.');
+            }
+        }
     }
 ?>
