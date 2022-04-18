@@ -24,6 +24,6 @@
     Route::get('/delete-image', [UserController::class, 'deleteImage']);
     Route::post('/update-image', [UserController::class, 'updateImage']);
     Route::get('/edit-password-profil', [UserController::class, 'openEditPasswordProfil'])->middleware('notsession');
-
+    Route::post('/update-password', [UserController::class, 'updatePassword']);
 
 ?>

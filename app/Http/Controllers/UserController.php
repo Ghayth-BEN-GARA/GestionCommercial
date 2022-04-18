@@ -266,5 +266,25 @@
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
             return view('user.edit_password_user',compact('informations'));
         }
+
+        public function updatePassword(Request $request){
+            if(md5($request->old) != $this->getPasswordCompte($this->getUsernameSessionActive())){
+                return back()->with('erreur', 'Votre ancien mot de passe saisi est incorrect.');
+            }
+
+            else{
+                $compte = Compte::where('cin',$this->getUsernameSessionActive())->update([
+                    'password'=>$request->md5($request->new)
+                ]);
+
+                if($compte){
+                    return back()->with('success', 'Votre photo de profil a été modifié avec succès.');
+                }
+
+                else{
+                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre mot de passe.');
+                }
+            }
+        }
     }
 ?>

@@ -61,9 +61,24 @@
                                     <div class = "osahan-account-page-right shadow-sm bg-white p-4 h-100">
                                         <div class = "tab-content" id = "myTabContent">
                                             <div class = "tab-pane fade active show" id = "payments" role = "tabpanel" aria-labelledby = "payments-tab">
-                                                
+                                                <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/update-password')}}">
+                                                    @csrf
+                                                    <div class = "form-group row">
+                                                        <label for = "exampleInputUsername2" class = "col-sm-3 col-form-label">Ancien mot de passe</label>
+                                                        <div class = "col-sm-9">
+                                                            <input type = "password" class = "form-control" id = "old" name = "old" placeholder = "Saisissez votre ancien mot de passe.." required>
+                                                        </div>
+                                                    </div>
+                                                    <div class = "form-group row">
+                                                        <label for = "exampleInputUsername2" class = "col-sm-3 col-form-label">Nouveau mot de passe</label>
+                                                        <div class = "col-sm-9">
+                                                            <input type = "password" class = "form-control" id = "new" name = "new" placeholder = "Saisissez votre nouveau mot de passe.." required>
+                                                        </div>
+                                                    </div>
+                                                    <button type = "submit" class = "btn btn-primary mr-2" id = "btn-submit">Modifier le mot de passe</button>
+                                                    <button type = "reset" class = "btn btn-light">Annuler</button>
+                                                </form>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -75,6 +90,5 @@
             </div>
         </div>
         @include ('layouts.script')
-        <script src = "{{asset('js/file-upload.js')}}"></script>
     </body>
 </html>
