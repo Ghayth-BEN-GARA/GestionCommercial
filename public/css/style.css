@@ -11939,7 +11939,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+  color: #16181b;
   text-decoration: none;
   background-color: #007bff;
 }
@@ -30597,7 +30597,7 @@ div.tagsinput span.tag a {
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
 .error {
-    color: #f90a0a;
+    color: #f96868;
     text-align: center;
     font-size: 12px;
 }

@@ -31,6 +31,7 @@
 .osahan-account-page-left .nav-link.active {
     background: #f3f7f8;
     color: #282c3f !important;
+    cursor: pointer;
 }
 .osahan-account-page-left .nav-link.active i {
     background: #282c3f !important;
@@ -119,7 +120,6 @@
 
 a,a:hover{
     text-decoration: none;
-    cursor: default;
     color: #F7941E;
     font-size: 14px;
     font-weight: 600;
@@ -127,4 +127,14 @@ a,a:hover{
 
 .margin{
     margin-left: 5px;
+}
+
+.media-body a{
+    cursor: default;
+}
+
+.delete-im{
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 23px;
 }

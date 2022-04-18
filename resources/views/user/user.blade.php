@@ -30,7 +30,7 @@
                                         </div>
                                         <ul class = "nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id = "myTab" role = "tablist">
                                             <li class = "nav-item">
-                                                <a class = "nav-link active" id = "payments-tab" data-toggle = "tab" href = "#" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-file-image"></i> Modifier l'image</a>
+                                                <a href = "{{url('/edit-image-profil')}}" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-file-image"></i> Modifier l'image</a>
                                             </li>
                                             <li class = "nav-item">
                                                 <a class = "nav-link active" id = "payments-tab" data-toggle = "tab" href = "#" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-lock"></i> Modifier Password</a>

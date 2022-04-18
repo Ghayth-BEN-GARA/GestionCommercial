@@ -20,4 +20,10 @@
     Route::get('/verify-cin-user', [UserController::class, 'verifyCompte']);
     Route::post('/add-personne', [UserController::class, 'storeCompte']);
     Route::get('/profil', [UserController::class, 'openProfil'])->middleware('notsession');
+    Route::get('/edit-image-profil', [UserController::class, 'openEditImageProfil'])->middleware('notsession');
+    Route::post('/delete-image', [UserController::class, 'deleteImage']);
+
+
+
+
 ?>

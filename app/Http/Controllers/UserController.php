@@ -201,5 +201,10 @@
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
             return view('user.user',compact('informations'));
         }
+
+        public function openEditImageProfil(){
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            return view('user.edit_image_user',compact('informations'));
+        }
     }
 ?>
