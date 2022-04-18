@@ -20,6 +20,11 @@
             ($request->url() == url('/add-user'))){
                 return view('errors.500');
             }
+
+            else if(Session()->has('username') && (Session()->get('type') == "Administrateur") && 
+            ($request->url() == url('/profil'))){
+                return view('errors.500');
+            }
             return $next($request);
         }
     }

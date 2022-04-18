@@ -67,8 +67,16 @@
 
             else{
                 return [
-                    "fullname" => $this->getPrenomPersonne($this->getUsernameSessionActive()." ".$this->getNomPersonne($this->getUsernameSessionActive())),
-                    "image" => "images/uploads/".$this->getUsernameSessionActive().'/'.$this->getPhotoPersonne($this->getUsernameSessionActive())
+                    "fullname" => $this->getPrenomPersonne($this->getUsernameSessionActive()) ." ".$this->getNomPersonne($this->getUsernameSessionActive()),
+                    "image" => "images/uploads/".$this->getUsernameSessionActive().'/'.$this->getPhotoPersonne($this->getUsernameSessionActive()),
+                    "tel" => $this->getMobilePersonne($this->getUsernameSessionActive()),
+                    "cin" => $this->getUsernameSessionActive(),
+                    "nom" => $this->getNomPersonne($this->getUsernameSessionActive()),
+                    "prenom" => $this->getPrenomPersonne($this->getUsernameSessionActive()),
+                    "genre" => $this->getGenrePersonne($this->getUsernameSessionActive()),
+                    "naissance" => $this->getNaissancePersonne($this->getUsernameSessionActive()),
+                    "adresse" => $this->getAdressePersonne($this->getUsernameSessionActive()),
+                    "type" => $type
                 ];
             }
         }
@@ -171,6 +179,27 @@
 
         public function getPhotoPersonne($cin){
             return Image::where('cin', $cin)->first()->getPhotoAttribute();
+        }
+
+        public function getMobilePersonne($cin){
+            return Personne::where('cin', $cin)->first()->getTelAttribute();
+        }
+
+        public function getGenrePersonne($cin){
+            return Personne::where('cin', $cin)->first()->getGenreAttribute();
+        }
+
+        public function getNaissancePersonne($cin){
+            return Personne::where('cin', $cin)->first()->getNaissanceAttribute();
+        }
+
+        public function getAdressePersonne($cin){
+            return Personne::where('cin', $cin)->first()->getAdresseAttribute();
+        }
+
+        public function openProfil(){
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            return view('user.user',compact('informations'));
         }
     }
 ?>

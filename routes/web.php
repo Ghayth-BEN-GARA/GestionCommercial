@@ -19,4 +19,5 @@
     Route::get('/add-user', [UserController::class, 'openAddCompte'])->middleware('notsession');
     Route::get('/verify-cin-user', [UserController::class, 'verifyCompte']);
     Route::post('/add-personne', [UserController::class, 'storeCompte']);
+    Route::get('/profil', [UserController::class, 'openProfil'])->middleware('notsession');
 ?>
