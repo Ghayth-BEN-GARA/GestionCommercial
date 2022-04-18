@@ -23,7 +23,7 @@
     Route::get('/edit-image-profil', [UserController::class, 'openEditImageProfil'])->middleware('notsession');
     Route::get('/delete-image', [UserController::class, 'deleteImage']);
     Route::post('/update-image', [UserController::class, 'updateImage']);
-
+    Route::get('/edit-password-profil', [UserController::class, 'openEditPasswordProfil'])->middleware('notsession');
 
 
 ?>

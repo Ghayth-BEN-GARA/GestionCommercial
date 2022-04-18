@@ -29,6 +29,7 @@
                 <a class = "nav-link" data-toggle = "collapse" href = "#achat" aria-expanded = "false" aria-controls = "achat">
                     <i class = "mdi mdi-more menu-icon"></i>
                     <span class = "menu-title">Achat</span>
+                    <i class = "menu-arrow"></i>
                 </a>
                 <div class = "collapse" id = "achat">
                     <ul class = "nav flex-column sub-menu">
@@ -45,6 +46,7 @@
                 <a class = "nav-link" data-toggle = "collapse" href = "#vente" aria-expanded = "false" aria-controls = "vente">
                     <i class = "mdi mdi-sale menu-icon"></i>
                     <span class = "menu-title">Vente</span>
+                    <i class = "menu-arrow"></i>
                 </a>
                 <div class = "collapse" id = "vente">
                     <ul class = "nav flex-column sub-menu">
@@ -59,6 +61,7 @@
                 <a class = "nav-link" data-toggle = "collapse" href = "#stock" aria-expanded = "false" aria-controls = "stock">
                     <i class = "mdi mdi-stocking menu-icon"></i>
                     <span class = "menu-title">Stock</span>
+                    <i class = "menu-arrow"></i>
                 </a>
                 <div class = "collapse" id = "stock">
                     <ul class = "nav flex-column sub-menu">

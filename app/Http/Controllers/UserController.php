@@ -261,5 +261,10 @@
                 }
             }
         }
+
+        public function openEditPasswordProfil(){
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            return view('user.edit_password_user',compact('informations'));
+        }
     }
 ?>

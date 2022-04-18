@@ -28636,6 +28636,11 @@ div.tagsinput span.tag a {
   color: #fff;
 }
 
+.sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] .menu-icon {
+
+  color: #fff;
+}
+
 .sidebar .nav:not(.sub-menu) > .nav-item.active {
   background: #F7941E;
 }

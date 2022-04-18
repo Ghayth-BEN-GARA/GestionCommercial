@@ -61,24 +61,9 @@
                                     <div class = "osahan-account-page-right shadow-sm bg-white p-4 h-100">
                                         <div class = "tab-content" id = "myTabContent">
                                             <div class = "tab-pane fade active show" id = "payments" role = "tabpanel" aria-labelledby = "payments-tab">
-                                                <h5 class = "delete-im">Si vous le souhaitez, vous pouvez supprimer votre photo de profil en cliquant sur<a href = "{{url('/delete-image')}}"> Supprimer l'image</a></b></h5>
+                                                
                                             </div>
-                                            <br>
-                                            <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/update-image')}}" enctype = "multipart/form-data">
-                                                @csrf    
-                                                <div class = "form-group">
-                                                    <label>Image de profil</label>
-                                                    <input type = "file" class = "file-upload-default" name = "image" id = "image" required required accept = "image/jpeg">
-                                                    <div class = "input-group col-xs-12">
-                                                        <input type = "text" class = "form-control file-upload-info" disabled placeholder = "Modifier l'image de profil..">
-                                                        <span class = "input-group-append">
-                                                            <button class = "file-upload-browse btn btn-primary" type = "button">Modifier</button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <button type = "submit" class = "btn btn-primary mr-2" id = "btn-submit">Modifier l'image de profil</button>
-                                                <button type = "reset" class = "btn btn-light">Annuler</button>
-                                            </form>
+                                            
                                         </div>
                                     </div>
                                 </div>
