@@ -23,7 +23,7 @@
                                                         <h6 class = "mb-2">{{$informations['fullname']}}</h6>
                                                         <p class = "mb-1">{{$informations['tel']}}</p>
                                                         <p>{{$informations['cin']}}</p>
-                                                        <p class = "mb-0 text-black font-weight-bold"><a class = "text-primary mr-3" data-toggle = "modal" data-target = "#edit-profile-modal" href = "#"><i class = "mdi mdi-account-edit"></i> MODIFIER</a></p>
+                                                        <p class = "mb-0 text-black font-weight-bold"><a href = "{{url('/edit-user')}}" class = "text-primary mr-3" data-target = "#edit-profile-modal"><i class = "mdi mdi-account-edit"></i> MODIFIER</a></p>
                                                     </div>
                                                 </div>
                                             </div>

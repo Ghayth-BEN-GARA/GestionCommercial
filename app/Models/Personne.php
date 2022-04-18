@@ -55,12 +55,20 @@
             return (date('D d F Y',strtotime($this->attributes['naissance'])));
         }
 
+        public function getNaissanceNotFormattedAttribute(){
+            return $this->attributes['naissance'];
+        }
+
         public function setNaissanceAttribute($value){
             $this->attributes['naissance'] = $value;
         }
 
         public function getTelAttribute(){
             return substr($this->attributes['tel'], 0, 2)." ".substr($this->attributes['tel'], 2, 3)." ".substr($this->attributes['tel'], 5, 3);
+        }
+
+        public function getTelNotFormattedAttribute(){
+            return $this->attributes['tel'];
         }
 
         public function setTelAttribute($value){

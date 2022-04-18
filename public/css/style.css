@@ -30606,3 +30606,7 @@ div.tagsinput span.tag a {
     text-align: center;
     font-size: 12px;
 }
+
+#genre,#type{
+  color: black;
+}

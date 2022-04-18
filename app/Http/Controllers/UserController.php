@@ -76,7 +76,9 @@
                     "genre" => $this->getGenrePersonne($this->getUsernameSessionActive()),
                     "naissance" => $this->getNaissancePersonne($this->getUsernameSessionActive()),
                     "adresse" => $this->getAdressePersonne($this->getUsernameSessionActive()),
-                    "type" => $type
+                    "type" => $type,
+                    "naissanceF" => $this->getNaissanceNotFormattedPersonne($this->getUsernameSessionActive()),
+                    "telF" => $this->getTelNotFormattedPersonne($this->getUsernameSessionActive())
                 ];
             }
         }
@@ -205,6 +207,14 @@
             return Personne::where('cin', $cin)->first()->getAdresseAttribute();
         }
 
+        public function getNaissanceNotFormattedPersonne($cin){
+            return Personne::where('cin', $cin)->first()->getNaissanceNotFormattedAttribute();
+        }
+
+        public function getTelNotFormattedPersonne($cin){
+            return Personne::where('cin', $cin)->first()->getTelNotFormattedAttribute();
+        }
+
         public function openProfil(){
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
             return view('user.user',compact('informations'));
@@ -285,6 +295,11 @@
                     return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre mot de passe.');
                 }
             }
+        }
+
+        public function openEditUser(){
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            return view('user.edit_user',compact('informations'));
         }
     }
 ?>
