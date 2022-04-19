@@ -30610,3 +30610,12 @@ div.tagsinput span.tag a {
 #genre,#type{
   color: black;
 }
+
+.consult-user,.consult-user:hover{
+  text-decoration: none;
+  color: black;
+}
+
+td,tr{
+  text-align: center;
+}
