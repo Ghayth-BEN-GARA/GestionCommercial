@@ -1,6 +1,7 @@
 <?php
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\UserController;
+    use App\Http\Controllers\FournisseurController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -31,4 +32,9 @@
     Route::get('/list-user', [UserController::class, 'openListUser'])->middleware('notsession');
     Route::get('/delete-utilisateur/{cin}', [UserController::class, 'gestionDeleteUtilisateur']);
     Route::get('/user/{cin}', [UserController::class, 'openProfilUser'])->middleware('notsession')->name('user-search');
+    Route::get('/add-fournisseur', [FournisseurController::class, 'openAddFournisseur'])->middleware('notsession');
+
+    
+
+
 ?>

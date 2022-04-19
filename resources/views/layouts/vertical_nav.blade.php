@@ -37,7 +37,7 @@
                         <li class = "nav-item"><a class = "nav-link" href = "#">Caisse</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des achats</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les achats</a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des fournisseurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('/add-fournisseur')}}">Ajouter des fournisseurs</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les fournisseurs</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Avancée</a></li>
                     </ul>

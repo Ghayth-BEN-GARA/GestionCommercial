@@ -135,3 +135,8 @@ function questionSupprimerUser(cin){
         }
     });
 }
+
+function initialiserMatricule(){
+    $('#matricule_error').html('');
+    $('#btn-submit').prop('disabled', true);
+}

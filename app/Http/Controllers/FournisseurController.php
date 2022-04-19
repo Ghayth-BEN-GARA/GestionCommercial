@@ -1,10 +1,18 @@
 <?php
+    namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
 
-namespace App\Http\Controllers;
+    class FournisseurController extends Controller{
+        public function openAddFournisseur(){
+            $informations = $this->getInformationsUser();
+            return view('fournisseur.add_fournisseur',compact('informations'));
+        }
 
-use Illuminate\Http\Request;
+        public function getUserController(){
+            return new UserController();
+        }
 
-class FournisseurController extends Controller
-{
-    //
-}
+        public function getInformationsUser(){
+            return $this->getUserController()->getInformationSessionActive($this->getUserController()->getTypeSessionActive());
+        }
+    }
