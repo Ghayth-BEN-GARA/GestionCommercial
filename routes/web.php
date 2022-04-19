@@ -33,8 +33,8 @@
     Route::get('/delete-utilisateur/{cin}', [UserController::class, 'gestionDeleteUtilisateur']);
     Route::get('/user/{cin}', [UserController::class, 'openProfilUser'])->middleware('notsession')->name('user-search');
     Route::get('/add-fournisseur', [FournisseurController::class, 'openAddFournisseur'])->middleware('notsession');
+    Route::get('/verify-matricule', [FournisseurController::class, 'verifyMatriculeFournisseur']);
+    Route::post('/creer-fournisseur', [FournisseurController::class, 'storePersonne']);
 
     
-
-
 ?>

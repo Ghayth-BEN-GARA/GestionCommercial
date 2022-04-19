@@ -25,7 +25,7 @@
             return $this->attributes['atricule'];
         }
 
-        public function setMatriucleAttribute($value){
+        public function setMatriculeAttribute($value){
             $this->attributes['matricule'] = $value;
         }
 

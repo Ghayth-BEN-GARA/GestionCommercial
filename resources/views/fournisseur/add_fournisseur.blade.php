@@ -35,7 +35,7 @@
                                             </div>
                                         @endif
                                         <p class = "card-description">Créer un forunisseur</p>
-                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "#">
+                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('creer-fournisseur')}}">
                                             @csrf    
                                             <div class = "row">
                                                 <div class = "col-md-6">

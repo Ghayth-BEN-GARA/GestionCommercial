@@ -140,3 +140,30 @@ function initialiserMatricule(){
     $('#matricule_error').html('');
     $('#btn-submit').prop('disabled', true);
 }
+
+function verifierMatriculeFournisseur(){
+    if(document.getElementById('matricule').value == ''){
+        $('#matricule_error').html('Veuillez entrer une matricule fiscale..');
+        $('#btn_submit').prop('disabled', true);
+    }
+
+    else{
+        $.ajax({
+            url: '/verify-matricule',
+            type: "get",
+            cache: true,
+            data: { matricule: $('#matricule').val() },
+            success: function(data) {
+                if(data.trim() == false){
+                    $('#matricule_error').html('Un autre fournisseur est déjà créé avec cette matricule..');
+                    $('#btn-submit').prop('disabled', true);
+                }   
+    
+                else{
+                    $('#matricule_error').val('');
+                    $('#btn-submit').prop('disabled', false);
+                }
+            }
+        })
+    }
+}

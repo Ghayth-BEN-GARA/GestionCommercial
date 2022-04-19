@@ -115,16 +115,16 @@
 
         public function storeCompte(Request $request){
             if(!$this->creerCompte($request->cin,$request->password,$request->type)){
-                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle utilisateur.');
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvel utilisateur.');
             }
 
             else{
                 if(!$this->creerPersonne($request->nom,$request->prenom,$request->genre,$request->naissance,$request->mobile,$request->adresse,$request->cin)){
-                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle utilisateur.');
+                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvel utilisateur.');
                 }
     
                 else if(!$this->creerImage($request,$request->cin)){
-                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle utilisateur.');
+                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvel utilisateur.');
                 }
 
                 else{
