@@ -22,7 +22,7 @@
                 <div class = "collapse" id = "user">
                     <ul class = "nav flex-column sub-menu">
                         <li class = "nav-item"><a class = "nav-link" href = "{{url('add-user')}}">Ajouter des utilisateurs</a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter des utilisateurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('list-user')}}">Consulter des utilisateurs</a></li>
                     </ul>
                 </div>
             </li>

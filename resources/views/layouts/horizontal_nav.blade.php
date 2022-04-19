@@ -23,7 +23,12 @@
             @if (session('type') == 'Administrateur')
                 <li class = "nav-item nav-profile dropdown">
                     <a class = "nav-link dropdown-toggle" href = "javascript:void(0)" data-toggle = "dropdown" id = "profil">
-                        <img src = "images/faces/administrateur.jpg" alt = "profil"/>
+                        @if (Illuminate\Support\Facades\Route::is('user-search'))
+                            <img src = "../images/faces/administrateur.jpg" alt = "profil"/>
+                        @else
+                            <img src = "images/faces/administrateur.jpg" alt = "profil"/>
+                        @endif
+                        
                     </a>
                     <div class = "dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby = "profileDropdown">
                         <a class = "dropdown-item" onclick = "questionDeconnexion()">
@@ -35,7 +40,11 @@
             @else
             <li class = "nav-item nav-profile dropdown">
                     <a class = "nav-link dropdown-toggle" href = "javascript:void(0)" data-toggle = "dropdown" id = "profil">
-                        <img src = "{{$informations['image']}}" alt = "profil"/>
+                        @if (Illuminate\Support\Facades\Route::is('user-search'))
+                            <img src = "../{{$informations['image']}}" alt = "profil"/>
+                        @else
+                            <img src = "{{$informations['image']}}" alt = "profil"/>
+                        @endif
                     </a>
                     <div class = "dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby = "profileDropdown">
                         <a class = "dropdown-item" href = "{{url('/profil')}}">

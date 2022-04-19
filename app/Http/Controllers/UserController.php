@@ -372,5 +372,41 @@
                 return back()->with('erreur', 'Pour des raisons techniques, il est impossible de supprimer cet utilisateur.');
             }
         }
+
+        public function openProfilUser($cin){
+            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
+            $user = $this->getInformationsUser($cin);
+            
+            return view('user.profil',compact('informations','user'));
+        }
+
+        public function getInformationsUser($cin){
+            return [
+                "fullname" => $this->getPrenomPersonne($cin) ." ".$this->getNomPersonne($cin),
+                "image" => '../'.$this->getPhotoUser($cin),
+                "tel" => $this->getMobilePersonne($cin),
+                "cin" => $cin,
+                "nom" => $this->getNomPersonne($cin),
+                "prenom" => $this->getPrenomPersonne($cin),
+                "genre" => $this->getGenrePersonne($cin),
+                "naissance" => $this->getNaissancePersonne($cin),
+                "adresse" => $this->getAdressePersonne($cin),
+                "type" => $this->getTypeCompte($cin),
+                "naissanceF" => $this->getNaissanceNotFormattedPersonne($cin),
+                "telF" => $this->getTelNotFormattedPersonne($cin)
+            ];
+        }
+
+        public function getPhotoUser($cin){
+            $image = Image::where('cin', $cin)->first();
+            if($image == null){
+                return 'images/faces/user.png';
+            }
+
+            else{
+                $im = $image->getPhotoAttribute();
+                return "images/uploads/".$cin.'/'.$im;
+            }
+        }
     }
 ?>

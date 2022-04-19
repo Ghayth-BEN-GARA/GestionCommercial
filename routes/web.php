@@ -29,5 +29,6 @@
     Route::post('/update-user', [UserController::class, 'updateUser']);
     Route::get('/delete-user', [UserController::class, 'gestionDeleteUser']);
     Route::get('/list-user', [UserController::class, 'openListUser'])->middleware('notsession');
-    Route::get('/delete-utilisateur/{id}', [UserController::class, 'gestionDeleteUtilisateur']);
+    Route::get('/delete-utilisateur/{cin}', [UserController::class, 'gestionDeleteUtilisateur']);
+    Route::get('/user/{cin}', [UserController::class, 'openProfilUser'])->middleware('notsession')->name('user-search');
 ?>

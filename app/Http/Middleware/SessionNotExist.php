@@ -17,7 +17,9 @@
             }
 
             else if(Session()->has('username') && (Session()->get('type') == "User") &&
-            ($request->url() == url('/add-user') || ($request->url() == url('list-user')))){
+            ($request->url() == url('/add-user') || ($request->url() == url('list-user')) ||
+            ($request->url() == url('/user')) 
+            )){
                 return view('errors.500');
             }
 
