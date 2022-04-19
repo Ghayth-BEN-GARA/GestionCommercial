@@ -72,3 +72,45 @@ function initialiserCIN(){
     $('#cin_error').html('');
     $('#btn-submit').prop('disabled', true);
 }
+
+function questionDeleteImage(){
+    swal({
+        title: "Supprimer l'image ?",
+        text: "Votre photo de profil sera supprimée automatiquement..",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#F7941E',
+        confirmButtonText: "Supprimer",
+        cancelButtonText: 'Annuler'
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement('Suppression..').then(ouvrirRoot("/delete-image"));
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}
+
+function questionDeleteCompte(){
+    swal({
+        title: "Supprimer votre compte ?",
+        text: "Votre compte sera supprimée automatiquement..",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#F7941E',
+        confirmButtonText: "Supprimer",
+        cancelButtonText: 'Annuler'
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement('Suppression..').then(ouvrirRoot("/delete-user"));
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

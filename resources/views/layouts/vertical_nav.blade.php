@@ -17,6 +17,7 @@
                 <a class = "nav-link" data-toggle = "collapse" href = "#user" aria-expanded = "false" aria-controls = "user">
                     <i class = "mdi mdi-account-search menu-icon"></i>
                     <span class = "menu-title">Utilisateurs</span>
+                    <i class = "menu-arrow"></i>
                 </a>
                 <div class = "collapse" id = "user">
                     <ul class = "nav flex-column sub-menu">
@@ -80,6 +81,7 @@
                 <a class = "nav-link" data-toggle = "collapse" href = "#vente" aria-expanded = "false" aria-controls = "vente">
                     <i class = "mdi mdi-sale menu-icon"></i>
                     <span class = "menu-title">Vente</span>
+                    <i class = "menu-arrow"></i>
                 </a>
                 <div class = "collapse" id = "vente">
                     <ul class = "nav flex-column sub-menu">
@@ -87,6 +89,20 @@
                         <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les ventes</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Ajouter des clients</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les clients</a></li>
+                    </ul>
+                </div>
+            </li>
+        @elseif(session('type') == 'Administrateur')
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "collapse" href = "#user" aria-expanded = "false" aria-controls = "user">
+                    <i class = "mdi mdi-account-search menu-icon"></i>
+                    <span class = "menu-title">Utilisateurs</span>
+                    <i class = "menu-arrow"></i>
+                </a>
+                <div class = "collapse" id = "user">
+                    <ul class = "nav flex-column sub-menu">
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('add-user')}}">Ajouter des utilisateurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter des utilisateurs</a></li>
                     </ul>
                 </div>
             </li>

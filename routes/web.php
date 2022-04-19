@@ -27,4 +27,5 @@
     Route::post('/update-password', [UserController::class, 'updatePassword']);
     Route::get('/edit-user', [UserController::class, 'openEditUser'])->middleware('notsession');
     Route::post('/update-user', [UserController::class, 'updateUser']);
+    Route::get('/delete-user', [UserController::class, 'gestionDeleteUser']);
 ?>

@@ -35,6 +35,11 @@
                                             <li class = "nav-item">
                                                 <a href = "{{url('/edit-password-profil')}}" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-lock"></i> Modifier Password</a>
                                             </li>
+                                            @if (session('type') == 'Admin')
+                                                <li class = "nav-item">
+                                                <a href = "javascript:void(0)" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true" onclick = "questionDeleteCompte()"><i class = "mdi mdi-account-remove"></i> Supprimer le compte</a>
+                                                </li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
@@ -61,7 +66,7 @@
                                     <div class = "osahan-account-page-right shadow-sm bg-white p-4 h-100">
                                         <div class = "tab-content" id = "myTabContent">
                                             <div class = "tab-pane fade active show" id = "payments" role = "tabpanel" aria-labelledby = "payments-tab">
-                                                <h5 class = "delete-im">Si vous le souhaitez, vous pouvez supprimer votre photo de profil en cliquant sur<a href = "{{url('/delete-image')}}"> Supprimer l'image</a></b></h5>
+                                                <h5 class = "delete-im">Si vous le souhaitez, vous pouvez supprimer votre photo de profil en cliquant sur<a href = "javascript:void(0)" onclick = "questionDeleteImage()"> Supprimer l'image</a></b></h5>
                                             </div>
                                             <br>
                                             <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/update-image')}}" enctype = "multipart/form-data">

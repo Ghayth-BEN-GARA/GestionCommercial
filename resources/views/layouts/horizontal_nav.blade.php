@@ -21,25 +21,6 @@
         </ul>
         <ul class = "navbar-nav navbar-nav-right">
             @if (session('type') == 'Administrateur')
-                <li class = "nav-item dropdown">
-                    <a class = "nav-link dropdown-toggle" id = "compte" href = "javascript:void(0)" data-toggle = "dropdown">
-                        <i class = "mdi mdi-account mx-0"></i>
-                        <span class = "count"></span>
-                    </a>
-                    <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "compte">
-                        <p class = "mb-0 font-weight-normal float-left dropdown-header">Utilisateurs</p>
-                        <a class = "dropdown-item preview-item" href = "{{url('/add-user')}}">
-                            <div class = "preview-thumbnail">
-                                <div class = "preview-icon bg-info">
-                                    <i class = "ti-user mx-0"></i>
-                                </div>
-                            </div>
-                            <div class = "preview-item-content">
-                                <h6 class = "preview-subject font-weight-normal">Créer un nouveau utilisateur</h6>
-                            </div>
-                        </a>
-                    </div>
-                </li>
                 <li class = "nav-item nav-profile dropdown">
                     <a class = "nav-link dropdown-toggle" href = "javascript:void(0)" data-toggle = "dropdown" id = "profil">
                         <img src = "images/faces/administrateur.jpg" alt = "profil"/>

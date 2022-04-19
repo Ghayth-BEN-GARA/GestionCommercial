@@ -92,6 +92,12 @@
             }
         }
 
+        public function logoutCompte2(){
+            Session::forget('username');
+            Session::forget('type');
+            Session::flush();
+        }
+
         public function openAddCompte(){
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
             return view('user.add_user',compact('informations'));
@@ -319,6 +325,22 @@
             else{
                 return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier vos informations.');
             }
+        }
+
+        public function gestionDeleteUser(){
+            if($this->deleteUser($this->getUsernameSessionActive())){
+                File::deleteDirectory(public_path('images/uploads/'.$this->getUsernameSessionActive()));
+                $this->logoutCompte2();
+                return redirect()->route('login')->with('erreur', 'Votre compte a été supprimé. Vous ne pouvez pas utiliser ce compte maintenant.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de supprimer votre compte.');
+            }
+        }
+
+        public function deleteUser($cin){
+            return Compte::where('cin',$cin)->delete();
         }
     }
 ?>
