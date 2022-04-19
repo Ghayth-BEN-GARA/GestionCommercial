@@ -361,5 +361,16 @@
         public static function formatterMobile($tel){
             return substr($tel, 0, 2)." ".substr($tel, 2, 3)." ".substr($tel, 5, 3);
         }
+
+        public function gestionDeleteUtilisateur($cin){
+            if($this->deleteUser($cin)){
+                File::deleteDirectory(public_path('images/uploads/'.$cin));
+                return back()->with('sucess', 'Cet utilisateur a été supprimé avec succès.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de supprimer cet utilisateur.');
+            }
+        }
     }
 ?>

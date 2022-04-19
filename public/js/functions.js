@@ -114,3 +114,24 @@ function questionDeleteCompte(){
         }
     });
 }
+
+function questionSupprimerUser(cin){
+    swal({
+        title: "Supprimer cet utilisateur ?",
+        text: "cet utilisateur sera supprimée automatiquement..",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#F7941E',
+        confirmButtonText: "Supprimer",
+        cancelButtonText: 'Annuler'
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement('Suppression..').then(ouvrirRoot("/delete-utilisateur/"+cin));
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}
