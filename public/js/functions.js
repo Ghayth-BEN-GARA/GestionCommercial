@@ -168,4 +168,25 @@ function verifierMatriculeFournisseur(){
     }
 }
 
+function setMatriculeFournisseur() {
+    $.ajax({
+        url: '/get-matricule-fournisseur',
+        type: "get",
+        cache: true,
+        data: { nom: $('#nom').val() },
+        success: function(data) {
+            $('#matricule').val(data.trim());
+        }
+    })
+}
+
+function enabledDisabledMontantPaye(){
+    if($('#totale').is(':checked')) { 
+        $('#paye').prop('disabled', true);
+    }
+
+    else if($('#tranche').is(':checked')) { 
+        $('#paye').prop('disabled', false);
+    }
+}
 

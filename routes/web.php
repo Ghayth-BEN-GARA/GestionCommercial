@@ -4,6 +4,7 @@
     use App\Http\Controllers\FournisseurController;
     use App\Http\Controllers\CategorieController;
     use App\Http\Controllers\ArticleController;
+    use App\Http\Controllers\FactureController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -44,4 +45,6 @@
     Route::get('/others', [CategorieController::class, 'openOthers'])->middleware('notsession');
     Route::post('/add-categorie', [CategorieController::class, 'storeCategorie']);
     Route::get('/add-article', [ArticleController::class, 'storeArticle']);
+    Route::get('/add-achat', [FactureController::class, 'openAddFacture'])->middleware('notsession');
+    Route::get('/get-matricule-fournisseur', [FournisseurController::class, 'getMatriculeFournisseur']);
 ?>

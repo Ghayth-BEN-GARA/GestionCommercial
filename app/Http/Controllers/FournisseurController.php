@@ -88,5 +88,13 @@
             $fournisseurs = $this->getInformationsFournisseurs($matricule);
             return view('fournisseur.fournisseur',compact('informations','fournisseurs'));
         }
+
+        public function getAllFournisseur(){
+            return Fournisseur::all()->sortBy('nom');
+        }
+
+        public function getMatriculeFournisseur(Request $request){
+            return Fournisseur::where('nom', $request->nom)->first()->getMatriculeAttribute();
+        }
     }
 ?>
