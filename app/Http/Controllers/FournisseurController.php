@@ -53,8 +53,34 @@
             return view('fournisseur.liste_fournisseur',compact('informations'));
         }
 
-        public function getCountFournisseurs(){
-            return Fournisseur::count();    
+        public function openEditFournisseur($matricule){
+            $informations = $this->getInformationsUser();
+            $fournisseurs = $this->getInformationsFournisseurs($matricule);
+            return view('fournisseur.edit_fournisseur',compact('informations','fournisseurs'));
+        }
+
+        public function getInformationsFournisseurs($matricule){
+            return Fournisseur::where('matricule',$matricule)->first();
+        }
+
+        public function gestionUpdateFournisseur(Request $request){
+            if(!$this->updateFournisseur($request->matricule,$request->nom,$request->email,$request->adresse,$request->mobile1,$request->mobile2)){
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier ce fournisseur.');
+            }
+
+            else{
+                return back()->with('success', 'Le fournisseur a été modifié avec succès.');
+            }
+        }
+
+        public function updateFournisseur($matricule,$nom,$email,$adresse,$tel1,$tel2){
+            return Fournisseur::where('matricule',$matricule)->update([
+                'nom' => $nom,
+                'email' => $email,
+                'adresse' => $adresse,
+                'tel1' => $tel1,
+                'tel2' => $tel2,
+            ]);
         }
     }
 ?>
