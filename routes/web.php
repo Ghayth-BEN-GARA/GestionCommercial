@@ -39,4 +39,6 @@
     Route::get('/edit-fournisseur/{matricule}', [FournisseurController::class, 'openEditFournisseur'])->middleware('notsession')->name('fournisseur-edit');
     Route::post('/update-fournisseur', [FournisseurController::class, 'gestionUpdateFournisseur']);
     Route::get('/fournisseur/{matricule}', [FournisseurController::class, 'openFournisseur'])->middleware('notsession')->name('fournisseur');
+    Route::get('/others', [FournisseurController::class, 'openOthers'])->middleware('notsession');
+
 ?>
