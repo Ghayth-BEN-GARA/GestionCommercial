@@ -43,7 +43,7 @@
                                                         <label class = "col-sm-4 col-form-label">Matricule</label>
                                                         <div class = "col-sm-8">
                                                             <div class = "input-group">
-                                                                <input type = "text" class = "form-control" name = "matricule" id = "matricule" placeholder = "Saisissez la matricule fiscale.." required/>
+                                                                <input type = "text" class = "form-control" name = "matricule" id = "matricule" placeholder = "Saisissez la matricule fiscale.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>=48 && event.charCode<=57)"" required/>
                                                                 <div class = "input-group-append">
                                                                     <button class = "btn btn-sm btn-primary" type = "button" onclick = "verifierMatriculeFournisseur()">Vérifier</button>
                                                                 </div>
@@ -56,7 +56,7 @@
                                                     <div class = "form-group row">
                                                         <label class = "col-sm-4 col-form-label">Nom</label>
                                                         <div class = "col-sm-8">
-                                                            <input type = "text" class = "form-control" name = "nom" id = "nom" onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" placeholder = "Saisissez le nom.." required/>
+                                                            <input type = "text" class = "form-control" name = "nom" id = "nom" onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123)" placeholder = "Saisissez le nom.." required/>
                                                         </div>
                                                     </div>
                                                 </div>
