@@ -2,6 +2,7 @@
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\FournisseurController;
+    use App\Http\Controllers\CategorieController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -39,6 +40,6 @@
     Route::get('/edit-fournisseur/{matricule}', [FournisseurController::class, 'openEditFournisseur'])->middleware('notsession')->name('fournisseur-edit');
     Route::post('/update-fournisseur', [FournisseurController::class, 'gestionUpdateFournisseur']);
     Route::get('/fournisseur/{matricule}', [FournisseurController::class, 'openFournisseur'])->middleware('notsession')->name('fournisseur');
-    Route::get('/others', [FournisseurController::class, 'openOthers'])->middleware('notsession');
-
+    Route::get('/others', [CategorieController::class, 'openOthers'])->middleware('notsession');
+    Route::post('/add-categorie', [CategorieController::class, 'storeCategorie']);
 ?>
