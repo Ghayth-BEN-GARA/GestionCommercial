@@ -74,7 +74,13 @@
         }
 
         public function getTel2Attribute(){
-            return substr($this->attributes['tel2'], 0, 2)." ".substr($this->attributes['tel2'], 2, 3)." ".substr($this->attributes['tel2'], 5, 3);
+            if($this->attributes['tel2'] == 0){
+                return 'Aucun';
+            }
+
+            else{
+                return substr($this->attributes['tel2'], 0, 2)." ".substr($this->attributes['tel2'], 2, 3)." ".substr($this->attributes['tel2'], 5, 3);
+            }
         }
     }
 ?>

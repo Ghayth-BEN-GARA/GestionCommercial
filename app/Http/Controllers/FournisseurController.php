@@ -82,5 +82,11 @@
                 'tel2' => $tel2,
             ]);
         }
+
+        public function openFournisseur($matricule){
+            $informations = $this->getInformationsUser();
+            $fournisseurs = $this->getInformationsFournisseurs($matricule);
+            return view('fournisseur.fournisseur',compact('informations','fournisseurs'));
+        }
     }
 ?>
