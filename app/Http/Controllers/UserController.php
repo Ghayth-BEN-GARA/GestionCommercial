@@ -345,18 +345,8 @@
 
         public function openListUser(){
             $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
-            $users = $this->getAllUser();
-            return view('user.liste_user',compact('informations','users'));
+            return view('user.liste_user',compact('informations'));
         }
-
-        public function getAllUser(){
-            return Compte::join('images', 'images.cin', '=', 'comptes.cin')
-            ->join('personnes', 'personnes.cin', '=', 'comptes.cin')
-            ->where('comptes.cin', '<>', $this->getUsernameSessionActive())
-            ->where('comptes.type', '<>', 'Admin')
-            ->orderBy('comptes.date_creation', 'desc')
-            ->paginate(10, array('comptes.*', 'personnes.*', 'images.*'));
-        } 
 
         public static function formatterMobile($tel){
             return substr($tel, 0, 2)." ".substr($tel, 2, 3)." ".substr($tel, 5, 3);

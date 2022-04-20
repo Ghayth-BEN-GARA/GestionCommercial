@@ -12,10 +12,10 @@
         
         public function render(){
             return view('livewire.filter-fournisseur', [
-    		    'fournisseur' =>	Fournisseur::where(function($sub_query){
-    							$sub_query->where('nom', 'like', '%'.$this->search.'%')
-                                ->orWhere('matricule', 'like', '%'.$this->search.'%');
-    						})->paginate(10)
+    		    'fournisseur' => Fournisseur::where('nom', 'like', '%'.$this->search.'%')
+                                ->orWhere('matricule', 'like', '%'.$this->search.'%')
+                                ->orderBy('nom', 'asc')
+                                ->paginate(10)
     	    ]);
         }
 

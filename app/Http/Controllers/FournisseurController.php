@@ -50,16 +50,11 @@
 
         public function openListFournisseur(){
             $informations = $this->getInformationsUser();
-            $fournisseurs = $this->allFournisseur();
-            return view('fournisseur.liste_fournisseur',compact('informations','fournisseurs'));
+            return view('fournisseur.liste_fournisseur',compact('informations'));
         }
 
         public function getCountFournisseurs(){
             return Fournisseur::count();    
-        }
-
-        public function allFournisseur(){
-            return Fournisseur::orderBy('nom', 'ASC');
         }
     }
 ?>

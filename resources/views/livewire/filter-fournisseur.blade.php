@@ -40,7 +40,7 @@
             </table>
         </div>
         <div class = "container" id = "pg">
-            {{$fournisseur->links('vendor.pagination.fournisseur_pagination')}}
+            {{$fournisseur->links('vendor.pagination.livewire_pagination')}}
         </div>
     </div>
 </div>
