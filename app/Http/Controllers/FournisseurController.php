@@ -47,4 +47,19 @@
             }
             return $fournisseur->save();
         }
+
+        public function openListFournisseur(){
+            $informations = $this->getInformationsUser();
+            $fournisseurs = $this->allFournisseur();
+            return view('fournisseur.liste_fournisseur',compact('informations','fournisseurs'));
+        }
+
+        public function getCountFournisseurs(){
+            return Fournisseur::count();    
+        }
+
+        public function allFournisseur(){
+            return Fournisseur::orderBy('nom', 'ASC');
+        }
     }
+?>

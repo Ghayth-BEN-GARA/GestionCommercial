@@ -68,7 +68,7 @@
                                             </table>
                                         </div>
                                         <div class = "container" id = "pg">
-                                            {{$users->links('vendor.pagination.custom_pagination')}}
+                                            {{$users->links('vendor.pagination.user_pagination')}}
                                         </div>
                                     </div>
                                 </div> 

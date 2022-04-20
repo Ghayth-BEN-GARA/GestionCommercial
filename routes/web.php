@@ -35,6 +35,5 @@
     Route::get('/add-fournisseur', [FournisseurController::class, 'openAddFournisseur'])->middleware('notsession');
     Route::get('/verify-matricule', [FournisseurController::class, 'verifyMatriculeFournisseur']);
     Route::post('/creer-fournisseur', [FournisseurController::class, 'storePersonne']);
-
-    
+    Route::get('/list-fournisseur', [FournisseurController::class, 'openListFournisseur'])->middleware('notsession');
 ?>

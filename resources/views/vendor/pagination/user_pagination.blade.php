@@ -3,7 +3,7 @@
         @if ($paginator->onFirstPage())
             <a href = "javascript:void(0)" class = "pred disabled">Précédent</a>      
         @else
-            <a href = "{{ $paginator->previousPageUrl()}}" class = "pred">Précédent</a>
+            <a href = "{{ $paginator->previousPageUrl() }}" class = "pred">Précédent</a>
         @endif
         @foreach ($elements as $element)
             @if (is_string($element))
@@ -12,15 +12,15 @@
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <a href = "{{$url}}" class = "active">{{$page}}</a>
+                        <a href = "{{ $url }}" class = "active">{{$page}}</a>
                     @else
-                        <a href = "{{$url}}" class = "pg">{{$page}}</a>
-                    @endif
+                        <a href = "{{ $url }}" class = "pg">{{$page}}</a>
+                    @endif 
                 @endforeach
             @endif
         @endforeach
         @if ($paginator->hasMorePages())
-            <a href = "{{$paginator->nextPageUrl()}}" class = "next">Suivant</a>
+            <a href = "{{$paginator->nextPageUrl() }}" class = "next">Suivant</a>
         @else
             <a href = "javascript:void(0)" class = "next disabled">Suivant</a>
         @endif
