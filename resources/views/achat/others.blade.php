@@ -39,7 +39,27 @@
                                             @csrf
                                             <label class = "sr-only" for = "inlineFormInputName2">Catégorie</label>
                                             <input type = "text" class = "form-control mb-2 mr-sm-2" id = "nom" name = "nom" placeholder = "Saisissez la catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
-                                            <button type = "submit" class = "btn btn-primary mb-2">Créer la catégorie</button>
+                                            <button type = "submit" class = "btn btn-primary mb-2">Créer une catégorie</button>
+                                        </form>
+                                        <br>
+                                        <p class = "card-description">Créer un article</p>
+                                        <form class = "form-inline" name = "f" id = "f" method = "get" action = "{{url('/add-article')}}">
+                                            <label class = "sr-only" for = "inlineFormInputName2">Référence</label>    
+                                            <input type = "number" class = "form-control mb-2 mr-sm-2" id = "reference" name = "reference" placeholder = "Saisissez la référence.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                            <label class = "sr-only" for = "inlineFormInputName2">Désignation</label> 
+                                            <input type = "text" class = "form-control mb-2 mr-sm-2" id = "designation" name = "designation" placeholder = "Saisissez la désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
+                                            <label class = "sr-only" for = "inlineFormInputName2" >Catégorie</label>
+                                            <select id = "categorie" name = "categorie" class = "form-control mb-2 mr-sm-2 col-md-2" required>
+                                                <option value = "Catégorie" selected disabled>Catégorie</option>
+                                                @if($categories->count() == null)
+                                                    <option value = "Aucun" selected disabled>Pas de catégorie disponible pour le moment !</option>
+                                                @else
+                                                    @foreach($categories as $row)
+                                                        <option value = "{{$row->nom}}">{{$row->nom}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                            <button type = "submit" class = "btn btn-primary mb-2">Créer un article</button>
                                         </form>
                                     </div>
                                 </div> 

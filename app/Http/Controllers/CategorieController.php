@@ -14,7 +14,8 @@
 
         public function openOthers(){
             $informations = $this->getInformationsUser();
-            return view('achat.others',compact('informations'));
+            $categories = $this->getAllCategorie();
+            return view('achat.others',compact('informations','categories'));
         }
 
         public function storeCategorie(Request $request){
@@ -41,6 +42,10 @@
             $categorie = new Categorie();
             $categorie->setNomAttribute($nom);
             return $categorie->save();
+        }
+
+        public function getAllCategorie(){
+            return Categorie::all()->sortBy('nom');
         }
     }
 ?>

@@ -3,6 +3,7 @@
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\FournisseurController;
     use App\Http\Controllers\CategorieController;
+    use App\Http\Controllers\ArticleController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -42,4 +43,5 @@
     Route::get('/fournisseur/{matricule}', [FournisseurController::class, 'openFournisseur'])->middleware('notsession')->name('fournisseur');
     Route::get('/others', [CategorieController::class, 'openOthers'])->middleware('notsession');
     Route::post('/add-categorie', [CategorieController::class, 'storeCategorie']);
+    Route::get('/add-article', [ArticleController::class, 'storeArticle']);
 ?>
