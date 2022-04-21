@@ -98,7 +98,7 @@
                                                         <div class = "form-group row">
                                                             <label class = "col-sm-3 col-form-label">Heure</label>
                                                             <div class = "col-sm-9">
-                                                                <input type = "time" class = "form-control" name = "heure" id = "heure"/>
+                                                                <input type = "time" class = "form-control" name = "heure" id = "heure" required/>
                                                             </div>
                                                         </div>
                                                     </div>

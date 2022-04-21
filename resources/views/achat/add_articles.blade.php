@@ -26,19 +26,47 @@
                                             </div>
                                         @endif
                                         <p class = "card-description">Créer une Facture</p>
+                                        <div class = "form-group row">
+                                            <label for = "exampleInputUsername2" class = "col-sm-3 col-form-label">Référence du facture</label>
+                                            <div class = "col-sm-9" class = "styleInput">
+                                                @if($reference != null)
+                                                    <input type = "text" class = "form-control" id = "referenceF" name = "referenceF" placeholder = "Saisissez la référence du facture.." onkeypress = "return event.charCode>=48 && event.charCode<=57" value = "{{$reference}}" required>
+                                                    @else
+                                                    <input type = "text" class = "form-control" id = "referenceF" name = "referenceF" placeholder = "Saisissez la référence du facture.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class = "container">
                                         <form class = "forms-sample" id = "f" name = "f" method = "post" action = "#">
                                             @csrf
-                                            <div class = "form-group row">
-                                                <label for = "exampleInputUsername2" class = "col-sm-3 col-form-label">Référence du facture</label>
-                                                <div class = "col-sm-9" class = "styleInput">
-                                                    @if($reference != null)
-                                                        <input type = "text" class = "form-control" id = "referenceF" name = "referenceF" placeholder = "Saisissez la référence du facture.." onkeypress = "return event.charCode>=48 && event.charCode<=57" value = "{{$reference}}" required>
-                                                     @else
-                                                        <input type = "text" class = "form-control" id = "referenceF" name = "referenceF" placeholder = "Saisissez la référence du facture.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
-                                                    @endif
-                                                </div>
+                                            <div class = "table-responsive">
+                                                <table class = "table table-striped table-borderless">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Désignation</th>
+                                                            <th>Référence</th>
+                                                            <th>Catégorie</th>
+                                                            <th>Quantité
+                                                            <th>Prix unitaire</th>
+                                                            <th>Prix totale</th>
+                                                            <th>Action</th>
+                                                        </tr>  
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id = "cols0" class = "styleInput"><input type = "text" class = "form-control" name = "designation[]" id = "designation0" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>
+                                                            <td id = "cols1" class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = "reference0" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
+                                                            <td id = "cols2" class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = "categorie0" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>
+                                                            <td id = "cols3"><input type = "number" class = "form-control" name = "quantite[]" id = "quantite0" placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
+                                                            <td id = "cols4" class = "styleInput"><input type = "number" class = "form-control" name = "prix[]" id = "prix0" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
+                                                            <td id = "cols5"><span>0 DT</span></td>
+                                                            <td id = "cols6"><button class = "btn btn-success mr-2" id = "add_item_btn">Ajouter</button></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </form>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>
