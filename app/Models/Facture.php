@@ -31,19 +31,19 @@
         }
 
         public function getDateAttribute(){
-            return $this->attributes['date'];
-        }
-
-        public function setDateAttribute($value){
             return (date('D d F Y',strtotime($this->attributes['date'])));
         }
 
+        public function setDateAttribute($value){
+            $this->attributes['date'] = $value;
+        }
+
         public function getHeureAttribute(){
-            return $this->attributes['heure'];
+            return Carbon::createFromFormat('H:i:s', $this->attributes['heure'])->format('H:i');
         }
 
         public function setHeureAttribute($value){
-            return Carbon::createFromFormat('H:i:s', $this->attributes['heure'])->format('H:i');
+            $this->attributes['heure'] = $value;
         }
 
         public function getTypeAttribute(){

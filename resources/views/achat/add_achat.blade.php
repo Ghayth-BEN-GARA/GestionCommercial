@@ -24,18 +24,9 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        @elseif (Session::has('success'))
-                                            <div class = "container">
-                                                <div class = "alert alert-success alert-dismissible fade show" role = "alert">
-                                                    <p><strong>Trés bien !</strong> {{session()->get('success')}}</p>
-                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                        <span aria-hidden = "true">&times;</span>
-                                                    </button>
-                                                </div>
-                                            </div>
                                         @endif
                                         <p class = "card-description">Créer une Facture</p>
-                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/add-facture')}}">
+                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/add-facture')}}" onsubmit = "validerFacture()">
                                             @csrf
                                             <fieldset class = "border p-2">
                                                 <legend  class = "w-auto">Fournisseur</legend>
@@ -75,7 +66,13 @@
                                                         <div class = "form-group row">
                                                             <label class = "col-sm-3 col-form-label">Référence</label>
                                                             <div class = "col-sm-9">
-                                                                <input type = "text" class = "form-control" name = "referenceF" id = "referenceF" placeholder = "Saisissez la référence du facture.."  onkeypress = "return event.charCode>=48 && event.charCode<=57" required />
+                                                                <div class = "input-group">
+                                                                    <input type = "text" class = "form-control" name = "referenceF" id = "referenceF" onkeypress = "return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez la référence du facture.." required/>
+                                                                    <div class = "input-group-append">
+                                                                        <button class = "btn btn-sm btn-primary" type = "button" onclick = "verifierReferenceFacture()">Vérifier</button>
+                                                                    </div>
+                                                                </div>
+                                                                <span class = "error" id = "referenceF_error"></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -161,10 +158,8 @@
                                                 </div>
                                             </fieldset>
                                             <br>
-                                            <fieldset class = "border p-2">
-                                                <legend  class = "w-auto">Articles</legend>
-
-                                            </fieldset>
+                                            <button type = "submit" class = "btn btn-primary mr-2" disabled id = "btn_submit">Suivant</button>
+                                            <button type = "reset" class = "btn btn-light">Annuler</button>
                                         </form>
                                     </div>
                                 </div> 
@@ -180,6 +175,10 @@
             $('.paiement').on('click', function(){
                 enabledDisabledMontantPaye();
 			});
+
+            $('#referenceF').on('input',function(){
+                initialiserReferenceF();
+            });            
         </script>
     </body>
 </html>

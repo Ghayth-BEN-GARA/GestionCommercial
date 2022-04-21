@@ -47,4 +47,6 @@
     Route::get('/add-article', [ArticleController::class, 'storeArticle']);
     Route::get('/add-achat', [FactureController::class, 'openAddFacture'])->middleware('notsession');
     Route::get('/get-matricule-fournisseur', [FournisseurController::class, 'getMatriculeFournisseur']);
+    Route::get('/verify-reference-facture', [FactureController::class, 'verifyReferenceFacture']);
+    Route::post('/add-facture', [FactureController::class, 'storeFacture']);
 ?>
