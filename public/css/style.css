@@ -30619,3 +30619,8 @@ div.tagsinput span.tag a {
 td,tr{
   text-align: center;
 }
+
+.styleInput{
+  position: relative;
+  clear: both;
+}

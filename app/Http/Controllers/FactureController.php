@@ -36,9 +36,8 @@
             }
 
             else{
-                $informations = $this->getInformationsUser();
-                $referenceFacture = $request->referenceF;
-                return view('achat.add_articles',compact('informations','referenceFacture'));
+                $reference = $request->referenceF;
+                return redirect()->route('add-articles-achat',[$reference]);
             }
         }
 
@@ -51,6 +50,23 @@
             $facture->setParAttribute($par);
             $facture->setMatriculeAttribute($matricule);
             return $facture->save();
+        }
+
+        public function openAddArticleToFacture($reference){
+            $informations = $this->getInformationsUser();
+            return view('achat.add_articles',compact('informations','reference'));
+        }
+
+        public function getReferenceFactureSearch(Request $request){
+            if($request->get('query') != ''){
+                $facture = Facture::where('referenceF', 'LIKE', '%'.$request->get('query').'%')->get();
+            }
+            
+            $data = array();
+            foreach ($facture as $fact){
+                $data[] = $fact->getReferenceFAttribute().""; 
+            }
+            echo json_encode($data);
         }
     }
 ?>

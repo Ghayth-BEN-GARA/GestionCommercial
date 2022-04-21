@@ -255,3 +255,12 @@ function afficherErreur(message) {
     })
 }
 
+function searchReferenceFacture(){
+    $('#referenceF').typeahead({
+        source: function(query, process) {
+            return $.get('/autocomplete-reference-facture', { query: query }, function(data) {
+                return process(JSON.parse(data));
+            });
+        }
+    });
+}

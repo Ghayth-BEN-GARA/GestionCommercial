@@ -49,4 +49,7 @@
     Route::get('/get-matricule-fournisseur', [FournisseurController::class, 'getMatriculeFournisseur']);
     Route::get('/verify-reference-facture', [FactureController::class, 'verifyReferenceFacture']);
     Route::post('/add-facture', [FactureController::class, 'storeFacture']);
+    Route::get('/add-article-facture/{reference}', [FactureController::class, 'openAddArticleToFacture'])->middleware('notsession')->name('add-articles-achat');
+    Route::get('/autocomplete-reference-facture', [FactureController::class, 'getReferenceFactureSearch']);
+
 ?>
