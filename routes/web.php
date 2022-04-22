@@ -51,5 +51,8 @@
     Route::post('/add-facture', [FactureController::class, 'storeFacture']);
     Route::get('/add-article-facture/{reference}', [FactureController::class, 'openAddArticleToFacture'])->middleware('notsession')->name('add-articles-achat');
     Route::get('/autocomplete-reference-facture', [FactureController::class, 'getReferenceFactureSearch']);
-
+    Route::get('/autocomplete-designation-facture', [ArticleController::class, 'getDesignationFactureSearch']);
+    Route::get('/autocomplete-reference-facture', [ArticleController::class, 'getReferenceFactureSearch']);
+    Route::get('/autocomplete-categorie-facture', [CategorieController::class, 'getCategorieFactureSearch']);
+    Route::get('/get-data-article', [ArticleController::class, 'getInformationsArticle']);
 ?>

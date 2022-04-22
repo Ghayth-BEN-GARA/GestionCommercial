@@ -47,5 +47,17 @@
         public function getAllCategorie(){
             return Categorie::all()->sortBy('nom');
         }
+
+        public function getCategorieFactureSearch(Request $request){
+            if($request->get('query') != ''){
+                $categorie = Categorie::where('nom', 'LIKE', '%'.$request->get('query').'%')->get();
+            }
+            
+            $data = array();
+            foreach ($categorie as $cat){
+                $data[] = $cat->getNomAttribute().""; 
+            }
+            echo json_encode($data);
+        }
     }
 ?>

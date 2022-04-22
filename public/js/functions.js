@@ -264,3 +264,67 @@ function searchReferenceFacture(){
         }
     });
 }
+
+function searchDesignationFacture(compteur){
+    $('#designation' + compteur).typeahead({
+        source: function(query, process) {
+            return $.get('/autocomplete-designation-facture', { query: query }, function(data) {
+                return process(JSON.parse(data));
+            });
+        },
+        updater: function(item) {
+            $.ajax({
+                url: '/get-data-article',
+                type: "get",
+                cache: true,
+                dataType: 'json',
+                data: { designation: item },
+                success: function(data) {
+                    $('#designation' + compteur).val(item);
+                    $('#reference' + compteur).val(data.reference);
+                    $('#categorie' + compteur).val(data.categorie);
+                    $('#designation' + compteur).prop('readonly', true);
+                    $('#reference' + compteur).prop('readonly', true);
+                    $('#categorie' + compteur).prop('readonly', true);
+                }
+            })
+        }
+    });
+}
+
+function searchReferenceFacture(compteur){
+    $('#reference' + compteur).typeahead({
+        source: function(query, process) {
+            return $.get('/autocomplete-reference-facture', { query: query }, function(data) {
+                return process(JSON.parse(data));
+            });
+        },
+        updater: function(item) {
+            $.ajax({
+                url: '/get-data-article',
+                type: "get",
+                cache: true,
+                dataType: 'json',
+                data: { reference: item },
+                success: function(data) {
+                    $('#reference' + compteur).val(item);
+                    $('#designation' + compteur).val(data.designation);
+                    $('#categorie' + compteur).val(data.categorie);
+                    $('#designation' + compteur).prop('readonly', true);
+                    $('#reference' + compteur).prop('readonly', true);
+                    $('#categorie' + compteur).prop('readonly', true);
+                }
+            })
+        }
+    });
+}
+
+function searchCategorieFacture(compteur){
+    $('#categorie' + compteur).typeahead({
+        source: function(query, process) {
+            return $.get('/autocomplete-categorie-facture', { query: query }, function(data) {
+                return process(JSON.parse(data));
+            });
+        }
+    });
+}

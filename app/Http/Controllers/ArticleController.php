@@ -31,5 +31,40 @@
             $article->setCategorieAttribute($categorie);
             return $article->save();
         }
+
+        public function getDesignationFactureSearch(Request $request){
+            if($request->get('query') != ''){
+                $article = Article::where('designation', 'LIKE', '%'.$request->get('query').'%')->get();
+            }
+            
+            $data = array();
+            foreach ($article as $art){
+                $data[] = $art->getDesignationAttribute().""; 
+            }
+            echo json_encode($data);
+        }
+
+        public function getInformationsArticle(Request $request){
+            $article = Article::where('designation', 'LIKE', $request->designation)->first();
+            $data = array(
+                'designation' => $article->getDesignationAttribute(),
+                'reference' => $article->getReferenceAttribute(),
+                'categorie' => $article->getCategorieAttribute()
+            );
+
+            echo json_encode($data);
+        }
+
+        public function getReferenceFactureSearch(Request $request){
+            if($request->get('query') != ''){
+                $article = Article::where('reference', 'LIKE', '%'.$request->get('query').'%')->get();
+            }
+            
+            $data = array();
+            foreach ($article as $art){
+                $data[] = $art->getReferenceAttribute().""; 
+            }
+            echo json_encode($data);
+        }
     }
 ?>
