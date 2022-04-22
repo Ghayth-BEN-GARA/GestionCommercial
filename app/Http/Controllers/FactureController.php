@@ -37,6 +37,14 @@
 
             else{
                 $reference = $request->referenceF;
+
+                if($request->paye == null){
+                    $paye = 0.00;
+                }
+
+                else{
+                    $paye = $request->paye;
+                }
                 return redirect()->route('add-articles-achat',[$reference]);
             }
         }

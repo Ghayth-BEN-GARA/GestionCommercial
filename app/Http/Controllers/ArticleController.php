@@ -2,12 +2,15 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\Models\Article;
+    use App\Models\Categorie;
+    use App\Models\Reglement;
+    use App\Models\FactureArticle;
 
     class ArticleController extends Controller{
         public function storeArticle(Request $request){
             if($this->verifyArticle($request->reference)){
                 if($this->creerArticle($request->reference,$request->designation,$request->categorie)){
-                    return back()->with('success', 'Une nouvel article a été créé avec succès.');
+                    return back()->with('success', 'Un nouvel article a été créé avec succès.');
                 }
 
                 else{
@@ -65,6 +68,22 @@
                 $data[] = $art->getReferenceAttribute().""; 
             }
             echo json_encode($data);
+        }
+
+        public function getReglementController(){
+            return new ReglementController();
+        }
+
+        public function getCategorieController(){
+            return new CategorieController();
+        }
+
+        public function storeArticleToFacture(Request $request){
+            $somme = 0;
+    
+            foreach ($request->reference as $key=>$insert){
+                
+            }
         }
     }
 ?>

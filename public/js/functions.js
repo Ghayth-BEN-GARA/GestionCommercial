@@ -255,16 +255,6 @@ function afficherErreur(message) {
     })
 }
 
-function searchReferenceFacture(){
-    $('#referenceF').typeahead({
-        source: function(query, process) {
-            return $.get('/autocomplete-reference-facture', { query: query }, function(data) {
-                return process(JSON.parse(data));
-            });
-        }
-    });
-}
-
 function searchDesignationFacture(compteur){
     $('#designation' + compteur).typeahead({
         source: function(query, process) {
@@ -382,17 +372,16 @@ function ajouterLigne(countTr){
     var pr = 'prix' + countTr;
     var qte = 'quantite' + countTr;
     var prt = 'prixT' + countTr;
-    var tr = 'tr'+countTr;
     var html = '';
 
-    html += '<tr class = "styleInput" id = row'+countTr+'>';
-    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "designation[]" id = '+des+' placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>';
-    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = '+ref+' placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
-    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = '+cat+' placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>'
-    html += '<td><input type = "number" class = "form-control" name = "quantite[]" id = '+qte+' placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
-    html += '<td><input type = "number" class = "form-control" name = "prix[]" id = '+pr+' placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
-    html += '<td class = "table-warning"><span id = '+prt+' name = "prixT[]">0 DT</span></td>'
-    html += '<td><button class = "btn btn-danger mr-2 remove_item_btn" type = "button" id = '+countTr+'>Supprimer</button></td>'
+    html += '<tr class = "styleInput" id = "row'+countTr+'">';
+    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "designation[]" id = "'+des+'" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>';
+    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = "'+ref+'" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
+    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = "'+cat+'" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>'
+    html += '<td><input type = "number" class = "form-control" name = "quantite[]" id = "'+qte+'" placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
+    html += '<td><input type = "number" class = "form-control" name = "prix[]" id = "'+pr+'" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
+    html += '<td class = "table-warning"><span id = "'+prt+'" name = "prixT[]">0 DT</span></td>'
+    html += '<td><button class = "btn btn-danger mr-2 remove_item_btn" type = "button" id = "'+countTr+'">Supprimer</button></td>'
     html +='</tr>'
 
     $('tbody').append(html);

@@ -55,4 +55,5 @@
     Route::get('/autocomplete-reference-facture', [ArticleController::class, 'getReferenceFactureSearch']);
     Route::get('/autocomplete-categorie-facture', [CategorieController::class, 'getCategorieFactureSearch']);
     Route::get('/get-data-article', [ArticleController::class, 'getInformationsArticle']);
+    Route::post('/add-article-achat', [ArticleController::class, 'storeArticleToFacture']);
 ?>

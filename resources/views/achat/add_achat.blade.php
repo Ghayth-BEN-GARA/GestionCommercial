@@ -125,37 +125,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class = "row">
-                                                    <div class = "col-md-6">
-                                                        <div class = "form-group row">
-                                                            <label class = "col-sm-3 col-form-label">Paiement</label>
-                                                            <div class = "col-sm-4">
-                                                                <div class = "form-check">
-                                                                    <label class = "form-check-label">
-                                                                        <input type = "radio" class = "form-check-input paiement" name = "paiement" id = "totale" value = "" checked>
-                                                                        Totale
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class = "col-sm-5">
-                                                                <div class = "form-check">
-                                                                    <label class = "form-check-label">
-                                                                        <input type = "radio" class = "form-check-input paiement" name = "paiement" id = "tranche" value = "">
-                                                                        Tranche
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class = "col-md-6">
-                                                        <div class = "form-group row">
-                                                            <label class = "col-sm-3 col-form-label">Montant payé</label>
-                                                            <div class = "col-sm-9">
-                                                                <input type = "text" class = "form-control" name = "paye" id = "paye" placeholder = "Saisissez le montant payé.." required disabled />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </fieldset>
                                             <br>
                                             <button type = "submit" class = "btn btn-primary mr-2" disabled id = "btn_submit">Suivant</button>
@@ -172,10 +141,6 @@
         </div>
         @include ('layouts.script')
         <script>
-            $('.paiement').on('click', function(){
-                enabledDisabledMontantPaye();
-			});
-
             $('#referenceF').on('input',function(){
                 initialiserReferenceF();
             });            
