@@ -16,7 +16,6 @@
                 $table->id();
                 $table->decimal('net',10,2);
                 $table->decimal('paye',10,2);
-                $table->date('date');
                 $table->string('referenceF',999);
                 $table->foreign('referenceF')->references('referenceF')->on('factures')->onDelete('cascade')->onUpdate('cascade');
             });

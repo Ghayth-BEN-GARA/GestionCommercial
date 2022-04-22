@@ -63,6 +63,9 @@
                                                             </label>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class = "form-group row">
+                                                    <label class = "col-sm-3 col-form-label"></label>
                                                     <div class = "col-sm-4">
                                                         <input type = "text" class = "form-control" name = "paye" id = "paye" placeholder = "Saisissez le montant payé.." required disabled />
                                                     </div>
