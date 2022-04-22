@@ -10475,7 +10475,7 @@ pre code {
 }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
-.jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
+.jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field,
 .tt-query,
 .tt-hint {
   display: block;
@@ -30623,4 +30623,8 @@ td,tr{
 .styleInput{
   position: relative;
   clear: both;
+}
+
+.float-right{
+  float: right;
 }

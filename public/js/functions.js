@@ -386,9 +386,9 @@ function ajouterLigne(countTr){
     var html = '';
 
     html += '<tr class = "styleInput" id = row'+countTr+'>';
-    html += '<td><input type = "text" class = "form-control" name = "designation[]" id = '+des+' placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>';
-    html += '<td><input type = "text" class = "form-control" name = "reference[]" id = '+ref+' placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
-    html += '<td><input type = "text" class = "form-control" name = "categorie[]" id = '+cat+' placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>'
+    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "designation[]" id = '+des+' placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>';
+    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = '+ref+' placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
+    html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = '+cat+' placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>'
     html += '<td><input type = "number" class = "form-control" name = "quantite[]" id = '+qte+' placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
     html += '<td><input type = "number" class = "form-control" name = "prix[]" id = '+pr+' placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
     html += '<td class = "table-warning"><span id = '+prt+' name = "prixT[]">0 DT</span></td>'
