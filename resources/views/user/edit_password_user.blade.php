@@ -23,12 +23,14 @@
                                                         <h6 class = "mb-2">{{$informations['fullname']}}</h6>
                                                         <p class = "mb-1">{{$informations['tel']}}</p>
                                                         <p>{{$informations['cin']}}</p>
-                                                        <p class = "mb-0 text-black font-weight-bold"><a href = "{{url('/edit-user')}}" class = "text-primary mr-3" data-target = "#edit-profile-modal"><i class = "mdi mdi-account-edit"></i> MODIFIER</a></p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <ul class = "nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id = "myTab" role = "tablist">
+                                            <li class = "nav-item">
+                                                <a href = "{{url('/edit-user')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-account-edit"></i> Modifier compte</a>
+                                            </li>
                                             <li class = "nav-item">
                                                 <a href = "{{url('/edit-image-profil')}}" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-file-image"></i> Modifier l'image</a>
                                             </li>

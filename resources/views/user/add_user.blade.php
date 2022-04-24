@@ -167,6 +167,10 @@
             $('#cin').on('input',function(){
                 initialiserCIN();
             });
+
+            $('#f').submit(function() {
+				validerFormulaireAddUser();
+         	});
         </script>
     </body>
 </html>

@@ -43,7 +43,7 @@
                                         </form>
                                         <br>
                                         <p class = "card-description">Créer un article</p>
-                                        <form class = "form-inline" name = "f" id = "f" method = "get" action = "{{url('/add-article')}}">
+                                        <form class = "form-inline" name = "f3" id = "f3" method = "get" action = "{{url('/add-article')}}">
                                             <label class = "sr-only" for = "inlineFormInputName2">Référence</label>    
                                             <input type = "number" class = "form-control mb-2 mr-sm-2" id = "reference" name = "reference" placeholder = "Saisissez la référence.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
                                             <label class = "sr-only" for = "inlineFormInputName2">Désignation</label> 
@@ -72,5 +72,10 @@
         </div>
         @include ('layouts.script')
         <script src = "{{asset('js/file-upload.js')}}"></script>
+        <script>
+            $('#f3').submit(function() {
+				validerFormulaireAddCategorie();
+         	});
+        </script>
     </body>
 </html>

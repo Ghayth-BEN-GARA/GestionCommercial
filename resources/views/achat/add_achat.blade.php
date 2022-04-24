@@ -187,7 +187,7 @@
                                                             <td class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = "reference0" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
                                                             <td class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = "categorie0" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>
                                                             <td><input type = "number" class = "form-control" name = "quantite[]" id = "quantite0" placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
-                                                            <td><input type = "number" class = "form-control" name = "prix[]" id = "prix0" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
+                                                            <td class = "styleInput"><input type = "number" class = "form-control" name = "prix[]" id = "prix0" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
                                                             <td class = "table-warning"><span id = "prixT0" name = "prixT[]">0 DT</span></td>
                                                             <td><button class = "btn btn-success mr-2" id = "add_item_btn" type = "button">Ajouter</button></td>
                                                         </tr>
@@ -220,10 +220,10 @@
                 searchDesignationFacture(compteur);
                 searchReferenceFacture(compteur);
                 searchCategorieFacture(compteur);
-                functionCalculerPrixTotale(compteur);
+                functionCalculerPrixTotale(compteur); 
                 functionCliqueAjouterLigne();  
                 functionCliqueSupprimerLigne();  
-                functionEnabledDisabledMontantPaye(); 
+                functionEnabledDisabledMontantPaye();
             });  
         </script>
     </body>

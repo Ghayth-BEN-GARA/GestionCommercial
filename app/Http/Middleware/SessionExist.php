@@ -13,7 +13,9 @@
          */
         public function handle(Request $request, Closure $next){
             if(Session()->has('username')){
-                return view('errors.404');
+                $lien = "home";
+                $desc = "page d'accueil";
+                return view('errors.404',compact('lien','desc'));
             }
             return $next($request);
         }

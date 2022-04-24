@@ -13,21 +13,27 @@
          */
         public function handle(Request $request, Closure $next){
             if(!Session()->has('username')){
-                return view('errors.404');
+                $lien = "/";
+                $desc = "page d'authentification";
+                return view('errors.404',compact('lien','desc'));
             }
 
             else if(Session()->has('username') && (Session()->get('type') == "User") &&
             ($request->url() == url('/add-user') || ($request->url() == url('list-user')) ||
             ($request->url() == url('/user')) 
             )){
-                return view('errors.500');
+                $lien = "home";
+                $desc = "page d'accueil";
+                return view('errors.500',compact('lien','desc'));
             }
 
             else if(Session()->has('username') && (Session()->get('type') == "Administrateur") && 
             (($request->url() == url('/profil')) || ($request->url() == url('/edit-image-profil')) ||
             ($request->url() == url('/edit-password-profil')) || ($request->url() == url('/edit-user'))
             )){
-                return view('errors.500');
+                $lien = "home";
+                $desc = "page d'accueil";
+                return view('errors.500',compact('lien','desc'));
             }
 
             else if(Session()->has('username') && ((Session()->get('type') == "Administrateur") || (Session()->get('type') == "User")) &&
@@ -37,7 +43,9 @@
                 
             
             ){
-                return view('errors.500');
+                $lien = "home";
+                $desc = "page d'accueil";
+                return view('errors.500',compact('lien','desc'));
             }
             return $next($request);
         }

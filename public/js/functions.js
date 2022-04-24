@@ -352,7 +352,17 @@ function calculerPrixTotale(compteur){
 
 function gestionAjouterLigne(){
     var countTr = $('#article tr').length - 2;
-    desactiverLignes(countTr);
+    var des = 'designation' + countTr;
+    var ref = 'reference' + countTr;
+    var cat = 'categorie' + countTr;
+    var pr = 'prix' + countTr;
+    var qte = 'quantite' + countTr;
+    
+    if ($('#' + des).val() == '' || $('#' + ref).val() == '' || $('#' + cat).val() == '' || $('#' + pr).val() == '' || $('#' + qte).val() == '') {
+        afficherErreur("Vous n'avez pas rempli correctement les champs..");
+    } else {
+        desactiverLignes(countTr);
+    }
 }
 
 function desactiverLignes(countTr){
@@ -379,7 +389,7 @@ function ajouterLigne(countTr){
     html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = "'+ref+'" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
     html += '<td class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = "'+cat+'" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>'
     html += '<td><input type = "number" class = "form-control" name = "quantite[]" id = "'+qte+'" placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
-    html += '<td><input type = "number" class = "form-control" name = "prix[]" id = "'+pr+'" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
+    html += '<td class = "styleInput"><input type = "number" class = "form-control" name = "prix[]" id = "'+pr+'" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>'
     html += '<td class = "table-warning"><span id = "'+prt+'" name = "prixT[]">0 DT</span></td>'
     html += '<td><button class = "btn btn-danger mr-2 remove_item_btn" type = "button" id = "'+countTr+'">Supprimer</button></td>'
     html +='</tr>'
@@ -408,4 +418,31 @@ function functionEnabledDisabledMontantPaye(){
     $('.paiement').on('click', function(){
         enabledDisabledMontantPaye();
     });  
+}
+
+function validerFormulaireAddUser(){
+    var genreUser = document.getElementById('genre').selectedIndex;
+    var typeUser = document.getElementById('type').selectedIndex;
+
+    if((genreUser == 0) || (typeUser == 0)){
+        afficherErreur("Aucun genre et / ou type d'utilisateur spécifié(s)..");
+        event.preventDefault();
+     }
+ 
+     else{
+         $("#f").submit();
+     }
+}
+
+function validerFormulaireAddCategorie(){
+    var categorie = document.getElementById('categorie').selectedIndex;
+
+    if(categorie == 0){
+        afficherErreur("Aucune catégorie d'article spécifié..");
+        event.preventDefault();
+     }
+ 
+     else{
+         $("#f3").submit();
+     }
 }

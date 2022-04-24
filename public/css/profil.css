@@ -22,20 +22,20 @@
     background: #535665;
     display: inline-block;
     text-align: center;
-    line-height: 29px;
+    line-height: -9px;
     font-size: 15px;
     border-radius: 50px;
     margin: 0 7px 0 0px;
     color: #fff;
 }
-.osahan-account-page-left .nav-link.active {
-    background: #f3f7f8;
-    color: #282c3f !important;
+.osahan-account-page-left .nav-link {
     cursor: pointer;
 }
-.osahan-account-page-left .nav-link.active i {
-    background: #282c3f !important;
+
+.osahan-account-page-left .nav-link:hover {
+    color: #F7941E;
 }
+
 .osahan-user-media img {
     width: 90px;
 }
@@ -120,9 +120,9 @@
 
 a,a:hover{
     text-decoration: none;
-    color: #F7941E;
+    color: black;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .margin{
@@ -137,4 +137,8 @@ a,a:hover{
     text-align: center;
     letter-spacing: 1px;
     line-height: 23px;
+}
+
+.media-body a p{
+    margin-left: 20px;
 }
