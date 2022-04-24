@@ -78,7 +78,7 @@
             return new CategorieController();
         }
 
-        public function storeArticleToFacture(Request $request){
+        public function storeArticleToFacture($request){
             $somme = 0;
             $paye = 0;
 
@@ -96,12 +96,36 @@
                         'qte' => $quantite[$key],
                         'prixU' => $prix[$key]
                     ];
-                    FactureArticle::insert($enregistrementListeArticles);
                     $somme += $somme + ($quantite[$key] * $prix[$key]);
+                    FactureArticle::insert($enregistrementListeArticles);
+                }
+
+                else{
+                    $enregistrementArticle = [
+                        'designation' => $designation[$key],
+                        'reference' => $reference[$key],
+                        'categorie' => $categorie[$key]
+                    ];
+                    Article::insert([$enregistrementArticle]);
+                    
+                    $enregistrementListeArticles = [
+                        'reference' => $reference[$key],
+                        'referenceF' => $request->referenceF,
+                        'qte' => $quantite[$key],
+                        'prixU' => $prix[$key]
+                    ];
+                    $somme += $somme + ($quantite[$key] * $prix[$key]);
+                    FactureArticle::insert([$enregistrementListeArticles]);                    
                 }
             }
+            if($request->paye == null){
+                $paye = $somme;
+            }
+
+            else{
+                $paye = $request->paye;
+            }
             $this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->referenceF);
-            return back()->with('success', 'Une nouvelle facture a été créé avec succès.');            
         }
 
         public function verifierEtatPayement($paiement,$somme){

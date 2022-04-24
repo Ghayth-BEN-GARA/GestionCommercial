@@ -35,17 +35,9 @@
                 return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
             }
 
-            else{
-                $reference = $request->referenceF;
-
-                if($request->paye == null){
-                    $paye = 0.00;
-                }
-
-                else{
-                    $paye = $request->paye;
-                }
-                return redirect()->route('add-articles-achat',[$reference]);
+            else{                
+                $this->getArticleController()->storeArticleToFacture($request);
+                return back()->with('success', 'Une nouvelle facture a été créé avec succès.');
             }
         }
 
@@ -59,12 +51,7 @@
             $facture->setMatriculeAttribute($matricule);
             return $facture->save();
         }
-
-        public function openAddArticleToFacture($reference){
-            $informations = $this->getInformationsUser();
-            return view('achat.add_articles',compact('informations','reference'));
-        }
-
+    
         public function getReferenceFactureSearch(Request $request){
             if($request->get('query') != ''){
                 $facture = Facture::where('referenceF', 'LIKE', '%'.$request->get('query').'%')->get();
@@ -75,6 +62,10 @@
                 $data[] = $fact->getReferenceFAttribute().""; 
             }
             echo json_encode($data);
+        }
+
+        public function getArticleController(){
+            return new ArticleController();
         }
     }
 ?>

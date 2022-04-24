@@ -182,11 +182,11 @@ function setMatriculeFournisseur() {
 
 function enabledDisabledMontantPaye(){
     if($('#totale').is(':checked')) { 
-        $('#paye').prop('disabled', true);
+        $('#paye').prop('readonly', true);
     }
 
     else if($('#tranche').is(':checked')) { 
-        $('#paye').prop('disabled', false);
+        $('#paye').prop('readonly', false);
     }
 }
 
@@ -402,4 +402,10 @@ function functionCliqueSupprimerLigne(){
         var row_id = $(this).attr('id');
         $('#row'+row_id).remove();
     })
+}
+
+function functionEnabledDisabledMontantPaye(){
+    $('.paiement').on('click', function(){
+        enabledDisabledMontantPaye();
+    });  
 }
