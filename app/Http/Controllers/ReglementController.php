@@ -28,17 +28,26 @@
 
             $montant = $sommeAPaye - $sommePaye;
             if($montant < 0){
-                $ch = "Le fournisseur doit payer ".$this->stylingCredit($sommePaye - $sommeAPaye)." pour vous.";
+                $ch = "Le fournisseur doit payer ".$this->getFactureController()->stylingPrix($sommePaye - $sommeAPaye)." pour vous.";
             }
 
             else if($montant > 0){
-                $ch = "Vous devez payer ".$this->stylingCredit($sommeAPaye - $sommePaye)." pour ce fournisseur.";
+                $ch = "Vous devez payer ".$this->getFactureController()->stylingPrix($sommeAPaye - $sommePaye)." pour ce fournisseur.";
             }
 
             else{
                 $ch = "Aucun crédit trouvé avec ce fournisseur.";
             }
             return $ch;
+        }
+
+        public function getFactureController(){
+            return new FactureController();
+        }
+
+        public function openListReglement(){
+            $informations = $this->getFactureController()->getInformationsUser();
+            return view('reglement.liste_reglement',compact('informations'));
         }
     }
 ?>

@@ -5,6 +5,7 @@
     use App\Http\Controllers\CategorieController;
     use App\Http\Controllers\ArticleController;
     use App\Http\Controllers\FactureController;
+    use App\Http\Controllers\ReglementController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -58,5 +59,5 @@
     Route::get('/list-achat', [FactureController::class, 'openListAchat'])->middleware('notsession');
     Route::get('/delete-facture/{referenceF}', [FactureController::class, 'gestionDeleteFacture']);
     Route::get('/facture/{referenceF}', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
-
+    Route::get('/list-reglement', [ReglementController::class, 'openListReglement'])->middleware('notsession');
 ?>
