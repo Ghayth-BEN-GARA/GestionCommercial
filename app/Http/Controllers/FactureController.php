@@ -2,6 +2,7 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\Models\Facture;
+    use App\Models\FactureArticle;
 
     class FactureController extends Controller{
         public function getUserController(){
@@ -86,5 +87,59 @@
         public function deleteFacture($referenceF){
             return Facture::where('referenceF',$referenceF)->delete();
         }
-    }
+
+        public function openAchat($referenceF){
+            $informations = $this->getInformationsUser();
+            $facture = $this->getInformationsFacture($referenceF);
+            $article = $this->getListeArticlesFromFacture($referenceF);
+            return view('achat.achat',compact('informations','facture','article'));
+        }
+
+        public function getInformationsFacture($referenceF){
+            $facture = Facture::where('referenceF', '=', $referenceF)->first();
+        
+            return [
+                'type' => $facture->getTypeAttribute(),
+                'referenceF' => $referenceF,
+                'nom' => $this->getFournisseurController()->getInformationsFournisseurs($facture->getMatriculeAttribute())->getNomAttribute(),
+                'adresse' => $this->getFournisseurController()->getInformationsFournisseurs($facture->getMatriculeAttribute())->getAdresseAttribute(),
+                'tel1' => $this->getFournisseurController()->getInformationsFournisseurs($facture->getMatriculeAttribute())->getTel1Attribute(),
+                'tel2' => $this->getFournisseurController()->getInformationsFournisseurs($facture->getMatriculeAttribute())->getTel2Attribute(),
+                'email' => $this->getFournisseurController()->getInformationsFournisseurs($facture->getMatriculeAttribute())->getEmailAttribute(),
+                'matricule' => $facture->getMatriculeAttribute(),
+                'date' => $facture->getDateAttribute(),
+                'heure' => $facture->getHeureAttribute(),
+                'par' => $facture->getParAttribute(),
+                'credit' => $this->getReglementController()->getCreditFournisseur($referenceF)
+            
+            ];
+        }
+
+        public function getListeArticlesFromFacture($referenceF){
+            return FactureArticle::join('factures', 'factures.referenceF', '=', 'facturesarticles.referenceF')
+            ->join('articles', 'articles.reference', '=', 'facturesarticles.reference')
+            ->where('facturesarticles.referenceF', '=', $referenceF)
+            ->get(['factures.*', 'articles.*','facturesarticles.*']);
+        }
+
+        public static function stylingPrix($prix){
+            if($prix == 0){
+                return "0 DT";
+            }
+
+            else if(strlen($prix) < 4){
+                return ("0.".$prix." DT");
+            }
+
+            else{
+                $ch1 = substr($prix,strlen($prix)-3,3);
+                $ch2 = substr($prix,0,-3);
+                return ($ch2.".".$ch1." DT");
+            }
+        }
+
+        public function getReglementController(){
+            return new ReglementController();
+        }
+    }   
 ?>

@@ -57,6 +57,6 @@
     Route::post('/add-article-achat', [ArticleController::class, 'storeArticleToFacture']);
     Route::get('/list-achat', [FactureController::class, 'openListAchat'])->middleware('notsession');
     Route::get('/delete-facture/{referenceF}', [FactureController::class, 'gestionDeleteFacture']);
-
+    Route::get('/facture/{referenceF}', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
 
 ?>
