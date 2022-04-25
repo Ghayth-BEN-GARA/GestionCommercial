@@ -15,7 +15,7 @@
                 $table->charset = 'utf8';
                 $table->id();
                 $table->integer('qte');
-                $table->decimal('prixU',10,2);
+                $table->string('prixU',999);
                 $table->bigInteger('reference')->unsigned();
                 $table->string('referenceF',999);
                 $table->foreign('reference')->references('reference')->on('articles')->onDelete('cascade')->onUpdate('cascade');

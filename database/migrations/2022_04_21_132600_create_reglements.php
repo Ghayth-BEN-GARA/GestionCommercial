@@ -14,8 +14,8 @@
                 $table->collation = 'utf8_general_ci';
                 $table->charset = 'utf8';
                 $table->id();
-                $table->decimal('net',10,2);
-                $table->decimal('paye',10,2);
+                $table->string('net',999);
+                $table->string('paye',999);
                 $table->string('referenceF',999);
                 $table->foreign('referenceF')->references('referenceF')->on('factures')->onDelete('cascade')->onUpdate('cascade');
             });

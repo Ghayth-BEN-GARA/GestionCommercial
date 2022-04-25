@@ -79,8 +79,8 @@
         }
 
         public function storeArticleToFacture($request){
-            $somme = 0;
             $paye = 0;
+            $somme = 0;
 
             $designation = $request->designation;
             $reference = $request->reference;
@@ -96,7 +96,6 @@
                         'qte' => $quantite[$key],
                         'prixU' => $prix[$key]
                     ];
-                    $somme += $somme + ($quantite[$key] * $prix[$key]);
                     FactureArticle::insert($enregistrementListeArticles);
                 }
 
@@ -114,10 +113,12 @@
                         'qte' => $quantite[$key],
                         'prixU' => $prix[$key]
                     ];
-                    $somme += $somme + ($quantite[$key] * $prix[$key]);
-                    FactureArticle::insert([$enregistrementListeArticles]);                    
+                    FactureArticle::insert([$enregistrementListeArticles]);      
+                                  
                 }
+                $somme = $somme + ($prix[$key] * $quantite[$key]);
             }
+
             if($request->paye == null){
                 $paye = $somme;
             }
