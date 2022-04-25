@@ -35,7 +35,7 @@
                                 <td>{{$row->type}}</td>
                                 <td><a href = "{{url('/facture/'.$row->referenceF)}}" class = "consult-user">Consulter</a></td>
                                 <td><a href = "{{url('/edit-facture/'.$row->referenceF)}}" class = "consult-user">Modifier</a></td>
-                                <td><a href = "#" class = "consult-user">Supprimer</a></td>
+                                <td><a href = "#" onclick = "questionSupprimerFacture({{$row->referenceF}})" class = "consult-user">Supprimer</a></td>
                             </tr>
                         @endforeach
                     @endif

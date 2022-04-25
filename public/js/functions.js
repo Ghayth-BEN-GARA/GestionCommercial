@@ -447,3 +447,23 @@ function validerFormulaireAddCategorie(){
      }
 }
 
+function questionSupprimerFacture(referenceF){
+    swal({
+        title: "Supprimer cette facture ?",
+        text: "cette facture sera supprimée automatiquement..",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#F7941E',
+        confirmButtonText: "Supprimer",
+        cancelButtonText: 'Annuler'
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement('Suppression..').then(ouvrirRoot("/delete-facture/"+referenceF));
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

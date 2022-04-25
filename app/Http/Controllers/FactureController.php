@@ -72,5 +72,19 @@
             $informations = $this->getInformationsUser();
             return view('achat.liste_achat',compact('informations'));
         }
+
+        public function gestionDeleteFacture($referenceF){
+            if($this->deleteFacture($referenceF)){
+                return back()->with('success', 'Cette facture a été supprimée avec succès.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de supprimer cette facture.');
+            }
+        }
+
+        public function deleteFacture($referenceF){
+            return Facture::where('referenceF',$referenceF)->delete();
+        }
     }
 ?>

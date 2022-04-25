@@ -39,6 +39,7 @@
                         <li class = "nav-item"><a class = "nav-link" href = "{{url('/list-achat')}}">Consulter les achats</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "{{url('/add-fournisseur')}}">Ajouter des fournisseurs</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "{{url('/list-fournisseur')}}">Consulter les fournisseurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les réglements</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "{{url('/others')}}">Avancée</a></li>
                     </ul>
                 </div>
