@@ -17,13 +17,13 @@
                         <th>Nom</th>
                         <th>Matricule</th>
                         <th>Adresse e-mail</th>
-                        <th colspan = "2">Actions sur les fournisseurs</th>
+                        <th>Actions sur les fournisseurs</th>
                     </tr>  
                 </thead>
                 <tbody>
                     @if($reglements->count() == null)
                         <tr>
-                            <td colspan = "5">Malheureusement, aucune réglement n'a été trouvé sur votre application.</td>
+                            <td colspan = "4">Malheureusement, aucune réglement n'a été trouvé sur votre application.</td>
                         </tr>
                     @else
                         @foreach($reglements as $row)

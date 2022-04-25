@@ -14,7 +14,7 @@
 }
 
 .page {
-    width: 74%;
+    width: 100%;
     height: auto;
     overflow: hidden;
 }
@@ -121,10 +121,6 @@ tr td:first-child {
     margin-top: 40px;
 }
 
-#print{
-    margin-bottom: 25px;
-}
-
 @media print{
     body *{
         visibility: hidden;
@@ -143,6 +139,10 @@ tr td:first-child {
 
     #print{
         visibility: hidden;
+    }
+
+    th{
+        color: #F7941E;
     }
 }
 

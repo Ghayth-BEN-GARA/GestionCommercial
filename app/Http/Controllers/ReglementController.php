@@ -49,5 +49,22 @@
             $informations = $this->getFactureController()->getInformationsUser();
             return view('reglement.liste_reglement',compact('informations'));
         }
+
+        public function openReglement($matricule){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $reglements = $this->getInformationsReglements($matricule);
+            return view('reglement.reglement',compact('informations','reglements'));
+        }
+
+        public function getFournisseurController(){
+            return new FournisseurController();
+        }
+
+        public function getInformationsReglements($matricule){
+            return [
+                'nom' => $this->getFournisseurController()->getInformationsFournisseurs($matricule)->getNomAttribute(),
+
+            ];
+        }
     }
 ?>

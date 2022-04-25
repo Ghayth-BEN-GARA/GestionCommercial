@@ -53,11 +53,11 @@
                                                             </div>
                                                         </div>
                                                         <div class = "row extra-info pt-3">
-                                                            <div class = "col-7">
+                                                            <div class = "col-6">
                                                                 <p>Date : <span>{{$facture['date']}}</span></p>
                                                                 <p>Heure : <span>{{$facture['heure']}}</span></p>
                                                             </div>
-                                                            <div class = "col-5">
+                                                            <div class = "col-6">
                                                                 <p>Faite par : <span>{{$facture['par']}}</span></p>
                                                             </div>
                                                         </div>
@@ -69,8 +69,8 @@
                                                             <tr>
                                                                 <th>Désignation</th>
                                                                 <th>Quantité</th>
-                                                                <th>Remise</th>
                                                                 <th>Prix Unitaire</th>
+                                                                <th>Remise</th>
                                                                 <th>Prix Total</th>
                                                             </tr>
                                                         </thead>
@@ -82,8 +82,8 @@
                                                                 <tr>
                                                                     <td>{{$value->designation}}</td>
                                                                     <td>{{$value->qte}}</td>
-                                                                    <td>0%</td>
                                                                     <td>{{App\Http\Controllers\FactureController::stylingPrix($value->prixU)}}</td>   
+                                                                    <td>0%</td>
                                                                     <td>{{App\Http\Controllers\FactureController::stylingPrix($value->prixU * $value->qte)}}</td>
                                                                 </tr>
                                                                 <?php $somme = $somme + ($value->prixU * $value->qte);?>                                                        
