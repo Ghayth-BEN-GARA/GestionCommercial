@@ -38,7 +38,7 @@
 
             else if(Session()->has('username') && ((Session()->get('type') == "Administrateur") || (Session()->get('type') == "User")) &&
             (($request->url() == url('/add-fournisseur')) || ($request->url() == url('/list-fournisseur')) || ($request->url() == url('/edit-fournisseur')) ||
-            ($request->url() == url('/fournisseur')) || ($request->url() == url('/others')) || ($request->url() == url('/add-achat')) 
+            ($request->url() == url('/fournisseur')) || ($request->url() == url('/others')) || ($request->url() == url('/add-achat')) || ($request->url() == url('/list-achat')) 
             )
                 
             

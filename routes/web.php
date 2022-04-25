@@ -55,5 +55,5 @@
     Route::get('/autocomplete-categorie-facture', [CategorieController::class, 'getCategorieFactureSearch']);
     Route::get('/get-data-article', [ArticleController::class, 'getInformationsArticle']);
     Route::post('/add-article-achat', [ArticleController::class, 'storeArticleToFacture']);
-    Route::get('/autocomplete-prix-facture', [ArticleController::class, 'getHistoriquePrixArticle']);
+    Route::get('/list-achat', [FactureController::class, 'openListAchat'])->middleware('notsession');
 ?>

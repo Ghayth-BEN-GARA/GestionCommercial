@@ -182,7 +182,7 @@
                                                         </tr>  
                                                     </thead>
                                                     <tbody>
-                                                        <tr class = "styleInput" id = "row0">
+                                                        <tr id = "row0">
                                                             <td class = "styleInput"><input type = "text" class = "form-control" name = "designation[]" id = "designation0" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>
                                                             <td class = "styleInput"><input type = "text" class = "form-control" name = "reference[]" id = "reference0" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required></td>
                                                             <td class = "styleInput"><input type = "text" class = "form-control" name = "categorie[]" id = "categorie0" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required></td>

@@ -446,3 +446,4 @@ function validerFormulaireAddCategorie(){
          $("#f3").submit();
      }
 }
+

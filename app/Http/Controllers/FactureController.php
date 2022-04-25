@@ -67,5 +67,10 @@
         public function getArticleController(){
             return new ArticleController();
         }
+
+        public function openListAchat(){
+            $informations = $this->getInformationsUser();
+            return view('achat.liste_achat',compact('informations'));
+        }
     }
 ?>
