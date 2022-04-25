@@ -467,3 +467,7 @@ function questionSupprimerFacture(referenceF){
         }
     });
 }
+
+function imprimFacture(){
+    window.print();
+}

@@ -12,9 +12,9 @@
                 <div class = "main-panel">
                     <div class = "content-wrapper">
                         <div class = "row">
-                            <div class = "col-md-12 grid-margin stretch-card">
+                            <div class = "col-md-12 grid-margin stretch-card" id = "print-fact">
                                 <div class = "card">
-                                    <div class = "card-body"  id = "print-fact">
+                                    <div class = "card-body">
                                         <div class = "my-5 page">
                                             <div class = "p-5">
                                                 <section class = "top-content bb d-flex justify-content-between">
@@ -116,7 +116,7 @@
                                                     </div>
                                                 </section>
                                                 <div class = "col-md-12 text-center">
-                                                    <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprim()">Imprimer</button>
+                                                    <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer la facture</button>
                                                 </div>
                                             </div>
                                         </div>

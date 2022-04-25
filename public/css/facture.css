@@ -140,6 +140,10 @@ tr td:first-child {
         top: 0px;
         right: 0px;
     } 
+
+    #print{
+        visibility: hidden;
+    }
 }
 
 #print-fact{
