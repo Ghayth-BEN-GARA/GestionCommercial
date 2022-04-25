@@ -3,6 +3,7 @@
     <head>
         @include ('layouts.head')
         <link rel = "stylesheet" href = "{{asset('css/profil.css')}}">
+        <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -93,7 +94,7 @@
                                                             <div class = "form-group row">
                                                                 <label class = "col-sm-3 col-form-label">Genre</label>
                                                                 <div class = "col-sm-9">
-                                                                    <select class = "form-control" name = "genre" id = "genre" required value = "{{$informations['genre']}}">
+                                                                    <select class = "nice-select" name = "genre" id = "genre" required value = "{{$informations['genre']}}">
                                                                         <option selected disabled>Genre</option>
                                                                         <option value = "Homme">Homme</option>
                                                                         <option value = "Femme">Femme</option>
@@ -145,7 +146,7 @@
                                                             <div class = "form-group row">
                                                                 <label class = "col-sm-3 col-form-label">Type</label>
                                                                 <div class = "col-sm-9">
-                                                                    <select class = "form-control" name = "type" id = "type" required disabled>
+                                                                    <select class = "nice-select" name = "type" id = "type" required disabled>
                                                                         <option selected disabled>type</option>
                                                                         <option value = "Utilisateur">Utilisateur</option>
                                                                         <option value = "Admin">Admin</option>
@@ -170,10 +171,14 @@
             </div>
         </div>
         @include ('layouts.script')
+        <script src = "{{asset('js/jquery.nice-select.js')}}"></script>
         <script>
-            $(document).ready(function(){
+            $(function(){
                 $("#genre").val($('#l').val()).change();
-                $("#type").val($('#t').val()).change();
+                $("#type").val($('#t').val()).change(); 
+                configSelect($('#genre'));
+                configSelect($('#type'));
+                updateSelect($('#genre'));
             });
         </script>
     </body>

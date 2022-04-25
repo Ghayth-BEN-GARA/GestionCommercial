@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -49,7 +50,7 @@
                                             <label class = "sr-only" for = "inlineFormInputName2">Désignation</label> 
                                             <input type = "text" class = "form-control mb-2 mr-sm-2" id = "designation" name = "designation" placeholder = "Saisissez la désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
                                             <label class = "sr-only" for = "inlineFormInputName2" >Catégorie</label>
-                                            <select id = "categorie" name = "categorie" class = "form-control mb-2 mr-sm-2 col-md-2" required>
+                                            <select id = "categorie" name = "categorie" class = "nice-select mb-2 mr-sm-2 col-md-2" required>
                                                 <option value = "Catégorie" selected disabled>Catégorie</option>
                                                 @if($categories->count() == null)
                                                     <option value = "Aucun" selected disabled>Pas de catégorie disponible pour le moment !</option>
@@ -71,8 +72,12 @@
             </div>
         </div>
         @include ('layouts.script')
-        <script src = "{{asset('js/file-upload.js')}}"></script>
+        <script src = "{{asset('js/jquery.nice-select.js')}}"></script>
         <script>
+            $(function(){ 
+                configSelect($('#categorie'));
+            });
+
             $('#f3').submit(function() {
 				validerFormulaireAddCategorie();
          	});

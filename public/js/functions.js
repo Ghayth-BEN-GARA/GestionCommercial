@@ -471,3 +471,11 @@ function questionSupprimerFacture(referenceF){
 function imprimFacture(){
     window.print();
 }
+
+function configSelect(input) {
+    input.niceSelect();
+}
+
+function updateSelect(input){
+    input.niceSelect('update');
+}

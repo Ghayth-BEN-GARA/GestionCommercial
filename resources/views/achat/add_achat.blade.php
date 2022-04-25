@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -44,7 +45,7 @@
                                                         <div class = "form-group row">
                                                             <label class = "col-sm-3 col-form-label">Nom</label>
                                                             <div class = "col-sm-9">
-                                                                <select id = "nom" name = "nom" class = "form-control" required onchange = "setMatriculeFournisseur()">
+                                                                <select id = "nom" name = "nom" class = "nice-select" required onchange = "setMatriculeFournisseur()">
                                                                     <option value = "Nom" selected disabled>Nom du fournisseur</option>
                                                                     @if($fournisseurs->count() == null)
                                                                         <option value = "Aucun" selected disabled>Pas de fournisseurs disponible pour le moment !</option>
@@ -117,7 +118,7 @@
                                                         <div class = "form-group row">
                                                             <label class = "col-sm-3 col-form-label">Type</label>
                                                             <div class = "col-sm-9">
-                                                                <select id = "type" name = "type" class = "form-control" required>
+                                                                <select id = "type" name = "type" class = "nice-select" required>
                                                                     <option value = "Type" selected disabled>Type de facture</option>
                                                                     <option value = "BL">BL</option>
                                                                     <option value = "FACT">FACT</option>
@@ -209,6 +210,7 @@
         </div>
         @include ('layouts.script')
         <script src = "{{asset('vendors/typeahead.js/bootstrap3-typeahead.min.js')}}"></script>
+        <script src = "{{asset('js/jquery.nice-select.js')}}"></script>
         <script>
             $('#referenceF').on('input',function(){
                 initialiserReferenceF();
@@ -217,6 +219,8 @@
             var compteur = 0;
 
             $(function(){
+                configSelect($('#nom'));
+                configSelect($('#type'));
                 searchDesignationFacture(compteur);
                 searchReferenceFacture(compteur);
                 searchCategorieFacture(compteur);

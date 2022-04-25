@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -60,7 +61,7 @@
                                                     <div class = "form-group row">
                                                         <label class = "col-sm-3 col-form-label">Genre</label>
                                                         <div class = "col-sm-9">
-                                                            <select class = "form-control" name = "genre" id = "genre" required>
+                                                            <select class = "nice-select" name = "genre" id = "genre" required>
                                                                 <option selected disabled>Genre</option>
                                                                 <option>Homme</option>
                                                                 <option>Femme</option>
@@ -124,7 +125,7 @@
                                                     <div class = "form-group row">
                                                         <label class = "col-sm-3 col-form-label">Type</label>
                                                         <div class = "col-sm-9">
-                                                            <select class = "form-control" name = "type" id = "type" required>
+                                                            <select class = "nice-select" name = "type" id = "type" required>
                                                                 <option selected disabled>type</option>
                                                                 <option>Utilisateur</option>
                                                                 <option>Admin</option>
@@ -163,7 +164,13 @@
         </div>
         @include ('layouts.script')
         <script src = "{{asset('js/file-upload.js')}}"></script>
+        <script src = "{{asset('js/jquery.nice-select.js')}}"></script>
         <script>
+            $(function(){ 
+                configSelect($('#genre'));
+                configSelect($('#type'));
+            });
+            
             $('#cin').on('input',function(){
                 initialiserCIN();
             });
