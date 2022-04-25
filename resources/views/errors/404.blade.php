@@ -21,8 +21,6 @@
                             <div class = "row mt-5">
                                 <div class = "col-12 text-center mt-xl-2">
                                     <a class = "text-white font-weight-medium" href = "{{url()->previous()}}">Retournez à la page précédente</a>
-                                    <br>
-                                    <a class = 'text-white font-weight-medium' href = {{$lien}}>Allez à la {{$desc}}</a>
                                 </div>
                             </div>
                             <div class = "row mt-5">
