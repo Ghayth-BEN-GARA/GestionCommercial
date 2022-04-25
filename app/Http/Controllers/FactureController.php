@@ -141,5 +141,13 @@
         public function getReglementController(){
             return new ReglementController();
         }
+
+        public function getLastDateFacture($matricule){
+            return Facture::where('matricule', '=', $matricule)->orderBy('date','desc')->first();
+        }
+
+        public function getFirstDateFacture($matricule){
+            return Facture::where('matricule', '=', $matricule)->orderBy('date','asc')->first();
+        }
     }   
 ?>
