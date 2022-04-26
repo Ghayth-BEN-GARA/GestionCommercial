@@ -78,6 +78,10 @@
             return new CategorieController();
         }
 
+        public function getStockController(){
+            return new StockController();
+        }
+
         public function storeArticleToFacture($request){
             $paye = 0;
             $somme = 0;
@@ -117,6 +121,14 @@
                                   
                 }
                 $somme = $somme + ($prix[$key] * $quantite[$key]);
+
+                if($this->getStockController()->verifyStock($reference[$key])){
+                    $this->getStockController()->creerStock($quantite[$key],$prix[$key],$reference[$key]);
+                }
+
+                else{
+                    $this->getStockController()->updateStock($quantite[$key],$prix[$key],$reference[$key]);
+                }
             }
 
             if($request->paye == null){
