@@ -18,7 +18,7 @@
                         <th>Fournisseur</th>
                         <th>Date et heure</th>
                         <th>Type</th>
-                        <th colspan = "3">Actions sur les fournisseurs</th>
+                        <th colspan = "2">Actions sur les fournisseurs</th>
                     </tr>  
                 </thead>
                 <tbody>
@@ -34,7 +34,6 @@
                                 <td>{{$row->date}} à {{$row->heure}}</td>
                                 <td>{{$row->type}}</td>
                                 <td><a href = "{{url('/facture/'.$row->referenceF)}}" class = "consult-user">Consulter</a></td>
-                                <td><a href = "{{url('/edit-facture/'.$row->referenceF)}}" class = "consult-user">Modifier</a></td>
                                 <td><a href = "#" onclick = "questionSupprimerFacture({{$row->referenceF}})" class = "consult-user">Supprimer</a></td>
                             </tr>
                         @endforeach
