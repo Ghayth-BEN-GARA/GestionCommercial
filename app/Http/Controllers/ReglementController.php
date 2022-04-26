@@ -61,12 +61,7 @@
         }
 
         public function getInformationsReglements($matricule){
-            return [
-                'nom' => $this->getFournisseurController()->getInformationsFournisseurs($matricule)->getNomAttribute(),
-                'dateAu' => $this->getFactureController()->getLastDateFacture($matricule)->getDateAttribute(),
-                'dateDu' => $this->getFactureController()->getFirstDateFacture($matricule)->getDateAttribute()
-
-            ];
+            
         }
     }
 ?>

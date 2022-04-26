@@ -15,27 +15,7 @@
                             <div class = "col-md-12 grid-margin stretch-card">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <div class = "my-5 page">
-                                            <div class = "p-5">
-                                                <section class = "top-content bb d-flex justify-content-between">
-                                                    <div class = "logo">
-                                                        <h3>{{$reglements['nom']}}</h3>
-                                                    </div>
-                                                </section>
-                                                <section class = "store-user mt-5">
-                                                    <div class = "col-12">
-                                                        <p class = "adress">Risque des clients aux : {{$reglements['dateAu']}}</p>
-                                                        <br>
-                                                        <div class = "date">
-                                                            <span class = "de">Du : </span>
-                                                            <span>{{$reglements['dateDu']}}</span>
-                                                            <span class = "de"> Au : </span>
-                                                            <span>{{$reglements['dateAu']}}</span>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div> 
                             </div>
