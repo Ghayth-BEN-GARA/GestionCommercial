@@ -25,5 +25,14 @@
                 'prix'=> $prix
             ]);
         }
+
+        public function getFactureController(){
+            return new FactureController();
+        }
+
+        public function openListStock(){
+            $informations = $this->getFactureController()->getInformationsUser();
+            return view('stock.liste_stock',compact('informations'));
+        }
     }
 ?>

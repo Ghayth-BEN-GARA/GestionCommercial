@@ -67,7 +67,7 @@
                 </a>
                 <div class = "collapse" id = "stock">
                     <ul class = "nav flex-column sub-menu">
-                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter le stock</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('list-stock')}}">Consulter le stock</a></li>
                     </ul>
                 </div>
             </li>

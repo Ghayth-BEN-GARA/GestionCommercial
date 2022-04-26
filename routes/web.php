@@ -6,6 +6,7 @@
     use App\Http\Controllers\ArticleController;
     use App\Http\Controllers\FactureController;
     use App\Http\Controllers\ReglementController;
+    use App\Http\Controllers\StockController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -61,4 +62,5 @@
     Route::get('/facture/{referenceF}', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
     Route::get('/list-reglement', [ReglementController::class, 'openListReglement'])->middleware('notsession');
     Route::get('/reglement/{matricule}', [ReglementController::class, 'openReglement'])->middleware('notsession')->name('consult-reglement');
+    Route::get('/list-stock', [StockController::class, 'openListStock'])->middleware('notsession');
 ?>
