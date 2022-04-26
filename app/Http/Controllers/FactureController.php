@@ -69,12 +69,17 @@
             return new ArticleController();
         }
 
+        public function getStockController(){
+            return new StockController();
+        }
+
         public function openListAchat(){
             $informations = $this->getInformationsUser();
             return view('achat.liste_achat',compact('informations'));
         }
 
         public function gestionDeleteFacture($referenceF){
+            $this->getStockController()->gestionDeleteStock($referenceF);
             if($this->deleteFacture($referenceF)){
                 return back()->with('success', 'Cette facture a été supprimée avec succès.');
             }

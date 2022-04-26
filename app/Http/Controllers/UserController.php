@@ -355,7 +355,7 @@
         public function gestionDeleteUtilisateur($cin){
             if($this->deleteUser($cin)){
                 File::deleteDirectory(public_path('images/uploads/'.$cin));
-                return back()->with('sucess', 'Cet utilisateur a été supprimé avec succès.');
+                return back()->with('success', 'Cet utilisateur a été supprimé avec succès.');
             }
 
             else{
