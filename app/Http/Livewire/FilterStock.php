@@ -16,6 +16,7 @@
     		    'stocks' =>Stock::join('articles', 'articles.reference', '=', 'stocks.reference')
                 ->where('articles.designation', 'like', '%'.$this->search.'%')
                 ->orWhere('stocks.reference', 'like', '%'.$this->search.'%')
+                ->orWhere('articles.categorie', 'like', '%'.$this->search.'%')
                 ->orderBy('articles.designation','asc')
                 ->paginate(10, array('stocks.*', 'articles.*'))
     	    ]);
