@@ -63,4 +63,5 @@
     Route::get('/list-reglement', [ReglementController::class, 'openListReglement'])->middleware('notsession');
     Route::get('/reglement/{matricule}', [ReglementController::class, 'openReglement'])->middleware('notsession')->name('consult-reglement');
     Route::get('/list-stock', [StockController::class, 'openListStock'])->middleware('notsession');
+    Route::get('/article-disponible', [StockController::class, 'openListArticleDisponibleStock'])->middleware('notsession');
 ?>

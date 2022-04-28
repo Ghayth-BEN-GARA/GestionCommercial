@@ -55,5 +55,10 @@
                 $this->removeQuantite($row->reference,$row->qte);
             }
         }
+
+        public function openListArticleDisponibleStock(){
+            $informations = $this->getFactureController()->getInformationsUser();
+            return view('stock.liste_article_disponible',compact('informations'));
+        }
     }
 ?>

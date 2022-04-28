@@ -21,8 +21,8 @@
                 </a>
                 <div class = "collapse" id = "user">
                     <ul class = "nav flex-column sub-menu">
-                        <li class = "nav-item"><a class = "nav-link" href = "{{url('add-user')}}">Ajouter des utilisateurs</a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "{{url('list-user')}}">Consulter des utilisateurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('/add-user')}}">Ajouter des utilisateurs</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('/list-user')}}">Consulter des utilisateurs</a></li>
                     </ul>
                 </div>
             </li>
@@ -66,7 +66,8 @@
                 </a>
                 <div class = "collapse" id = "stock">
                     <ul class = "nav flex-column sub-menu">
-                        <li class = "nav-item"><a class = "nav-link" href = "{{url('list-stock')}}">Consulter le stock</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('/list-stock')}}">Consulter le stock</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('/article-disponible')}}">Disponibilité</a></li>
                     </ul>
                 </div>
             </li>
