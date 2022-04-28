@@ -2,6 +2,8 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\Models\Reglement;
+    use App\Models\Facture;
+    use App\Models\Fournisseur;
 
     class ReglementController extends Controller{
         public function creerReglement($net,$paye,$reference){
@@ -61,7 +63,19 @@
         }
 
         public function getInformationsReglements($matricule){
-            
+            return [
+                'nom' => $this->getFournisseurController()->getInformationsFournisseurs($matricule)->getNomAttribute(),
+                'lastData' => $this->getFactureController()->getLastDate($matricule)->getDateAttribute(),
+                'firstData' => $this->getFactureController()->getFirstDate($matricule)->getDateAttribute(),
+                'matricule' => $matricule,
+                'solde' => $this->getSoldeReglements($matricule)
+            ];
+        }
+
+        public function getSoldeReglements($matricule){
+            return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
+                ->where('factures.matricule', '=', $matricule)
+                ->sum('reglements.net', array('factures.*', 'reglements.*'));
         }
     }
 ?>

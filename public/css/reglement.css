@@ -1,0 +1,26 @@
+.nom-societe{
+    text-transform: uppercase;
+}
+
+.text-risque{
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 21px;
+    font-style: oblique;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.border-div{
+    border: 1px solid black;
+    width: auto;
+    height: 60px;
+}
+
+.nom-client{
+    font-weight: bold;
+    text-transform: uppercase;
+}

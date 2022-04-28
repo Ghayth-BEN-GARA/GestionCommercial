@@ -11,9 +11,6 @@
     display: block;
     margin: 0 auto;
     position: relative;
-}
-
-.page {
     width: 100%;
     height: auto;
     overflow: hidden;
