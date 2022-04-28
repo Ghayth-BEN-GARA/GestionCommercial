@@ -12,17 +12,15 @@
         public function creerStock($qte,$prix,$reference){
             $stocks = new Stock();
             $stocks->setQteStockAttribute($qte);
-            $stocks->setQteTotaleAttribute($qte);
             $stocks->setPrixAttribute($prix);
             $stocks->setReferenceAttribute($reference);
-            $stocks->save();
+            return $stocks->save();
         }
 
         public function updateStock($qte,$prix,$reference){
             $stock = Stock::where('reference', $reference)->first();
-            Stock::where('reference',$reference)->update([
+            return Stock::where('reference',$reference)->update([
                 'qteStock' => $stock->getQteStockAttribute() + $qte,
-                'qteTotale' => $stock->getQteTotaleAttribute() + $qte,
                 'prix'=> $prix
             ]);
         }
@@ -40,22 +38,13 @@
             $stock = Stock::where('reference', $reference)->first();
             if($stock->getQteStockAttribute() == 0){
                 Stock::where('reference',$reference)->update([
-                    'qteStock' => 0,
-                    'qteTotale' => $stock->getQteTotaleAttribute() - $qte
-                ]);
-            }
-
-            else if($stock->getQteTotaleAttribute() == 0){
-                Stock::where('reference',$reference)->update([
-                    'qteStock' => $stock->getQteStockAttribute() - $qte,
-                    'qteTotale' => 0
+                    'qteStock' => 0
                 ]);
             }
 
             else{
                 Stock::where('reference',$reference)->update([
-                    'qteStock' => $stock->getQteStockAttribute() - $qte,
-                    'qteTotale' => $stock->getQteTotaleAttribute() - $qte
+                    'qteStock' => $stock->getQteStockAttribute() - $qte
                 ]); 
             }
         }

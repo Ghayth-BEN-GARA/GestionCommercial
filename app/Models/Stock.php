@@ -16,7 +16,6 @@
         protected $fillable = [
             'id',
             'qteStock',
-            'qteTotale',
             'prix',
             'reference'
         ];
@@ -31,14 +30,6 @@
 
         public function setQteStockAttribute($value){
             $this->attributes['qteStock'] = $value;
-        }
-
-        public function getQteTotaleAttribute(){
-            return $this->attributes['qteTotale'];
-        }
-
-        public function setQteTotaleAttribute($value){
-            $this->attributes['qteTotale'] = $value;
         }
 
         public function getPrixAttribute(){

@@ -93,35 +93,23 @@
             $prix = $request->prix;
             
             foreach($request->designation as $key => $insert){
-                if(!$this->verifyArticle($reference[$key])){
-                    $enregistrementListeArticles = [
-                        'reference' => $reference[$key],
-                        'referenceF' => $request->referenceF,
-                        'qte' => $quantite[$key],
-                        'prixU' => $prix[$key]
-                    ];
-                    FactureArticle::insert($enregistrementListeArticles);
-                }
-
-                else{
+                if($this->verifyArticle($reference[$key])){
                     $enregistrementArticle = [
                         'designation' => $designation[$key],
                         'reference' => $reference[$key],
                         'categorie' => $categorie[$key]
                     ];
                     Article::insert([$enregistrementArticle]);
-                    
-                    $enregistrementListeArticles = [
-                        'reference' => $reference[$key],
-                        'referenceF' => $request->referenceF,
-                        'qte' => $quantite[$key],
-                        'prixU' => $prix[$key]
-                    ];
-                    FactureArticle::insert([$enregistrementListeArticles]);      
-                                  
                 }
-                $somme = $somme + ($prix[$key] * $quantite[$key]);
-
+                $enregistrementListeArticles = [
+                    'reference' => $reference[$key],
+                    'referenceF' => $request->referenceF,
+                    'qte' => $quantite[$key],
+                    'prixU' => $prix[$key]
+                ];
+                FactureArticle::insert([$enregistrementListeArticles]);  
+                
+                $somme += ($prix[$key] * $quantite[$key]);
                 if($this->getStockController()->verifyStock($reference[$key])){
                     $this->getStockController()->creerStock($quantite[$key],$prix[$key],$reference[$key]);
                 }
@@ -130,7 +118,6 @@
                     $this->getStockController()->updateStock($quantite[$key],$prix[$key],$reference[$key]);
                 }
             }
-
             if($request->paye == null){
                 $paye = $somme;
             }
@@ -138,7 +125,14 @@
             else{
                 $paye = $request->paye;
             }
-            $this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->referenceF);
+
+            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->referenceF)){
+                return true;
+            }
+
+            else{
+                return false;
+            }
         }
 
         public function verifierEtatPayement($paiement,$somme){

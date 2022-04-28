@@ -15,7 +15,6 @@
                 $table->charset = 'utf8';
                 $table->id();
                 $table->integer('qteStock');
-                $table->integer('qteTotale');
                 $table->string('prix',999);
                 $table->bigInteger('reference')->unsigned();
                 $table->foreign('reference')->references('reference')->on('articles')->onDelete('cascade')->onUpdate('cascade');

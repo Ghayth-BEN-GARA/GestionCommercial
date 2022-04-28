@@ -37,8 +37,13 @@
             }
 
             else{                
-                $this->getArticleController()->storeArticleToFacture($request);
-                return back()->with('success', 'Une nouvelle facture a été créé avec succès.');
+                if($this->getArticleController()->storeArticleToFacture($request)){
+                    return back()->with('success', 'Une nouvelle facture a été créé avec succès.');
+                }
+
+                else{
+                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
+                }
             }
         }
 

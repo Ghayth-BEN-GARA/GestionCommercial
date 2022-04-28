@@ -18,14 +18,13 @@
                         <th>Référence</th>
                         <th>Catégorie</th>
                         <th>Quantité en stock</th>
-                        <th>Quantité totale</th>
                         <th>Prix</th>
                     </tr>  
                 </thead>
                 <tbody>
                     @if($stocks->count() == null)
                         <tr>
-                            <td colspan = "6">Malheureusement, aucun stock n'a été trouvé sur votre application.</td>
+                            <td colspan = "5">Malheureusement, aucun stock n'a été trouvé sur votre application.</td>
                         </tr>
                     @else
                         @foreach($stocks as $row)
@@ -34,7 +33,6 @@
                                 <td>{{$row->reference}}</td>
                                 <td>{{$row->categorie}}</td>
                                 <td>{{$row->qteStock}}</td>
-                                <td>{{$row->qteTotale}}</td>
                                 <td>{{App\Http\Controllers\FactureController::stylingPrix($row->prix)}}</td>
                             </tr>
                         @endforeach
