@@ -4,6 +4,7 @@
         @include ('layouts.head')
         <link rel = "stylesheet" href = "{{asset('css/facture.css')}}">
         <link rel = "stylesheet" href = "{{asset('css/reglement.css')}}">
+        <link rel = "stylesheet" href = "{{asset('css/pagination.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -39,6 +40,29 @@
                                                         </div>  
                                                     </div>
                                                 </section>
+                                                <section class = "product-area mt-4">
+                                                    <table class = "table table-hover">
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>Libellé</th>
+                                                            <th>Net</th>
+                                                            <th>Montant payé</th>
+                                                            <th>Crédit</th>
+                                                        </tr>
+                                                        @foreach ($listeReglements as $value)
+                                                            <tr>
+                                                                <td>{{$value->getDateAttribute()}}</td>
+                                                                <td>FACTURE N° {{$value->getReferenceFAttribute()}} ABBOUR MHAMAD</td>
+                                                                <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
+                                                                <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
+                                                                <td>{{App\Http\Controllers\ReglementController::getCreditReglement($value->net,$value->paye)}}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    <table>
+                                                </section>
+                                                <div class = "container" id = "pg">
+                                                    {{$listeReglements->links('vendor.pagination.normal_pagination')}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

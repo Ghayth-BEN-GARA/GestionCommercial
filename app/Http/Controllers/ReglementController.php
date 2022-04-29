@@ -55,7 +55,8 @@
         public function openReglement($matricule){
             $informations = $this->getFactureController()->getInformationsUser();
             $reglements = $this->getInformationsReglements($matricule);
-            return view('reglement.reglement',compact('informations','reglements'));
+            $listeReglements = $this->getAllInformationsReglements($matricule);
+            return view('reglement.reglement',compact('informations','reglements','listeReglements'));
         }
 
         public function getFournisseurController(){
@@ -68,14 +69,49 @@
                 'lastData' => $this->getFactureController()->getLastDate($matricule)->getDateAttribute(),
                 'firstData' => $this->getFactureController()->getFirstDate($matricule)->getDateAttribute(),
                 'matricule' => $matricule,
-                'solde' => $this->getSoldeReglements($matricule)
+                'solde' => $this->getSoldeReglements($matricule),
+                'count' => $this->getCountReglement($matricule)
             ];
         }
 
         public function getSoldeReglements($matricule){
             return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
                 ->where('factures.matricule', '=', $matricule)
-                ->sum('reglements.net', array('factures.*', 'reglements.*'));
+                ->sum('reglements.net');
+        }
+
+        public function getCountReglement($matricule){
+            return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
+                ->where('factures.matricule', '=', $matricule)
+                ->count('factures.matricule');
+        }
+
+        public function openErrorPage(){
+            return view('errors.500');
+        }
+
+        public function getAllInformationsReglements($matricule){
+            return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
+                ->where('factures.matricule', '=', $matricule)
+                ->paginate(10,array('factures.*','reglements.*'));
+        }
+
+        public static function getCreditReglement($net,$paye){
+            $credit = $net - $paye;
+            $ch = '';
+
+            if($credit < 0){
+                $ch = "Le fournisseur doit payer ".$this->getFactureController()->stylingPrix($paye - $net);
+            }
+
+            else if($credit > 0){
+                $ch = "Vous devez payer ".$this->getFactureController()->stylingPrix($net - $paye);
+            }
+
+            else{
+                $ch = "Pas de crédit.";
+            }
+            return $ch;
         }
     }
 ?>
