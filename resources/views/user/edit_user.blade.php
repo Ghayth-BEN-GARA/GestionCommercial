@@ -146,7 +146,7 @@
                                                             <div class = "form-group row">
                                                                 <label class = "col-sm-3 col-form-label">Type</label>
                                                                 <div class = "col-sm-9">
-                                                                    <select class = "nice-select" name = "type" id = "type" required disabled>
+                                                                    <select class = "nice-select" name = "type" id = "type" disabled required>
                                                                         <option selected disabled>type</option>
                                                                         <option value = "Utilisateur">Utilisateur</option>
                                                                         <option value = "Admin">Admin</option>

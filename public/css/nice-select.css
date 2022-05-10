@@ -78,8 +78,9 @@
 }
 
 .nice-select.disabled {
-    border-color: #ededed;
-    color: #999;
+    border-color: #cccccc;
+    color: black;
+    background-color: #E9ECEF;
     pointer-events: none;
 }
 
