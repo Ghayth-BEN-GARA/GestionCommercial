@@ -97,21 +97,19 @@
         }
 
         public static function getCreditReglement($net,$paye){
-            $credit = $net - $paye;
-            $ch = '';
+            $fact = new FactureController;
 
-            if($credit < 0){
-                $ch = "Le fournisseur doit payer ".$this->getFactureController()->stylingPrix($paye - $net);
+            if($paye < $net){
+                return ('Vous devez payé '.$fact->stylingPrix($net - $paye));
             }
 
-            else if($credit > 0){
-                $ch = "Vous devez payer ".$this->getFactureController()->stylingPrix($net - $paye);
+            else if($paye > $net){
+                return ('Le fourniseur doit payé '.$fact->stylingPrix($paye - $net));
             }
 
             else{
-                $ch = "Pas de crédit.";
+                return ('Pas de crédit.');
             }
-            return $ch;
         }
     }
 ?>
