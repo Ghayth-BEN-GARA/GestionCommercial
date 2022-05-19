@@ -481,3 +481,42 @@ function configSelect(input) {
 function updateSelect(input){
     input.niceSelect('update');
 }
+
+function validerChampsMobile(input,erreur){
+    if(input.length != 8){
+        erreur.html('Votre numéro de téléphone mobile doit être composé de 8 chiffres..');
+        erreur.show();
+        event.preventDefault();
+    }
+
+    else{
+        $('#btn_submit').prop('disabled', true);
+        $("#f").submit();
+    }
+}
+
+function initialiserMobile(erreur){
+    erreur.html('');
+}
+
+function viderUpdateCompte(){
+    viderChamps($('#nom'));
+    viderChamps($('#prenom'));
+    $('#genre').val('Genre'); 
+    updateSelect($('#genre'));
+    viderChamps($('#naissance'));
+    viderChamps($('#mobile'));
+    viderChamps($('#adresse'));
+}
+
+function viderChamps(input){
+    input.val('');
+}
+
+function viderUpdateFournisseur(){
+    viderChamps($('#nom'));
+    viderChamps($('#email'));
+    viderChamps($('#adresse'));
+    viderChamps($('#mobile1'));
+    viderChamps($('#mobile2'));
+}

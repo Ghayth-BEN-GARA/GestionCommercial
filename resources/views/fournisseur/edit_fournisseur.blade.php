@@ -80,6 +80,7 @@
                                                         <div class = "col-sm-8">
                                                             <input type = "number" class = "form-control" name = "mobile1" id = "mobile1" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez le numéro mobile.." value = "{{$fournisseurs->getTel1NotFormattedAttribute()}}"  required/>
                                                         </div>
+                                                        <span class = "error" id = "mobile1_error"></span>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
@@ -92,7 +93,7 @@
                                                 </div>
                                             </div>
                                             <button type = "submit" class = "btn btn-primary mr-2" id = "btn_submit">Modifier un fournisseur</button>
-                                            <button type = "reset" class = "btn btn-light">Annuler</button>
+                                            <button type = "button" class = "btn btn-light" onclick = "viderUpdateFournisseur()">Annuler</button>
                                         </form>
                                     </div>
                                 </div> 
@@ -105,9 +106,12 @@
         </div>
         @include ('layouts.script')
         <script>
+            $('#mobile1').on('input',function(){
+                initialiserMobile($('#mobile1_error'));
+            }); 
+            
             $('#f').submit(function() {
-				$('#btn_submit').prop('disabled', true);
-                $("#f").submit();
+                validerChampsMobile($('#mobile1').val(),$('#mobile1_error'));
          	});
         </script>
     </body>

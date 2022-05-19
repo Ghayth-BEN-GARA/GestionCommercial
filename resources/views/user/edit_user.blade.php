@@ -95,7 +95,7 @@
                                                                 <label class = "col-sm-3 col-form-label">Genre</label>
                                                                 <div class = "col-sm-9">
                                                                     <select class = "nice-select" name = "genre" id = "genre" required value = "{{$informations['genre']}}">
-                                                                        <option selected disabled>Genre</option>
+                                                                        <option selected disabled value = "Genre">Genre</option>
                                                                         <option value = "Homme">Homme</option>
                                                                         <option value = "Femme">Femme</option>
                                                                     </select>
@@ -119,6 +119,7 @@
                                                                 <div class = "col-sm-9">
                                                                     <input type = "number" class = "form-control" name = "mobile" id = "mobile" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez le numéro mobile.." value = "{{$informations['telF']}}" required/>
                                                                 </div>
+                                                                <span class = "error" id = "mobile_error"></span>
                                                             </div>
                                                         </div>
                                                         <div class = "col-md-6">
@@ -136,7 +137,7 @@
                                                                 <label class = "col-sm-3 col-form-label">CIN</label>
                                                                 <div class = "col-sm-9">
                                                                     <div class = "input-group">
-                                                                    <input type = "number" class = "form-control" name = "cin" id = "cin" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez le CIN.." value = "{{$informations['cin']}}" readonly required/>
+                                                                        <input type = "number" class = "form-control" name = "cin" id = "cin" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez le CIN.." value = "{{$informations['cin']}}" readonly required/>
                                                                     </div>
                                                                     <span class = "error" id = "cin_error"></span>
                                                                 </div>
@@ -157,7 +158,7 @@
                                                         </div>
                                                     </div>
                                                     <button type = "submit" class = "btn btn-primary mr-2" id = "btn_submit">Modifier le profil</button>
-                                                    <button type = "reset" class = "btn btn-light">Annuler</button>
+                                                    <button type = "button" class = "btn btn-light" onclick = "viderUpdateCompte()">Annuler</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -181,9 +182,12 @@
                 updateSelect($('#genre'));
             });
 
+            $('#mobile').on('input',function(){
+                initialiserMobile($('#mobile_error'));
+            });    
+
             $('#f').submit(function() {
-				$('#btn_submit').prop('disabled', true);
-                $("#f").submit();
+                validerChampsMobile($('#mobile').val(),$('#mobile_error'));
          	});
         </script>
     </body>
