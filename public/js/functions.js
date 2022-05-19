@@ -161,7 +161,7 @@ function verifierMatriculeFournisseur(){
     
                 else{
                     $('#matricule_error').val('');
-                    $('#btn-submit').prop('disabled', false);
+                    $('#btn_submit').prop('disabled', false);
                 }
             }
         })
@@ -435,17 +435,18 @@ function validerFormulaireAddUser(){
     }
 }
 
-function validerFormulaireAddCategorie(){
+function validerFormulaireAddArticle(){
     var categorie = document.getElementById('categorie').selectedIndex;
 
     if(categorie == 0){
         afficherErreur("Aucune catégorie d'article spécifié..");
         event.preventDefault();
-     }
+    }
  
-     else{
-         $("#f3").submit();
-     }
+    else{
+        $('#btn_submit2').prop('disabled', true);
+        $("#f2").submit();
+    }
 }
 
 function questionSupprimerFacture(referenceF){

@@ -97,7 +97,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type = "submit" class = "btn btn-primary mr-2" disabled id = "btn-submit">Créer un fournisseur</button>
+                                            <button type = "submit" class = "btn btn-primary mr-2" id = "btn_submit" disabled>Créer un fournisseur</button>
                                             <button type = "reset" class = "btn btn-light">Annuler</button>
                                         </form>
                                     </div>
@@ -114,6 +114,11 @@
             $('#matricule').on('input',function(){
                 initialiserMatricule();
             });
+
+            $('#f').submit(function() {
+				$('#btn_submit').prop('disabled', true);
+                $("#f").submit();
+         	});
         </script>
     </body>
 </html>

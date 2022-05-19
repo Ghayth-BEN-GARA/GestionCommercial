@@ -91,7 +91,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type = "submit" class = "btn btn-primary mr-2" id = "btn-submit">Modifier un fournisseur</button>
+                                            <button type = "submit" class = "btn btn-primary mr-2" id = "btn_submit">Modifier un fournisseur</button>
                                             <button type = "reset" class = "btn btn-light">Annuler</button>
                                         </form>
                                     </div>
@@ -104,5 +104,11 @@
             </div>
         </div>
         @include ('layouts.script')
+        <script>
+            $('#f').submit(function() {
+				$('#btn_submit').prop('disabled', true);
+                $("#f").submit();
+         	});
+        </script>
     </body>
 </html>

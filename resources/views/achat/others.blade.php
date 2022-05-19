@@ -36,15 +36,15 @@
                                             </div>
                                         @endif
                                         <p class = "card-description">Créer une catégorie</p>
-                                        <form class = "form-inline" name = "f" id = "f" method = "post" action = "{{url('/add-categorie')}}">
+                                        <form class = "form-inline" name = "f1" id = "f1" method = "post" action = "{{url('/add-categorie')}}">
                                             @csrf
                                             <label class = "sr-only" for = "inlineFormInputName2">Catégorie</label>
                                             <input type = "text" class = "form-control mb-2 mr-sm-2" id = "nom" name = "nom" placeholder = "Saisissez la catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
-                                            <button type = "submit" class = "btn btn-primary mb-2">Créer une catégorie</button>
+                                            <button type = "submit" class = "btn btn-primary mb-2" id = "btn_submit1">Créer une catégorie</button>
                                         </form>
                                         <br>
                                         <p class = "card-description">Créer un article</p>
-                                        <form class = "form-inline" name = "f3" id = "f3" method = "get" action = "{{url('/add-article')}}">
+                                        <form class = "form-inline" name = "f2" id = "f2" method = "get" action = "{{url('/add-article')}}">
                                             <label class = "sr-only" for = "inlineFormInputName2">Référence</label>    
                                             <input type = "number" class = "form-control mb-2 mr-sm-2" id = "reference" name = "reference" placeholder = "Saisissez la référence.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
                                             <label class = "sr-only" for = "inlineFormInputName2">Désignation</label> 
@@ -60,7 +60,7 @@
                                                     @endforeach
                                                 @endif
                                             </select>
-                                            <button type = "submit" class = "btn btn-primary mb-2">Créer un article</button>
+                                            <button type = "submit" class = "btn btn-primary mb-2" id = "btn_submit2">Créer un article</button>
                                         </form>
                                     </div>
                                 </div> 
@@ -78,8 +78,13 @@
                 configSelect($('#categorie'));
             });
 
-            $('#f3').submit(function() {
-				validerFormulaireAddCategorie();
+            $('#f1').submit(function() {
+				$('#btn_submit1').prop('disabled', true);
+                $("#f1").submit();
+         	});
+
+            $('#f2').submit(function() {
+				validerFormulaireAddArticle();
          	});
         </script>
     </body>
