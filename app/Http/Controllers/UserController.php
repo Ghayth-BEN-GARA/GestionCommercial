@@ -232,8 +232,9 @@
         }
 
         public function deleteImage(){
-            File::deleteDirectory(public_path('images/uploads/'.$this->getUsernameSessionActive()));
-            if(Image::where('cin',$this->getUsernameSessionActive())->delete()){
+            File::copy('images/faces/user.png', 'images/uploads/'.$this->getUsernameSessionActive().'/user.png');
+                        
+            if(Image::where('cin',$this->getUsernameSessionActive())->update(['photo' => 'user.png'])){
                 return back()->with('success', 'Votre photo de profil a été supprimée avec succès.');
             }
 

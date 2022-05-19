@@ -16,11 +16,12 @@
         public function render(){
             return view('livewire.filter-utilisateur', [
     		    'users' =>Compte::join('personnes', 'personnes.cin', '=', 'comptes.cin')
+                ->join('images','images.cin','=','comptes.cin')
                 ->where('comptes.cin', '<>', $this->getUsernameSessionActive())
-                ->where('comptes.type', '=', 'Utilisateur')
+                ->where('comptes.type', 'LIKE', 'Utilisateur')
                 ->where('personnes.prenom', 'like', '%'.$this->search.'%')
                 ->orderBy('personnes.prenom', 'asc')
-                ->paginate(10, array('comptes.*', 'personnes.*'))
+                ->paginate(10, array('comptes.*', 'personnes.*','images.*'))
     	    ]);
         }
 

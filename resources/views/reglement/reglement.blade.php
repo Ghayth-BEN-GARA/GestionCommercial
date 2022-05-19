@@ -14,7 +14,7 @@
                 <div class = "main-panel">
                     <div class = "content-wrapper">
                         <div class = "row">
-                            <div class = "col-md-12 grid-margin stretch-card" id = "print-fact">
+                            <div class = "col-md-12 grid-margin stretch-card">
                                 <div class = "card">
                                     <div class = "card-body">
                                         <div class = "my-5 page">
@@ -42,23 +42,27 @@
                                                 </section>
                                                 <section class = "product-area mt-4">
                                                     <table class = "table table-hover">
-                                                        <tr>
-                                                            <th>Date</th>
-                                                            <th>Libellé</th>
-                                                            <th>Net</th>
-                                                            <th>Montant payé</th>
-                                                            <th>Crédit</th>
-                                                        </tr>
-                                                        @foreach ($listeReglements as $value)
+                                                        <thead>
                                                             <tr>
-                                                                <td>{{$value->getDateAttribute()}}</td>
-                                                                <td>FACTURE N° {{$value->getReferenceFAttribute()}} ABBOUR MHAMAD</td>
-                                                                <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
-                                                                <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
-                                                                <td>{{App\Http\Controllers\ReglementController::getCreditReglement($value->net,$value->paye)}}</td>
+                                                                <th>Date</th>
+                                                                <th>Libellé</th>
+                                                                <th>Net</th>
+                                                                <th>Montant payé</th>
+                                                                <th>Crédit</th>
                                                             </tr>
-                                                        @endforeach
-                                                    <table>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($listeReglements as $value)
+                                                                <tr>
+                                                                    <td>{{$value->getDateAttribute()}}</td>
+                                                                    <td>FACTURE N° {{$value->getReferenceFAttribute()}} ABBOUR MHAMAD</td>
+                                                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
+                                                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
+                                                                    <td>{{App\Http\Controllers\ReglementController::getCreditReglement($value->net,$value->paye)}}</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
                                                 </section>
                                                 <div class = "container" id = "pg">
                                                     {{$listeReglements->links('vendor.pagination.normal_pagination')}}

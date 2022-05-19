@@ -14,6 +14,7 @@
             <table class = "table table-striped table-borderless">
                 <thead>
                     <tr>
+                        <th>Utilisateur</th>
                         <th>Nom et prénom</th>
                         <th>CIN</th>
                         <th>Mobile</th>
@@ -23,11 +24,12 @@
                 <tbody>
                     @if($users->count() == null)
                     <tr>
-                        <td colspan = "5">Malheureusement, aucun utilisateur n'a été trouvé sur votre application.</td>
+                        <td colspan = "6">Malheureusement, aucun utilisateur n'a été trouvé sur votre application.</td>
                     </tr>
                     @else
                         @foreach($users as $row)
                             <tr>
+                                <td><img src = "images/uploads/{{$row->cin}}/{{$row->photo}}" alt = "image"></td>
                                 <td>{{$row->prenom}} {{$row->nom}}</td>
                                 <td>{{$row->getCinAttribute()}}</td>
                                 <td>{{App\Http\Controllers\UserController::formatterMobile($row->tel)}}</td>
