@@ -28,11 +28,12 @@
     margin: 0 7px 0 0px;
     color: #fff;
 }
+
 .osahan-account-page-left .nav-link {
     cursor: pointer;
 }
 
-.osahan-account-page-left .nav-link:hover {
+.osahan-account-page-left .nav-link:hover{
     color: #F7941E;
 }
 
@@ -142,3 +143,4 @@ a,a:hover{
 .media-body a p{
     margin-left: 20px;
 }
+

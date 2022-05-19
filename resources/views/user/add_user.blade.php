@@ -150,7 +150,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type = "submit" class = "btn btn-primary mr-2" disabled id = "btn-submit">Créer un compte</button>
+                                            <button type = "submit" class = "btn btn-primary mr-2" id = "btn_submit" disabled>Créer un compte</button>
                                             <button type = "reset" class = "btn btn-light">Annuler</button>
                                         </form>
                                     </div>

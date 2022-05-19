@@ -42,7 +42,7 @@
                                         <div class = "control__indicator"></div>
                                     </label>
                                 </div>
-                                <input type = "submit" value = "Se connecter" class = "btn btn-block btn-primary">
+                                <input type = "submit" value = "Se connecter" class = "btn btn-block btn-primary" id = "btn_submit">
                             </form>
                         </div>
                     </div>
@@ -50,5 +50,11 @@
             </div>
         </div>
         @include ('layouts.script_login')
+        <script>
+            $('#f').submit(function() {
+				$('#btn_submit').prop('disabled', true);
+                $("#f").submit();
+         	});
+        </script>
     </body>  
 </html>

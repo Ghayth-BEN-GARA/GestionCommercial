@@ -56,12 +56,12 @@ function verifierCompte(){
     
                 else if(data.trim() == false){
                     $('#cin_error').html('Un autre compte est déjà créé avec ce CIN..');
-                    $('#btn-submit').prop('disabled', true);
+                    $('#btn_submit').prop('disabled', true);
                 }   
     
                 else{
                     $('#cin_error').val('');
-                    $('#btn-submit').prop('disabled', false);
+                    $('#btn_submit').prop('disabled', false);
                 }
             }
         })
@@ -427,11 +427,12 @@ function validerFormulaireAddUser(){
     if((genreUser == 0) || (typeUser == 0)){
         afficherErreur("Aucun genre et / ou type d'utilisateur spécifié(s)..");
         event.preventDefault();
-     }
- 
-     else{
-         $("#f").submit();
-     }
+    }
+
+    else{
+        $('#btn_submit').prop('disabled', true);
+        $("#f").submit();
+    }
 }
 
 function validerFormulaireAddCategorie(){

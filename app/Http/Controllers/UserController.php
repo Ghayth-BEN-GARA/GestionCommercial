@@ -291,7 +291,7 @@
 
             else{
                 $compte = Compte::where('cin',$this->getUsernameSessionActive())->update([
-                    'password'=>$request->md5($request->new)
+                    'password'=> md5($request->new)
                 ]);
 
                 if($compte){

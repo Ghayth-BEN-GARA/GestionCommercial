@@ -32,14 +32,14 @@
                                                 <a href = "{{url('/edit-user')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-account-edit"></i> Modifier compte</a>
                                             </li>
                                             <li class = "nav-item">
-                                                <a href = "{{url('/edit-image-profil')}}" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-file-image"></i> Modifier l'image</a>
+                                                <a href = "{{url('/edit-image-profil')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-file-image"></i> Modifier l'image</a>
                                             </li>
                                             <li class = "nav-item">
-                                                <a href = "{{url('/edit-password-profil')}}" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-lock"></i> Modifier Password</a>
+                                                <a href = "{{url('/edit-password-profil')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-lock"></i> Modifier Password</a>
                                             </li>
                                             @if (session('type') == 'Admin')
                                                 <li class = "nav-item">
-                                                <a href = "javascript:void(0)" class = "nav-link active" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true" onclick = "questionDeleteCompte()"><i class = "mdi mdi-account-remove"></i> Supprimer le compte</a>
+                                                    <a href = "javascript:void(0)" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true" onclick = "questionDeleteCompte()"><i class = "mdi mdi-account-remove"></i> Supprimer le compte</a>
                                                 </li>
                                             @endif
                                         </ul>
@@ -82,7 +82,7 @@
                                                             <input type = "password" class = "form-control" id = "new" name = "new" placeholder = "Saisissez votre nouveau mot de passe.." required>
                                                         </div>
                                                     </div>
-                                                    <button type = "submit" class = "btn btn-primary mr-2" id = "btn-submit">Modifier le mot de passe</button>
+                                                    <button type = "submit" class = "btn btn-primary mr-2" id = "btn_submit">Modifier le mot de passe</button>
                                                     <button type = "reset" class = "btn btn-light">Annuler</button>
                                                 </form>
                                             </div>
@@ -97,5 +97,11 @@
             </div>
         </div>
         @include ('layouts.script')
+        <script>
+            $('#f').submit(function() {
+				$('#btn_submit').prop('disabled', true);
+                $("#f").submit();
+         	});
+        </script>
     </body>
 </html>
