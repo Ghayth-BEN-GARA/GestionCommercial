@@ -56,7 +56,8 @@
             $informations = $this->getFactureController()->getInformationsUser();
             $reglements = $this->getInformationsReglements($matricule);
             $listeReglements = $this->getAllInformationsReglements($matricule);
-            return view('reglement.reglement',compact('informations','reglements','listeReglements'));
+            $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($matricule);
+            return view('reglement.reglement',compact('informations','reglements','listeReglements','fournisseur'));
         }
 
         public function getFournisseurController(){

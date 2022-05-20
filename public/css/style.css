@@ -28305,6 +28305,7 @@ div.tagsinput span.tag a {
 .auth.lock-full-bg {
   background: url("../../images/auth/lockscreen-bg.jpg");
   background-size: cover;
+  
 }
 
 .auth .lock-profile-img {
