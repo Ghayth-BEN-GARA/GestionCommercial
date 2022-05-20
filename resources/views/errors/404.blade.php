@@ -21,6 +21,12 @@
                             <div class = "row mt-5">
                                 <div class = "col-12 text-center mt-xl-2">
                                     <a class = "text-white font-weight-medium" href = "{{url()->previous()}}">Retournez à la page précédente</a>
+                                    <br>
+                                    @if (session()->has('username'))
+                                        <a class = "text-white font-weight-medium" href = "{{url('/home')}}">Retournez à la page d'accueil</a>
+                                    @else
+                                        <a class = "text-white font-weight-medium" href = "{{url('/')}}">Retournez à la page d'authentification</a>
+                                    @endif
                                 </div>
                             </div>
                             <div class = "row mt-5">
