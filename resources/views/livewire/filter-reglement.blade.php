@@ -11,7 +11,7 @@
     </div>
     <div class = "container" id = "pg">
         <div class = "table-responsive">
-            <table class = "table table-striped table-borderless">
+            <table class = "table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Nom</th>

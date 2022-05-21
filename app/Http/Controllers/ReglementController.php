@@ -94,6 +94,7 @@
         public function getAllInformationsReglements($matricule){
             return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
                 ->where('factures.matricule', '=', $matricule)
+                ->orderBy('date','desc')
                 ->paginate(10,array('factures.*','reglements.*'));
         }
 
