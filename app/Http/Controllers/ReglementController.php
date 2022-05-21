@@ -136,5 +136,23 @@
                 'paye' => $paye
             ]);
         }
+
+        public function openFactureReglement($matricule){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($matricule);
+            $informationsReglemens = $this->getInformationsReglements($matricule);
+            $informationsFactures = $this->getReglementsParFacture($matricule);
+
+            return view('reglement.facture_reglement',compact('informations','fournisseur','informationsReglemens','informationsFactures'));
+        }
+
+        public function getReglementsParFacture($matricule){
+            return Facture::join('fournisseurs', 'fournisseurs.matricule', '=', 'factures.matricule')
+            ->join('facturesarticles','factures.referenceF','=','facturesarticles.referenceF')
+            ->join('articles','facturesarticles.reference','=','articles.reference')
+            ->where('factures.matricule', '=', $matricule)
+            ->orderBy('facturesarticles.referenceF')
+            ->get(['factures.*', 'facturesarticles.*','fournisseurs.*','articles.*']);
+        }
     }
 ?>
