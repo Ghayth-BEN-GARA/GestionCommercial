@@ -124,7 +124,7 @@
                                                                     @foreach ($listeReglements as $value)
                                                                         <tr>
                                                                             <td>{{$value->getDateAttribute()}}</td>
-                                                                            <td>FACTURE N° {{$value->getReferenceFAttribute()}} ABBOUR MHAMAD</td>
+                                                                            <td>FACTURE N° {{$value->getReferenceFAttribute()}}</td>
                                                                             <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
                                                                             <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
                                                                             <td>{{App\Http\Controllers\ReglementController::getCreditReglement($value->net,$value->paye)}}</td>

@@ -115,7 +115,25 @@
 
         public function openEditReglement($matricule){
             $informations = $this->getFactureController()->getInformationsUser();
-            return view('reglement.edit_reglement',compact('informations'));
+            $listeReglements = $this->getAllInformationsReglements($matricule);
+            
+            return view('reglement.edit_reglement',compact('informations','listeReglements'));
+        }
+
+        public function gestionEditReglement(Request $request){
+            if($this->editReglement($request->ref,$request->paye)){
+                return back()->with('success', 'Le réglement a été modifié avec succès.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier ce réglement.');
+            }
+        }
+
+        public function editReglement($referenceF,$paye){
+            return Reglement::where('referenceF',$referenceF)->update([
+                'paye' => $paye
+            ]);
         }
     }
 ?>

@@ -40,7 +40,7 @@
             @else
             <li class = "nav-item nav-profile dropdown">
                     <a class = "nav-link dropdown-toggle" href = "javascript:void(0)" data-toggle = "dropdown" id = "profil">
-                        @if (Illuminate\Support\Facades\Route::is('user-search') || (Illuminate\Support\Facades\Route::is('fournisseur-edit')) || (Illuminate\Support\Facades\Route::is('fournisseur')) || (Illuminate\Support\Facades\Route::is('consult-achat')) || (Illuminate\Support\Facades\Route::is('consult-reglement')))
+                        @if (Illuminate\Support\Facades\Route::is('user-search') || (Illuminate\Support\Facades\Route::is('fournisseur-edit')) || (Illuminate\Support\Facades\Route::is('fournisseur')) || (Illuminate\Support\Facades\Route::is('consult-achat')) || (Illuminate\Support\Facades\Route::is('consult-reglement')) || (Illuminate\Support\Facades\Route::is('reglement-edit')))
                             <img src = "../{{$informations['image']}}" alt = "profil"/>
                         @else
                             <img src = "{{$informations['image']}}" alt = "profil"/>
