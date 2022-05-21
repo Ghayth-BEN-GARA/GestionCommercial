@@ -520,3 +520,7 @@ function viderUpdateFournisseur(){
     viderChamps($('#mobile1'));
     viderChamps($('#mobile2'));
 }
+
+function ouvrirRootEditReglement(matricule){
+    ouvrirRoot('/edit-reglement/'+ matricule);
+}

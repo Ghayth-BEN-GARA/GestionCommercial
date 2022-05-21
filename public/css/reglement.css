@@ -117,3 +117,9 @@ button{
 .light-yellow-bg-color {
     background: #FCF6DD;
 }
+
+.info-href:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: #BAC2C4;
+}

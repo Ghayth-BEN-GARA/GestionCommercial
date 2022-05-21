@@ -57,7 +57,7 @@
             $reglements = $this->getInformationsReglements($matricule);
             $listeReglements = $this->getAllInformationsReglements($matricule);
             $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($matricule);
-            return view('reglement.reglement',compact('informations','reglements','listeReglements','fournisseur'));
+            return view('reglement.reglement',compact('informations','reglements','listeReglements','fournisseur','matricule'));
         }
 
         public function getFournisseurController(){
@@ -111,6 +111,11 @@
             else{
                 return ('Pas de crédit.');
             }
+        }
+
+        public function openEditReglement($matricule){
+            $informations = $this->getFactureController()->getInformationsUser();
+            return view('reglement.edit_reglement',compact('informations'));
         }
     }
 ?>

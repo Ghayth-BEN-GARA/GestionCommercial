@@ -38,8 +38,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class = "d-flex flex-row mt-4">
-                                                                    <button class = "flex-grow-1 me-1 py-2 text-uppercase font-12 weight-700 purple-color-2 grey-bg-color">Fermer</button>
-                                                                    <button class = "flex-grow-1 ms-1 py-2 text-uppercase font-12 weight-700 white-color-2 orange-bg-color margin-left-1">Modifier</button>
+                                                                    <button type = "button" class = "flex-grow-1 me-1 py-2 text-uppercase font-12 weight-700 purple-color-2 grey-bg-color">Fermer</button>
+                                                                    <button type = "button" class = "flex-grow-1 ms-1 py-2 text-uppercase font-12 weight-700 white-color-2 orange-bg-color margin-left-1" onclick = "ouvrirRootEditReglement('{{$matricule}}')">Modifier</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -49,7 +49,7 @@
                                                                     <table class = "table table-borderless">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th class = "text-uppercase font-10 weight-600 grey-color-2">Informations du fournisseur</th>
+                                                                                <th class = "text-uppercase font-10 weight-600"><a href = "{{url('/fournisseur/'.$reglements['matricule'])}}" class = "grey-color-2 info-href">Informations du fournisseur</a></th>
                                                                                 <th class = "text-end text-uppercase font-10 weight-600 purple-color-2">Voir les factures</th>  
                                                                             </tr>
                                                                         </thead>
@@ -60,7 +60,7 @@
                                                                                         <div class = "d-flex flex-row justify-content-center align-items-center square round-corner-small font-20 light-orange-bg-color orange-color">
                                                                                             <i class = "mdi mdi-account-circle"></i>
                                                                                         </div>
-                                                                                        <div class = "d-flex flex-column ps-2">
+                                                                                        <div class = "d-flex flex-column ps-2 align-items-center">
                                                                                             <span class = "font-14 weight-700 purple-color-2">Nom</span>
                                                                                             <span class = "font-10 weight-400 purple-color-2 mt-1">{{$reglements['nom']}}</span>
                                                                                         </div>
@@ -71,7 +71,7 @@
                                                                                         <div class = "d-flex flex-row justify-content-center align-items-center square round-corner-small font-20 light-orange-bg-color orange-color">
                                                                                             <i class = "mdi mdi-matrix"></i>
                                                                                         </div>
-                                                                                        <div class = "d-flex flex-column ps-2 align-items-end">
+                                                                                        <div class = "d-flex flex-column ps-2 align-items-center">
                                                                                             <span class = "font-14 weight-700 purple-color-2">Matricule</span>
                                                                                             <span class = "font-10 weight-400 purple-color-2 mt-1">{{$reglements['matricule']}}</span>
                                                                                         </div>
@@ -84,7 +84,7 @@
                                                                                         <div class = "d-flex flex-row justify-content-center align-items-center square round-corner-small font-20 light-orange-bg-color orange-color">
                                                                                             <i class = "mdi mdi-cellphone"></i>
                                                                                         </div>
-                                                                                        <div class = "d-flex flex-column ps-2">
+                                                                                        <div class = "d-flex flex-column ps-2 align-items-center">
                                                                                             <span class = "font-14 weight-700 purple-color-2">Mobile</span>
                                                                                             <span class = "font-10 weight-400 purple-color-2 mt-1">{{$fournisseur['tel1']}}</span>
                                                                                         </div>
@@ -95,7 +95,7 @@
                                                                                         <div class = "d-flex flex-row justify-content-center align-items-center square round-corner-small font-20 light-orange-bg-color orange-color">
                                                                                             <i class = "mdi mdi-cellphone"></i>
                                                                                         </div>
-                                                                                        <div class = "d-flex flex-column ps-2 align-items-end">
+                                                                                        <div class = "d-flex flex-column ps-2 align-items-center">
                                                                                             <span class = "font-14 weight-700 purple-color-2">Mobile</span>
                                                                                             <span class = "font-10 weight-400 purple-color-2 mt-1">{{$fournisseur['tel2']}}</span>
                                                                                         </div>
