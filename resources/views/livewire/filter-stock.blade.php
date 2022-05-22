@@ -11,7 +11,7 @@
     </div>
     <div class = "container" id = "pg">
         <div class = "table-responsive">
-            <table class = "table table-striped table-borderless">
+            <table class = "table table-borderless table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Désignation</th>
@@ -24,7 +24,7 @@
                 <tbody>
                     @if($stocks->count() == null)
                         <tr>
-                            <td colspan = "5">Malheureusement, aucun stock n'a été trouvé sur votre application.</td>
+                            <td colspan = "5">Malheureusement, aucun stock n'est sauvegardé dans votre application..</td>
                         </tr>
                     @else
                         @foreach($stocks as $row)

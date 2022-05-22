@@ -11,7 +11,7 @@
     </div>
     <div class = "container" id = "pg">
         <div class = "table-responsive">
-            <table class = "table table-striped table-borderless">
+            <table class = "table table-borderless table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Référence</th>
@@ -24,7 +24,7 @@
                 <tbody>
                     @if($factures->count() == null)
                         <tr>
-                            <td colspan = "5">Malheureusement, aucune facture n'a été trouvé sur votre application.</td>
+                            <td colspan = "5">Malheureusement, aucune facture n'est trouvée dans votre application..</td>
                         </tr>
                     @else
                         @foreach($factures as $row)

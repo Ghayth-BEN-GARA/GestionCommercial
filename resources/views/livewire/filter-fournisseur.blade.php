@@ -11,7 +11,7 @@
     </div>
     <div class = "container" id = "pg">
         <div class = "table-responsive">
-            <table class = "table table-striped table-borderless">
+            <table class = "table table-borderless table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Nom</th>
@@ -23,7 +23,7 @@
                 <tbody>
                     @if($fournisseur->count() == null)
                         <tr>
-                            <td colspan = "5">Malheureusement, aucun fournisseur n'a été trouvé sur votre application.</td>
+                            <td colspan = "5">Malheureusement, aucun fournisseur n'est enregistré avec ces informations dans votre application..</td>
                         </tr>
                     @else
                         @foreach($fournisseur as $row)

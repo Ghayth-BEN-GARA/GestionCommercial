@@ -11,7 +11,7 @@
     </div>
     <div class = "container" id = "pg">
         <div class = "table-responsive">
-            <table class = "table table-striped table-hover">
+            <table class = "table table-borderless table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Nom</th>
@@ -23,7 +23,7 @@
                 <tbody>
                     @if($reglements->count() == null)
                         <tr>
-                            <td colspan = "4">Malheureusement, aucune réglement n'a été trouvé sur votre application.</td>
+                            <td colspan = "4">Malheureusement, aucun réglement n'est enregistré dans votre application..</td>
                         </tr>
                     @else
                         @foreach($reglements as $row)

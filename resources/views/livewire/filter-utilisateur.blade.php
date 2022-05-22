@@ -11,7 +11,7 @@
     </div>
     <div class = "container" id = "pg">
         <div class = "table-responsive">
-            <table class = "table table-striped table-borderless">
+            <table class = "table table-borderless table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Utilisateur</th>
@@ -24,7 +24,7 @@
                 <tbody>
                     @if($users->count() == null)
                     <tr>
-                        <td colspan = "6">Malheureusement, aucun utilisateur n'a été trouvé sur votre application.</td>
+                        <td colspan = "6">Malheureusement, aucun utilisateur n'est enregistré avec ces informations dans votre application..</td>
                     </tr>
                     @else
                         @foreach($users as $row)
