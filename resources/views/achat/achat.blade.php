@@ -64,54 +64,58 @@
                                                     </div>
                                                 </section>
                                                 <section class = "product-area mt-4">
-                                                    <table class = "table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Désignation</th>
-                                                                <th>Quantité</th>
-                                                                <th>Prix Unitaire</th>
-                                                                <th>Remise</th>
-                                                                <th>Prix Total</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <?php
-                                                                $somme = 0;
-                                                            ?>
-                                                            @foreach($article as $value)
+                                                    <div class = "table-responsive">
+                                                        <table class = "table table-borderless table-striped table-hover">
+                                                            <thead>
                                                                 <tr>
-                                                                    <td>{{$value->designation}}</td>
-                                                                    <td>{{$value->qte}}</td>
-                                                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($value->prixU)}}</td>   
-                                                                    <td>0%</td>
-                                                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($value->prixU * $value->qte)}}</td>
+                                                                    <th>Désignation</th>
+                                                                    <th>Quantité</th>
+                                                                    <th>Prix Unitaire</th>
+                                                                    <th>Remise</th>
+                                                                    <th>Prix Total</th>
                                                                 </tr>
-                                                                <?php $somme = $somme + ($value->prixU * $value->qte);?>                                                        
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                    $somme = 0;
+                                                                ?>
+                                                                @foreach($article as $value)
+                                                                    <tr>
+                                                                        <td>{{$value->designation}}</td>
+                                                                        <td>{{$value->qte}}</td>
+                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($value->prixU)}}</td>   
+                                                                        <td>0%</td>
+                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($value->prixU * $value->qte)}}</td>
+                                                                    </tr>
+                                                                    <?php $somme = $somme + ($value->prixU * $value->qte);?>                                                        
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </section>
                                                 <section class = "balance-info">
                                                     <div class = "row">
-                                                        <div class = "col-8">
+                                                        <div class = "col-7">
                                                             <p class = "m-0 font-weight-bold">Note :</p>
                                                                 {{$facture['credit']}}
                                                         </div>
-                                                        <div class = "col-4">
-                                                            <table class = "table table-bordered">
-                                                                <tr>
-                                                                    <td>Brut T.T.C :</td>
-                                                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($somme);}}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Remise</td>
-                                                                    <td>0%</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Total T.T.C</td>
-                                                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($somme);}}</td>
-                                                                </tr>
-                                                            </table>
+                                                        <div class = "col-5">
+                                                            <div class = "table-responsive">
+                                                                <table class = "table table-bordered">
+                                                                    <tr>
+                                                                        <td>Brut T.T.C :</td>
+                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($somme);}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Remise</td>
+                                                                        <td>0%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Total T.T.C</td>
+                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($somme);}}</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </section>

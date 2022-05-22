@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class = "container" id = "pg">
+    <div class = "container">
         <div class = "table-responsive">
             <table class = "table table-borderless table-striped table-hover">
                 <thead>
@@ -41,7 +41,7 @@
                 </tbody>
             </table>
         </div>
-        <div class = "container" id = "pg">
+        <div class = "container">
             {{$factures->links('vendor.pagination.livewire_pagination')}}
         </div>
     </div>

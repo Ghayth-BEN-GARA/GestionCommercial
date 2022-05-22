@@ -15,27 +15,29 @@
                                 <div class = "card">
                                     <div class = "card-body">
                                         <h4 class = "card-title">Informations de fournisseur <b style = "color:#F7941E">{{$fournisseurs['nom']}}</b></h4>  
-                                        <table class = "table table-bordered">
-                                            <thead style = "text-align:center">
-                                                <tr>
-                                                    <th>Nom</th>
-                                                    <th>Matricule fiscale</th>
-                                                    <th>Adresse email</th>
-                                                    <th>Adresse</th>
-                                                    <th colspan = "2">Numéro mobile </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style = "text-align:center">
-                                                <tr>
-                                                    <td>{{$fournisseurs['nom']}}</td>
-                                                    <td>{{$fournisseurs['matricule']}}</td> 
-                                                    <td>{{$fournisseurs['email']}}</td> 
-                                                    <td>{{$fournisseurs['adresse']}}</td> 
-                                                    <td>{{$fournisseurs->getTel1Attribute()}}</td> 
-                                                    <td>{{$fournisseurs->getTel2Attribute()}}</td> 
-                                                </tr> 
-                                            </tbody>
-                                        </table>
+                                        <div class = "table-responsive">
+                                            <table class = "table table-bordered">
+                                                <thead style = "text-align:center">
+                                                    <tr>
+                                                        <th>Nom</th>
+                                                        <th>Matricule fiscale</th>
+                                                        <th>Adresse email</th>
+                                                        <th>Adresse</th>
+                                                        <th colspan = "2">Numéro mobile </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style = "text-align:center">
+                                                    <tr>
+                                                        <td>{{$fournisseurs['nom']}}</td>
+                                                        <td>{{$fournisseurs['matricule']}}</td> 
+                                                        <td>{{$fournisseurs['email']}}</td> 
+                                                        <td>{{$fournisseurs['adresse']}}</td> 
+                                                        <td>{{$fournisseurs->getTel1Attribute()}}</td> 
+                                                        <td>{{$fournisseurs->getTel2Attribute()}}</td> 
+                                                    </tr> 
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>
