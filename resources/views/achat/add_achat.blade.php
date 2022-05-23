@@ -77,7 +77,7 @@
                                                             <label class = "col-sm-3 col-form-label">Référence</label>
                                                             <div class = "col-sm-9">
                                                                 <div class = "input-group">
-                                                                    <input type = "text" class = "form-control" name = "referenceF" id = "referenceF" onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>47 && event.charCode<58)" placeholder = "Saisissez la référence du facture.." required/>
+                                                                    <input type = "text" class = "form-control" name = "referenceF" id = "referenceF" onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>46 && event.charCode<58)" placeholder = "Saisissez la référence du facture.." required/>
                                                                     <div class = "input-group-append">
                                                                         <button class = "btn btn-sm btn-primary" type = "button" onclick = "verifierReferenceFacture()">Vérifier</button>
                                                                     </div>

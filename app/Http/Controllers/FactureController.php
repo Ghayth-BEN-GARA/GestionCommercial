@@ -98,10 +98,10 @@
             return Facture::where('referenceF',$referenceF)->delete();
         }
 
-        public function openAchat($referenceF){
+        public function openAchat(Request $request){
             $informations = $this->getInformationsUser();
-            $facture = $this->getInformationsFacture($referenceF);
-            $article = $this->getListeArticlesFromFacture($referenceF);
+            $facture = $this->getInformationsFacture($request->Input('referenceF'));
+            $article = $this->getListeArticlesFromFacture($request->Input('referenceF'));
             return view('achat.achat',compact('informations','facture','article'));
         }
 

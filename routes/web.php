@@ -59,7 +59,7 @@
     Route::post('/add-article-achat', [ArticleController::class, 'storeArticleToFacture']);
     Route::get('/list-achat', [FactureController::class, 'openListAchat'])->middleware('notsession');
     Route::get('/delete-facture/{referenceF}', [FactureController::class, 'gestionDeleteFacture']);
-    Route::get('/facture/{referenceF}', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
+    Route::get('/facture', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
     Route::get('/list-reglement', [ReglementController::class, 'openListReglement'])->middleware('notsession');
     Route::get('/reglement/{matricule}', [ReglementController::class, 'openReglement'])->middleware('notsession')->name('consult-reglement');
     Route::get('/list-stock', [StockController::class, 'openListStock'])->middleware('notsession');
