@@ -29,20 +29,7 @@
                                             </div>
                                         </div>
                                         <ul class = "nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id = "myTab" role = "tablist">
-                                            <li class = "nav-item">
-                                                <a href = "{{url('/edit-user')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-account-edit"></i> Modifier compte</a>
-                                            </li>
-                                            <li class = "nav-item">
-                                                <a href = "{{url('/edit-image-profil')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-file-image"></i> Modifier l'image</a>
-                                            </li>
-                                            <li class = "nav-item">
-                                                <a href = "{{url('/edit-password-profil')}}" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true"><i class = "mdi mdi-lock"></i> Modifier Password</a>
-                                            </li>
-                                            @if (session('type') == 'Admin')
-                                                <li class = "nav-item">
-                                                    <a href = "javascript:void(0)" class = "nav-link" id = "payments-tab" role = "tab" aria-controls = "payments" aria-selected = "true" onclick = "questionDeleteCompte()"><i class = "mdi mdi-account-remove"></i> Supprimer le compte</a>
-                                                </li>
-                                            @endif
+                                            @include ('layouts.profil_nav')
                                         </ul>
                                     </div>
                                 </div>
