@@ -52,11 +52,12 @@
             return view('reglement.liste_reglement',compact('informations'));
         }
 
-        public function openReglement($matricule){
+        public function openReglement(Request $request){
             $informations = $this->getFactureController()->getInformationsUser();
-            $reglements = $this->getInformationsReglements($matricule);
-            $listeReglements = $this->getAllInformationsReglements($matricule);
-            $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($matricule);
+            $reglements = $this->getInformationsReglements($request->Input('matricule'));
+            $listeReglements = $this->getAllInformationsReglements($request->Input('matricule'));
+            $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($request->Input('matricule'));
+            $matricule = $request->Input('matricule');
             return view('reglement.reglement',compact('informations','reglements','listeReglements','fournisseur','matricule'));
         }
 
@@ -114,9 +115,9 @@
             }
         }
 
-        public function openEditReglement($matricule){
+        public function openEditReglement(Request $request){
             $informations = $this->getFactureController()->getInformationsUser();
-            $listeReglements = $this->getAllInformationsReglements($matricule);
+            $listeReglements = $this->getAllInformationsReglements($request->Input('matricule'));
             
             return view('reglement.edit_reglement',compact('informations','listeReglements'));
         }
@@ -137,11 +138,11 @@
             ]);
         }
 
-        public function openFactureReglement($matricule){
+        public function openFactureReglement(Request $request){
             $informations = $this->getFactureController()->getInformationsUser();
-            $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($matricule);
-            $informationsReglemens = $this->getInformationsReglements($matricule);
-            $informationsFactures = $this->getReglementsParFacture($matricule);
+            $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($request->Input('matricule'));
+            $informationsReglemens = $this->getInformationsReglements($request->Input('matricule'));
+            $informationsFactures = $this->getReglementsParFacture($request->Input('matricule'));
 
             return view('reglement.facture_reglement',compact('informations','fournisseur','informationsReglemens','informationsFactures'));
         }

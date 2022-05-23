@@ -53,7 +53,7 @@
                                                 </section>
                                                 <section class = "product-area mt-4">
                                                     <div class = "table-responsive">
-                                                        <table class = "table table-striped table-hover">
+                                                        <table class = "table table-borderless table-striped table-hover">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Référence du facture</th>
@@ -103,6 +103,7 @@
                                                         </div>
                                                     </div>
                                                 </section>
+                                                <br>
                                                 <div class = "col-md-12 text-center">
                                                     <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer la facture</button>
                                                 </div>

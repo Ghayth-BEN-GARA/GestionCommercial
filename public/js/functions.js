@@ -463,7 +463,7 @@ function questionSupprimerFacture(referenceF){
 
     .then((result) => {
         if (result.value) {
-            chargement('Suppression..').then(ouvrirRoot("/delete-facture/"+referenceF));
+            chargement('Suppression..').then(ouvrirRoot('/delete-facture?reference='+referenceF));
         } else if (result.dismiss === swal.DismissReason.cancel) {
             swal.close();
         }
@@ -522,5 +522,5 @@ function viderUpdateFournisseur(){
 }
 
 function ouvrirRootEditReglement(matricule){
-    ouvrirRoot('/edit-reglement/'+ matricule);
+    ouvrirRoot('/edit-reglement?matricule='+ matricule);
 }

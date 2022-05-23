@@ -31,7 +31,7 @@
                                 <td>{{$row->nom}}</td>
                                 <td>{{$row->matricule}}</td>
                                 <td>{{$row->email}}</td>
-                                <td><a href = "{{url('/reglement/'.$row->matricule)}}" class = "consult-user">Consulter</a></td>
+                                <td><a href = "{{url('/reglement?matricule='.$row->matricule)}}" class = "consult-user">Consulter</a></td>
                             </tr>
                         @endforeach
                     @endif

@@ -53,9 +53,9 @@
             return view('fournisseur.liste_fournisseur',compact('informations'));
         }
 
-        public function openEditFournisseur($matricule){
+        public function openEditFournisseur(Request $request){
             $informations = $this->getInformationsUser();
-            $fournisseurs = $this->getInformationsFournisseurs($matricule);
+            $fournisseurs = $this->getInformationsFournisseurs($request->Input('matricule'));
             return view('fournisseur.edit_fournisseur',compact('informations','fournisseurs'));
         }
 
@@ -83,9 +83,9 @@
             ]);
         }
 
-        public function openFournisseur($matricule){
+        public function openFournisseur(Request $request){
             $informations = $this->getInformationsUser();
-            $fournisseurs = $this->getInformationsFournisseurs($matricule);
+            $fournisseurs = $this->getInformationsFournisseurs($request->Input('matricule'));
             return view('fournisseur.fournisseur',compact('informations','fournisseurs'));
         }
 
@@ -93,7 +93,7 @@
             return Fournisseur::all()->sortBy('nom');
         }
 
-        public function getMatriculeFournisseur(Request $request){
+        public function getMatriculeFournisseur (Request $request){
             return Fournisseur::where('nom', $request->nom)->first()->getMatriculeAttribute();
         }
     }

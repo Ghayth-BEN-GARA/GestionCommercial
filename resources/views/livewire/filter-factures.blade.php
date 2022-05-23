@@ -33,8 +33,8 @@
                                 <td>{{$row->nom}}</td>
                                 <td>{{$row->date}} à {{$row->heure}}</td>
                                 <td>{{$row->type}}</td>
-                                <td><a href = "{{url('/facture?referenceF='.$row->referenceF)}}" class = "consult-user">Consulter</a></td>
-                                <td><a href = "#" onclick = "questionSupprimerFacture({{$row->referenceF}})" class = "consult-user">Supprimer</a></td>
+                                <td><a href = "{{url('/facture?reference='.$row->referenceF)}}" class = "consult-user">Consulter</a></td>
+                                <td><a href = "#" onclick = "questionSupprimerFacture('{{$row->referenceF}}')" class = "consult-user">Supprimer</a></td>
                             </tr>
                         @endforeach
                     @endif

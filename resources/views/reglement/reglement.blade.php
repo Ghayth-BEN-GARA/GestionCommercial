@@ -49,8 +49,8 @@
                                                                     <table class = "table table-borderless">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th class = "text-uppercase font-10 weight-600"><a href = "{{url('/fournisseur/'.$reglements['matricule'])}}" class = "grey-color-2 info-href">Informations du fournisseur</a></th>
-                                                                                <th class = "text-end text-uppercase font-10 weight-600 purple-color-2"><a href = "{{url('/facture-reglement/'.$reglements['matricule'])}}" class = "grey-color-2 info-href">Voir les factures</a></th>  
+                                                                                <th class = "text-uppercase font-10 weight-600"><a href = "{{url('/fournisseur?matricule='.$reglements['matricule'])}}" class = "grey-color-2 info-href">Informations du fournisseur</a></th>
+                                                                                <th class = "text-end text-uppercase font-10 weight-600 purple-color-2"><a href = "{{url('/facture-reglement?matricule='.$reglements['matricule'])}}" class = "grey-color-2 info-href">Voir les factures</a></th>  
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>

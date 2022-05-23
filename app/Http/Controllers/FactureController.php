@@ -83,9 +83,9 @@
             return view('achat.liste_achat',compact('informations'));
         }
 
-        public function gestionDeleteFacture($referenceF){
-            $this->getStockController()->gestionDeleteStock($referenceF);
-            if($this->deleteFacture($referenceF)){
+        public function gestionDeleteFacture(Request $request){
+            if($this->deleteFacture($request->Input('reference'))){
+                $this->getStockController()->gestionDeleteStock($request->Input('reference'));
                 return back()->with('success', 'Cette facture a été supprimée avec succès.');
             }
 
@@ -100,8 +100,8 @@
 
         public function openAchat(Request $request){
             $informations = $this->getInformationsUser();
-            $facture = $this->getInformationsFacture($request->Input('referenceF'));
-            $article = $this->getListeArticlesFromFacture($request->Input('referenceF'));
+            $facture = $this->getInformationsFacture($request->Input('reference'));
+            $article = $this->getListeArticlesFromFacture($request->Input('reference'));
             return view('achat.achat',compact('informations','facture','article'));
         }
 

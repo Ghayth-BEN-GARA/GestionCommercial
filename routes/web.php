@@ -41,9 +41,9 @@
     Route::get('/verify-matricule', [FournisseurController::class, 'verifyMatriculeFournisseur']);
     Route::post('/creer-fournisseur', [FournisseurController::class, 'storePersonne']);
     Route::get('/list-fournisseur', [FournisseurController::class, 'openListFournisseur'])->middleware('notsession');
-    Route::get('/edit-fournisseur/{matricule}', [FournisseurController::class, 'openEditFournisseur'])->middleware('notsession')->name('fournisseur-edit');
+    Route::get('/edit-fournisseur', [FournisseurController::class, 'openEditFournisseur'])->middleware('notsession')->name('fournisseur-edit');
     Route::post('/update-fournisseur', [FournisseurController::class, 'gestionUpdateFournisseur']);
-    Route::get('/fournisseur/{matricule}', [FournisseurController::class, 'openFournisseur'])->middleware('notsession')->name('fournisseur');
+    Route::get('/fournisseur', [FournisseurController::class, 'openFournisseur'])->middleware('notsession')->name('fournisseur');
     Route::get('/others', [CategorieController::class, 'openOthers'])->middleware('notsession');
     Route::post('/add-categorie', [CategorieController::class, 'storeCategorie']);
     Route::get('/add-article', [ArticleController::class, 'storeArticle']);
@@ -58,14 +58,14 @@
     Route::get('/get-data-article', [ArticleController::class, 'getInformationsArticle']);
     Route::post('/add-article-achat', [ArticleController::class, 'storeArticleToFacture']);
     Route::get('/list-achat', [FactureController::class, 'openListAchat'])->middleware('notsession');
-    Route::get('/delete-facture/{referenceF}', [FactureController::class, 'gestionDeleteFacture']);
+    Route::get('/delete-facture', [FactureController::class, 'gestionDeleteFacture']);
     Route::get('/facture', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
     Route::get('/list-reglement', [ReglementController::class, 'openListReglement'])->middleware('notsession');
-    Route::get('/reglement/{matricule}', [ReglementController::class, 'openReglement'])->middleware('notsession')->name('consult-reglement');
+    Route::get('/reglement', [ReglementController::class, 'openReglement'])->middleware('notsession')->name('consult-reglement');
     Route::get('/list-stock', [StockController::class, 'openListStock'])->middleware('notsession');
     Route::get('/article-disponible', [StockController::class, 'openListArticleDisponibleStock'])->middleware('notsession');
-    Route::get('/edit-reglement/{matricule}', [ReglementController::class, 'openEditReglement'])->middleware('notsession')->name('reglement-edit');
+    Route::get('/edit-reglement', [ReglementController::class, 'openEditReglement'])->middleware('notsession')->name('reglement-edit');
     Route::post('/edit-paye-reglement', [ReglementController::class, 'gestionEditReglement']);
-    Route::get('/facture-reglement/{matricule}', [ReglementController::class, 'openFactureReglement'])->middleware('notsession')->name('reglement-facture-consult');
+    Route::get('/facture-reglement', [ReglementController::class, 'openFactureReglement'])->middleware('notsession')->name('reglement-facture-consult');
 ?>
 

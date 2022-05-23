@@ -31,8 +31,8 @@
                                 <td>{{$row->nom}}</td>
                                 <td>{{$row->matricule}}</td>
                                 <td>{{$row->email}}</td>
-                                <td><a href = "{{url('/fournisseur/'.$row->matricule)}}" class = "consult-user">Consulter</a></td>
-                                <td><a href = "{{url('/edit-fournisseur/'.$row->matricule)}}" class = "consult-user">Modifier</a></td>
+                                <td><a href = "{{url('/fournisseur?matricule='.$row->matricule)}}" class = "consult-user">Consulter</a></td>
+                                <td><a href = "{{url('/edit-fournisseur?matricule='.$row->matricule)}}" class = "consult-user">Modifier</a></td>
                             </tr>
                         @endforeach
                     @endif
