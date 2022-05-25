@@ -103,7 +103,7 @@
                 }
                 $enregistrementListeArticles = [
                     'reference' => $reference[$key],
-                    'referenceF' => $request->referenceF,
+                    'referenceF' => $request->nom.'/'.$request->referenceF,
                     'qte' => $quantite[$key],
                     'prixU' => $prix[$key]
                 ];
@@ -126,7 +126,7 @@
                 $paye = $request->paye;
             }
 
-            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->referenceF)){
+            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->nom.'/'.$request->referenceF)){
                 return true;
             }
 

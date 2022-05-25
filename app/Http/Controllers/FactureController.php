@@ -32,7 +32,7 @@
         }
 
         public function storeFacture(Request $request){
-            if(!$this->creerFacture($request->referenceF,$request->date,$request->heure,$request->type,$request->par,$request->matricule)){
+            if(!$this->creerFacture($request->nom,$request->referenceF,$request->date,$request->heure,$request->type,$request->par,$request->matricule)){
                 return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
             }
 
@@ -47,9 +47,9 @@
             }
         }
 
-        public function creerFacture($reference,$date,$heure,$type,$par,$matricule){
+        public function creerFacture($nom,$reference,$date,$heure,$type,$par,$matricule){
             $facture = new Facture();
-            $facture->setReferenceFAttribute($reference);
+            $facture->setReferenceFAttribute($nom.'/'.$reference);
             $facture->setDateAttribute($date);
             $facture->setHeureAttribute($heure);
             $facture->setTypeAttribute($type);
