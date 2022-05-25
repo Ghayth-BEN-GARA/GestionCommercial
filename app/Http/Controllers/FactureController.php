@@ -31,23 +31,17 @@
             return Facture::where('referenceF', $request->referenceF)->get()->isEmpty();
         }
 
-        public function storeFacture(Request $request){
-            if(!$this->creerFacture($request->nom,$request->referenceF,$request->date,$request->heure,$request->type,$request->par,$request->matricule)){
+        public function storeEnteteFacture(Request $request){
+            if(!$this->creerEnteteFacture($request->nom,$request->referenceF,$request->date,$request->heure,$request->type,$request->par,$request->matricule)){
                 return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
             }
 
-            else{                
-                if($this->getArticleController()->storeArticleToFacture($request)){
-                    return back()->with('success', 'Une nouvelle facture a été créé avec succès.');
-                }
-
-                else{
-                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
-                }
+            else{
+                return redirect()->route('continue-add-facture')->with('referenceF',$request->nom.'/'.$request->referenceF);
             }
         }
 
-        public function creerFacture($nom,$reference,$date,$heure,$type,$par,$matricule){
+        public function creerEnteteFacture($nom,$reference,$date,$heure,$type,$par,$matricule){
             $facture = new Facture();
             $facture->setReferenceFAttribute($nom.'/'.$reference);
             $facture->setDateAttribute($date);
@@ -56,6 +50,17 @@
             $facture->setParAttribute($par);
             $facture->setMatriculeAttribute($matricule);
             return $facture->save();
+        }
+
+        public function openContinueCreerAchat(Request $request){
+            $informations = $this->getInformationsUser();
+            $factures = $this->getAllFacture();
+            $newReference = $request->Input('referenceF');
+            return view('achat.continue_add_achat',compact('informations','factures','newReference'));
+        }
+
+        public function getAllFacture(){
+            return Facture::all();
         }
     
         public function getReferenceFactureSearch(Request $request){

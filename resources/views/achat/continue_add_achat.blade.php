@@ -36,22 +36,22 @@
                                             </div>
                                         @endif
                                         <p class = "card-description">Créer une Facture</p>
-                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/add-facture-entete')}}" onsubmit = "validerFacture()">
+                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/add-facture-articles')}}" onsubmit = "validerFacture()">
                                             @csrf
                                             <fieldset class = "border p-2">
-                                                <legend  class = "w-auto">Fournisseur</legend>
+                                                <legend  class = "w-auto">Facture</legend>
                                                 <div class = "row">
                                                     <div class = "col-md-6">
                                                         <div class = "form-group row">
-                                                            <label class = "col-sm-3 col-form-label">Nom</label>
+                                                            <label class = "col-sm-3 col-form-label">Référence</label>
                                                             <div class = "col-sm-9">
-                                                                <select id = "nom" name = "nom" class = "nice-select" required onchange = "setMatriculeFournisseur()">
-                                                                    <option value = "Nom" selected disabled>Nom du fournisseur</option>
-                                                                    @if($fournisseurs->count() == null)
-                                                                        <option value = "Aucun" selected disabled>Pas de fournisseurs disponible pour le moment !</option>
+                                                                <select id = "referenceF" name = "referenceF" class = "nice-select" required>
+                                                                    <option value = "Référence" selected disabled>Référence du facture</option>
+                                                                    @if($factures->count() == null)
+                                                                        <option value = "Aucun" selected disabled>Pas de factures disponible pour le moment !</option>
                                                                     @else
-                                                                        @foreach($fournisseurs as $row)
-                                                                            <option value = "{{$row->nom}}">{{$row->nom}}</option>
+                                                                        @foreach($factures as $row)
+                                                                            <option value = "{{$row->referenceF}}">{{$row->referenceF}}</option>
                                                                         @endforeach
                                                                     @endif
                                                                 </select>
@@ -189,7 +189,6 @@
             $(function(){
                 configSelect($('#nom'));
                 configSelect($('#type'));
-                functionEnabledDisabledMontantPaye();
             });
         </script>
     </body>

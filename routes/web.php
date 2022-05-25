@@ -50,7 +50,8 @@
     Route::get('/add-achat', [FactureController::class, 'openAddFacture'])->middleware('notsession');
     Route::get('/get-matricule-fournisseur', [FournisseurController::class, 'getMatriculeFournisseur']);
     Route::get('/verify-reference-facture', [FactureController::class, 'verifyReferenceFacture']);
-    Route::post('/add-facture', [FactureController::class, 'storeFacture']);
+    Route::post('/add-facture-entete', [FactureController::class, 'storeEnteteFacture']);
+    Route::get('/continue-add-facture', [FactureController::class, 'openContinueCreerAchat'])->middleware('notsession')->name('continue-add-facture');
     Route::get('/autocomplete-reference-facture', [FactureController::class, 'getReferenceFactureSearch']);
     Route::get('/autocomplete-designation-facture', [ArticleController::class, 'getDesignationFactureSearch']);
     Route::get('/autocomplete-reference-facture', [ArticleController::class, 'getReferenceFactureSearch']);
