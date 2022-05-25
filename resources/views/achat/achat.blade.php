@@ -95,7 +95,7 @@
                                                 </section>
                                                 <section class = "balance-info">
                                                     <div class = "row">
-                                                        <div class = "col-7">
+                                                        <div class = "col-6">
                                                             <p class = "m-0 font-weight-bold">Note :</p>
                                                                 {{$facture['credit']}}
                                                         </div>
@@ -119,6 +119,7 @@
                                                         </div>
                                                     </div>
                                                 </section>
+                                                <br>
                                                 <div class = "col-md-12 text-center">
                                                     <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer la facture</button>
                                                 </div>

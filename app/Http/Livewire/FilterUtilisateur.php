@@ -19,7 +19,8 @@
                 ->join('images','images.cin','=','comptes.cin')
                 ->where('comptes.cin', '<>', $this->getUsernameSessionActive())
                 ->where('comptes.type', 'LIKE', 'Utilisateur')
-                ->where('personnes.prenom', 'like', '%'.$this->search.'%')
+                ->where('personnes.prenom', 'LIKE', '%'.$this->search.'%')
+                ->orWhere('personnes.nom', 'LIKE', '%'.$this->search.'%')
                 ->orderBy('personnes.prenom', 'asc')
                 ->paginate(10, array('comptes.*', 'personnes.*','images.*'))
     	    ]);

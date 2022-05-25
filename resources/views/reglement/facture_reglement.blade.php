@@ -85,7 +85,7 @@
                                                 </section>
                                                 <section class = "balance-info">
                                                     <div class = "row">
-                                                        <div class = "col-4">
+                                                        <div class = "col-5">
                                                             <table class = "table table-bordered">
                                                                 <tr>
                                                                     <td>Brut T.T.C :</td>
