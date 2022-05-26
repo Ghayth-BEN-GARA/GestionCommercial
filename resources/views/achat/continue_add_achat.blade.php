@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/continue.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -52,7 +53,47 @@
                                             </fieldset>
                                             <fieldset class = "border p-2 mt-4"> 
                                                 <legend  class = "w-auto">Articles</legend>
-                                                
+                                                <div class = "container">
+                                                    <div class = "form-div">
+                                                        <div class = "row">
+                                                            <div class = "col-md-2">
+                                                                Désignation
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                Référence
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                Catégorie
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                Quantité
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                Prix
+                                                            </div>
+                                                        </div>
+                                                        <div class = "row margin-top">
+                                                            <div class = "col-md-2 styleInput">
+                                                                <input type = "search" class = "form-control" name = "designationAdd" id = "designationAdd" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
+                                                            </div>
+                                                            <div class = "col-md-2 styleInput">
+                                                                <input type = "search" class = "form-control" name = "referenceAdd" id = "referenceAdd" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                            </div>
+                                                            <div class = "col-md-2 styleInput">
+                                                                <input type = "search" class = "form-control" name = "categorieAdd" id = "categorieAdd" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                <input type = "number" class = "form-control" name = "quantiteAdd" id = "quantiteAdd" placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                <input type = "number" class = "form-control" name = "prixAdd" id = "prixAdd" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                            </div>
+                                                            <div class = "col-md-2">
+                                                                <button type = "button" class = "btn btn-success mr-2" name = "button_add" id = "button_add">Ajouter</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                    
                                             </fieldset>
                                         </form>
@@ -68,7 +109,7 @@
         @include ('layouts.script')
         <script src = "{{asset('vendors/typeahead.js/bootstrap3-typeahead.min.js')}}"></script>
         <script>
-            $('#add_item_btn').on('click', function(){
+            $('#button_add').on('click', function(){
                 gestionAjouterLigne();
             });
 

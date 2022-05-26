@@ -256,8 +256,7 @@ function afficherErreur(message) {
 }
 
 function searchDesignationFacture(){
-     $('#des').typeahead({
-        minLength: 1,
+     $('#designationAdd').typeahead({
         source: function(query, process) {
             return $.get('/autocomplete-designation-facture', { query: query }, function(data) {
                 return process(JSON.parse(data));
@@ -267,16 +266,16 @@ function searchDesignationFacture(){
             $.ajax({
                 url: '/get-data-article',
                 type: "get",
-                cache: false,
+                cache: true,
                 dataType: 'json',
                 data: { designation: item },
                 success: function(data) {
-                    $('#des').val(item);
-                    $('#ref').val(data.reference);
-                    $('#cat').val(data.categorie);
-                    $('#des').prop('readonly', true);
-                    $('#ref').prop('readonly', true);
-                    $('#cat').prop('readonly', true);
+                    $('#designationAdd').val(item);
+                    $('#referenceAdd').val(data.reference);
+                    $('#categorieAdd').val(data.categorie);
+                    $('#designationAdd').prop('readonly', true);
+                    $('#referenceAdd').prop('readonly', true);
+                    $('#categorieAdd').prop('readonly', true);
                 }
             });
         }
@@ -284,7 +283,7 @@ function searchDesignationFacture(){
 }
 
 function searchReferenceFacture(){
-    $('#ref').typeahead({
+    $('#referenceAdd').typeahead({
         source: function(query, process) {
             return $.get('/autocomplete-reference-facture', { query: query }, function(data) {
                 return process(JSON.parse(data));
@@ -298,12 +297,12 @@ function searchReferenceFacture(){
                 dataType: 'json',
                 data: { reference: item },
                 success: function(data) {
-                    $('#ref').val(item);
-                    $('#des').val(data.designation);
-                    $('#cat').val(data.categorie);
-                    $('#des').prop('readonly', true);
-                    $('#ref').prop('readonly', true);
-                    $('#cat').prop('readonly', true);
+                    $('#referenceAdd').val(item);
+                    $('#designationAdd').val(data.designation);
+                    $('#categorieAdd').val(data.categorie);
+                    $('#designationAdd').prop('readonly', true);
+                    $('#referenceAdd').prop('readonly', true);
+                    $('#categorieAdd').prop('readonly', true);
                 }
             })
         }
@@ -311,7 +310,7 @@ function searchReferenceFacture(){
 }
 
 function searchCategorieFacture(){
-    $('#cat').typeahead({
+    $('#categorieAdd').typeahead({
         source: function(query, process) {
             return $.get('/autocomplete-categorie-facture', { query: query }, function(data) {
                 return process(JSON.parse(data));
@@ -432,12 +431,13 @@ function functionEnabledDisabledMontantPaye(){
 }
 
 function gestionAjouterLigne(){
-    if($('#des').val() == '' || $('#ref').val() == '' || $('#cat').val() == '' || $('#qte').val() == '' || $('#pr').val() == ''){
+    if($('#designationAdd').val() == '' || $('#referenceAdd').val() == '' || $('#categorieAdd').val() == '' || $('#quantiteAdd').val() == '' || $('#prixAdd').val() == ''){
         afficherErreur("Vous n'avez pas rempli correctement les champs..");
     }
 
     else{
-        
+        $('#designationAdd').val(null);
+        $('#designationAdd').prop('readonly', false);
     }
 
 }
