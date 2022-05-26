@@ -37,7 +37,7 @@
             }
 
             else{
-                return redirect()->route('continue-add-facture')->with('referenceF',$request->nom.'/'.$request->referenceF);
+                return redirect()->route('continue-add-facture', ['referenceF' => $request->nom.'/'.$request->referenceF]);
             }
         }
 
@@ -54,13 +54,8 @@
 
         public function openContinueCreerAchat(Request $request){
             $informations = $this->getInformationsUser();
-            $factures = $this->getAllFacture();
             $newReference = $request->Input('referenceF');
-            return view('achat.continue_add_achat',compact('informations','factures','newReference'));
-        }
-
-        public function getAllFacture(){
-            return Facture::all();
+            return view('achat.continue_add_achat',compact('informations','newReference'));
         }
     
         public function getReferenceFactureSearch(Request $request){

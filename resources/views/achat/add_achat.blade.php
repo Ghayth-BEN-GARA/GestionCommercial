@@ -68,8 +68,7 @@
                                                     </div>
                                                 </div>
                                             </fieldset>
-                                            <br>
-                                            <fieldset class = "border p-2">
+                                            <fieldset class = "border p-2 mt-4">
                                                 <legend  class = "w-auto">Facture</legend>
                                                 <div class = "row">
                                                     <div class = "col-md-6">

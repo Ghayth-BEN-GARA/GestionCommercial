@@ -255,8 +255,9 @@ function afficherErreur(message) {
     })
 }
 
-function searchDesignationFacture(compteur){
-    $('#designation' + compteur).typeahead({
+function searchDesignationFacture(){
+     $('#des').typeahead({
+        minLength: 1,
         source: function(query, process) {
             return $.get('/autocomplete-designation-facture', { query: query }, function(data) {
                 return process(JSON.parse(data));
@@ -266,24 +267,24 @@ function searchDesignationFacture(compteur){
             $.ajax({
                 url: '/get-data-article',
                 type: "get",
-                cache: true,
+                cache: false,
                 dataType: 'json',
                 data: { designation: item },
                 success: function(data) {
-                    $('#designation' + compteur).val(item);
-                    $('#reference' + compteur).val(data.reference);
-                    $('#categorie' + compteur).val(data.categorie);
-                    $('#designation' + compteur).prop('readonly', true);
-                    $('#reference' + compteur).prop('readonly', true);
-                    $('#categorie' + compteur).prop('readonly', true);
+                    $('#des').val(item);
+                    $('#ref').val(data.reference);
+                    $('#cat').val(data.categorie);
+                    $('#des').prop('readonly', true);
+                    $('#ref').prop('readonly', true);
+                    $('#cat').prop('readonly', true);
                 }
-            })
+            });
         }
     });
 }
 
-function searchReferenceFacture(compteur){
-    $('#reference' + compteur).typeahead({
+function searchReferenceFacture(){
+    $('#ref').typeahead({
         source: function(query, process) {
             return $.get('/autocomplete-reference-facture', { query: query }, function(data) {
                 return process(JSON.parse(data));
@@ -293,24 +294,24 @@ function searchReferenceFacture(compteur){
             $.ajax({
                 url: '/get-data-article',
                 type: "get",
-                cache: true,
+                cache: false,
                 dataType: 'json',
                 data: { reference: item },
                 success: function(data) {
-                    $('#reference' + compteur).val(item);
-                    $('#designation' + compteur).val(data.designation);
-                    $('#categorie' + compteur).val(data.categorie);
-                    $('#designation' + compteur).prop('readonly', true);
-                    $('#reference' + compteur).prop('readonly', true);
-                    $('#categorie' + compteur).prop('readonly', true);
+                    $('#ref').val(item);
+                    $('#des').val(data.designation);
+                    $('#cat').val(data.categorie);
+                    $('#des').prop('readonly', true);
+                    $('#ref').prop('readonly', true);
+                    $('#cat').prop('readonly', true);
                 }
             })
         }
     });
 }
 
-function searchCategorieFacture(compteur){
-    $('#categorie' + compteur).typeahead({
+function searchCategorieFacture(){
+    $('#cat').typeahead({
         source: function(query, process) {
             return $.get('/autocomplete-categorie-facture', { query: query }, function(data) {
                 return process(JSON.parse(data));
@@ -318,38 +319,6 @@ function searchCategorieFacture(compteur){
         }
     });
 }
-
-function functionCalculerPrixTotale(compteur){
-    $('#quantite' + compteur).on('input',function(){
-        calculerPrixTotale(compteur);
-    });
-
-    $('#prix' + compteur).on('input',function(){
-        calculerPrixTotale(compteur);
-    });
-}
-
-function calculerPrixTotale(compteur){
-    var quantite = $('#quantite' + compteur).val();
-    var prix = $('#prix' + compteur).val();
-    var totale = prix * quantite;
-    var strlen = totale.toString().length;
-
-    if(totale == 0){
-        $('#prixT' + compteur).html('0 DT');
-    }
-
-    else if(strlen < 4){
-        $('#prixT' + compteur).html('0.' + totale + ' DT');
-    }
-
-    else{
-        var ch1 = totale.toString().substring(strlen-3,strlen);
-        var ch2 = totale.toString().substring(0,strlen-3);
-        $('#prixT' + compteur).html(ch2 + '.' + ch1 + ' DT');
-    }
-}
-
 
 function validerFormulaireAddUser(){
     var genreUser = document.getElementById('genre').selectedIndex;
@@ -461,3 +430,17 @@ function functionEnabledDisabledMontantPaye(){
         enabledDisabledMontantPaye();
     });  
 }
+
+function gestionAjouterLigne(){
+    if($('#des').val() == '' || $('#ref').val() == '' || $('#cat').val() == '' || $('#qte').val() == '' || $('#pr').val() == ''){
+        afficherErreur("Vous n'avez pas rempli correctement les champs..");
+    }
+
+    else{
+        
+    }
+
+}
+
+
+  
