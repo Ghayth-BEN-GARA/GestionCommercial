@@ -65,7 +65,7 @@
             
             $data = array();
             foreach ($article as $art){
-                $data[] = $art->getReferenceAttribute(); 
+                $data[] = $art->getReferenceAttribute().''; 
             }
             echo json_encode($data);
         }

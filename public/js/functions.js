@@ -293,7 +293,7 @@ function searchReferenceFacture(){
             $.ajax({
                 url: '/get-data-article',
                 type: "get",
-                cache: false,
+                cache: true,
                 dataType: 'json',
                 data: { reference: item },
                 success: function(data) {
@@ -435,12 +435,70 @@ function gestionAjouterLigne(){
         afficherErreur("Vous n'avez pas rempli correctement les champs..");
     }
 
-    else{
-        $('#designationAdd').val(null);
-        $('#designationAdd').prop('readonly', false);
+    else if($('#designationAdd').val() == 'Désignation' || $('#referenceAdd').val() == 'Référence' || $('#categorieAdd').val() == 'Catégorie' || $('#quantiteAdd').val() == 'Quantité' || $('#prixAdd').val() == '0.000'){
+        afficherErreur("Veuillez entrer une ligne valide..");
     }
 
+    else{
+       ajouterLigne($('#designationAdd').val(),$('#referenceAdd').val(),$('#categorieAdd').val(),$('#quantiteAdd').val(),$('#prixAdd').val(),calculerPrixTotale($('#quantiteAdd').val(),$('#prixAdd').val()));
+       clearData();
+       enableInputs();
+    }
 }
+
+function clearData(){
+    $('#designationAdd').val('Désignation');
+    $('#referenceAdd').val('Référence');
+    $('#categorieAdd').val('Catégorie');
+    $('#quantiteAdd').val('0');
+    $('#prixAdd').val('0.000');
+}
+
+function enableInputs(){
+    $('#designationAdd').prop('readonly', false);
+    $('#referenceAdd').prop('readonly', false);
+    $('#categorieAdd').prop('readonly', false);
+    $('#quantiteAdd').prop('readonly', false);
+    $('#prixAdd').prop('readonly', false);
+}
+
+function ajouterLigne(designation,reference,categorie,quantite,prix,prixTotale){
+    $('.table #body-achat').last().after(
+        '<tr>'+
+            '<td><input type = "text" class = "form-control" name = "designation[]" value = "'+designation+'" readonly></td>' +
+            '<td><input type = "text" class = "form-control" name = "reference[]" value = "'+reference+'" readonly></td>' +
+            '<td><input type = "text" class = "form-control" name = "categorie[]" value = "'+categorie+'" readonly></td>' +
+            '<td><input type = "text" class = "form-control" name = "quantite[]" value = "'+quantite+'" readonly></td>' +
+            '<td><input type = "text" class = "form-control" name = "prix[]" value = "'+prix+'" readonly></td>' +
+            '<td class = "styleInput"><span id = "prixTotale" name = "prixT[]">'+prixTotale+' DT</span></td>'+
+            '<td><button type = "button" class = "btn btn-danger float-right mr-2 mt-4" name = "button_delete" onclick = "deleteLigne(this)">Supprimer</button></td>'+
+        '</tr>'
+    );
+}
+
+function calculerPrixTotale(quantite,prix){
+    var totale = prix * quantite;
+    var strlen = totale.toString().length;
+
+    if(totale == 0){
+        return '0';
+    }
+
+    else if(strlen < 4){
+        return '0.' + totale;
+    }
+
+    else{
+        var ch1 = totale.toString().substring(strlen-3,strlen);
+        var ch2 = totale.toString().substring(0,strlen-3);
+        return ch2 + '.' + ch1;
+    }
+}
+
+function deleteLigne(element){
+    element.closest('tr').remove();      
+}
+
 
 
   

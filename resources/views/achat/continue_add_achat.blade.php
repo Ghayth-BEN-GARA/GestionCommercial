@@ -72,7 +72,7 @@
                                                                 Prix
                                                             </div>
                                                         </div>
-                                                        <div class = "row margin-top">
+                                                        <div class = "row margin-top" id = "content_div">
                                                             <div class = "col-md-2 styleInput">
                                                                 <input type = "search" class = "form-control" name = "designationAdd" id = "designationAdd" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
                                                             </div>
@@ -94,6 +94,24 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class = "container table-responsive">
+                                                    <table class = "table table-borderless table-striped" id = "articles_data">
+                                                        <thead class = "table-warning">
+                                                            <tr>
+                                                                <th><div class = "form-check">Désignation</div></th>
+                                                                <th><div class = "form-check">Référence</div></th>
+                                                                <th><div class = "form-check">Catégorie</div></th>
+                                                                <th><div class = "form-check">Quantité</div></th>
+                                                                <th><div class = "form-check">Prix unitaire</div></th>
+                                                                <th><div class = "form-check">Prix totale</div></th>
+                                                                <th><div class = "form-check">Actions</div></th>
+                                                            </tr> 
+                                                        </thead>
+                                                        <tbody id = "body-achat">
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                                    
                                             </fieldset>
                                         </form>
@@ -111,7 +129,7 @@
         <script>
             $('#button_add').on('click', function(){
                 gestionAjouterLigne();
-            });
+            });            
 
             $(function(){
                 searchDesignationFacture();

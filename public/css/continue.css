@@ -9,3 +9,15 @@
 .typeahead{
     display: block;
 }
+
+.table{
+    margin-top: 15px;
+}
+
+td{
+    text-align: center;
+}
+
+.margin-left{
+    margin-left: 5px;
+}
