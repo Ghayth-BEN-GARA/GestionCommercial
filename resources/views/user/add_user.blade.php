@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/notification.css')}}">
         <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
@@ -16,27 +17,45 @@
                                 <div class = "card">
                                     <div class = "card-body">
                                         <h4 class = "card-title">Compte</h4>
-                                        @if (Session::has('erreur'))
+                                        <p class = "card-description">Créer un compte</p>
+                                        @if (Session::has('success-add-user'))
                                             <div class = "container">
-                                                <div class = "alert alert-danger alert-dismissible fade show" role = "alert">
-                                                    <p><strong>Désolé !</strong> {{session()->get('erreur')}}</p>
-                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                        <span aria-hidden = "true">&times;</span>
-                                                    </button>
+                                                <div class = "alert bg-success mb-5 py-4" role = "alert">
+                                                    <div class = "d-flex">
+                                                        <div class = "px-3">
+                                                            <h5 class = "alert-heading">Nouvel utilisateur créé !</h5>
+                                                            <p class = "phrase">{{session()->get('success-add-user')}}</p>
+                                                            <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        @elseif (Session::has('success'))
+                                        @elseif (Session::has('erreur-add-user'))
                                             <div class = "container">
-                                                <div class = "alert alert-success alert-dismissible fade show" role = "alert">
-                                                    <p><strong>Trés bien !</strong> {{session()->get('success')}}</p>
-                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                        <span aria-hidden = "true">&times;</span>
-                                                    </button>
+                                                <div class = "alert bg-erreur mb-5 py-4" role = "alert">
+                                                    <div class = "d-flex">
+                                                        <div class = "px-3">
+                                                            <h5 class = "alert-heading">Photo de profil supprimée !</h5>
+                                                            <p class = "phrase">{{session()->get('erreur-delete-image')}}</p>
+                                                            <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @elseif (Session::has('erreur-add-image'))
+                                            <div class = "container">
+                                                <div class = "alert bg-erreur mb-5 py-4" role = "alert">
+                                                    <div class = "d-flex">
+                                                        <div class = "px-3">
+                                                            <h5 class = "alert-heading">Photo de profil supprimée !</h5>
+                                                            <p class = "phrase">{{session()->get('erreur-delete-image')}}</p>
+                                                            <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endif
-                                        <p class = "card-description">Créer un compte</p>
-                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/add-personne')}}" enctype = "multipart/form-data">
+                                        <form class = "forms-sample mt-4" id = "f" name = "f" method = "post" action = "{{url('/add-personne')}}" enctype = "multipart/form-data">
                                             @csrf    
                                             <div class = "row">
                                                 <div class = "col-md-6">

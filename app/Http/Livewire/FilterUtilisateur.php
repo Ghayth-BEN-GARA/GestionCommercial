@@ -17,10 +17,11 @@
             return view('livewire.filter-utilisateur', [
     		    'users' =>Compte::join('personnes', 'personnes.cin', '=', 'comptes.cin')
                 ->join('images','images.cin','=','comptes.cin')
-                ->where('comptes.cin', '<>', $this->getUsernameSessionActive())
-                ->where('comptes.type', 'LIKE', 'Utilisateur')
-                ->where('personnes.prenom', 'LIKE', '%'.$this->search.'%')
-                ->orWhere('personnes.nom', 'LIKE', '%'.$this->search.'%')
+                ->where('personnes.prenom', 'like', '%'.$this->search.'%')
+                ->where([
+                    ['comptes.cin', '<>', $this->getUsernameSessionActive()],
+                    ['comptes.type', 'LIKE', 'Utilisateur']
+                ])
                 ->orderBy('personnes.prenom', 'asc')
                 ->paginate(10, array('comptes.*', 'personnes.*','images.*'))
     	    ]);
