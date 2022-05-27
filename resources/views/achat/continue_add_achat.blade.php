@@ -107,12 +107,14 @@
                                                                 <th><div class = "form-check">Actions</div></th>
                                                             </tr> 
                                                         </thead>
-                                                        <tbody id = "body-achat">
-                                                            
+                                                        <tbody id = "body_achat">
+                                                            <tr id = "vide">
+                                                                <td colspan = "7">Votre facture d'achat est encore vide..</td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                   
+                                                <button type = "submit" class = "btn btn-primary mr-2 mt-4" id = "btn_submit" disabled>Remplir la facture</button>
                                             </fieldset>
                                         </form>
                                     </div>

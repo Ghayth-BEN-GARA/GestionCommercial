@@ -440,9 +440,11 @@ function gestionAjouterLigne(){
     }
 
     else{
-       ajouterLigne($('#designationAdd').val(),$('#referenceAdd').val(),$('#categorieAdd').val(),$('#quantiteAdd').val(),$('#prixAdd').val(),calculerPrixTotale($('#quantiteAdd').val(),$('#prixAdd').val()));
-       clearData();
-       enableInputs();
+        deleteEmptyLigne();
+        ajouterLigne($('#designationAdd').val(),$('#referenceAdd').val(),$('#categorieAdd').val(),$('#quantiteAdd').val(),$('#prixAdd').val(),calculerPrixTotale($('#quantiteAdd').val(),$('#prixAdd').val()));
+        clearData();
+        enableInputs();
+        checkIfButtonActive();
     }
 }
 
@@ -463,7 +465,7 @@ function enableInputs(){
 }
 
 function ajouterLigne(designation,reference,categorie,quantite,prix,prixTotale){
-    $('.table #body-achat').last().after(
+    $('.table #body_achat').last().after(
         '<tr>'+
             '<td><input type = "text" class = "form-control" name = "designation[]" value = "'+designation+'" readonly></td>' +
             '<td><input type = "text" class = "form-control" name = "reference[]" value = "'+reference+'" readonly></td>' +
@@ -471,7 +473,7 @@ function ajouterLigne(designation,reference,categorie,quantite,prix,prixTotale){
             '<td><input type = "text" class = "form-control" name = "quantite[]" value = "'+quantite+'" readonly></td>' +
             '<td><input type = "text" class = "form-control" name = "prix[]" value = "'+prix+'" readonly></td>' +
             '<td class = "styleInput"><span id = "prixTotale" name = "prixT[]">'+prixTotale+' DT</span></td>'+
-            '<td><button type = "button" class = "btn btn-danger float-right mr-2 mt-4" name = "button_delete" onclick = "deleteLigne(this)">Supprimer</button></td>'+
+            '<td><button type = "button" class = "btn btn-danger float-right mr-2 mt-4" name = "button_delete" onclick = "gestionDeleteLigne(this)">Supprimer</button></td>'+
         '</tr>'
     );
 }
@@ -497,6 +499,36 @@ function calculerPrixTotale(quantite,prix){
 
 function deleteLigne(element){
     element.closest('tr').remove();      
+}
+
+function createEmptyAchat(){
+    $(".table #body_achat").last().after(
+        "<tr id = 'vide'>"+
+            "<td colspan = '7'>Votre facture d'achat est encore vide..</td>"+
+        "</tr>"
+    );
+}
+
+function gestionDeleteLigne(element){
+    if($('table tr').length >2){
+        deleteLigne(element);
+    }
+
+    else if($('table tr').length == 2){
+        deleteLigne(element);
+        createEmptyAchat();
+        $('#btn_submit').prop('disabled', true);
+    }
+}
+
+function deleteEmptyLigne(){
+    $("#vide").remove();
+}
+
+function checkIfButtonActive(){
+    if($("#btn_submit").is(":disabled")){
+        $('#btn_submit').prop('disabled', false);
+    }
 }
 
 
