@@ -235,11 +235,11 @@
             File::copy('images/faces/user.png', 'images/uploads/'.$this->getUsernameSessionActive().'/user.png');
                         
             if(Image::where('cin',$this->getUsernameSessionActive())->update(['photo' => 'user.png'])){
-                return back()->with('success', 'Votre photo de profil a été supprimée avec succès.');
+                return back()->with('success-delete-image', "Votre photo de profil a été supprimée avec succès. Vous pouvez ajouter une autre photo à tout moment.");
             }
 
             else{
-                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de supprimer votre photo de profil.');
+                return back()->with('erreur-delete-image', "Pour des raisons techniques, vous ne pouvez pas supprimer une photo de profil qui n'existe pas ou qu'elle a déjà été supprimée.");
             }
         }
 
@@ -260,21 +260,21 @@
                         'cin'=>$this->getUsernameSessionActive()
                     ]);
                     if($image){
-                        return back()->with('success', 'Votre photo de profil a été modifié avec succès.');
+                        return back()->with('success-update-image', 'Votre photo de profil a été modifiée avec succès. Vous pouvez la consulter ou la modifier une autre fois.');
                     }
 
                     else{
-                        return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre photo de profil.');
+                        return back()->with('erreur-update-image', "Pour des raisons techniques, vous ne pouvez pas supprimer votre photo de profil.");
                     }
                 }
             }
             else{
                 if($this->creerImage($request,$this->getUsernameSessionActive())){
-                    return back()->with('success', 'Votre photo de profil a été modifié avec succès.');
+                    return back()->with('success-update-image', 'Votre photo de profil a été modifiée avec succès. Vous pouvez la consulter ou la modifier une autre fois.');
                 }
 
                 else{
-                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre photo de profil.');
+                    return back()->with('erreur-update-image', "Pour des raisons techniques, vous ne pouvez pas supprimer votre photo de profil.");
                 }
             }
         }
@@ -286,7 +286,7 @@
 
         public function updatePassword(Request $request){
             if(md5($request->old) != $this->getPasswordCompte($this->getUsernameSessionActive())){
-                return back()->with('erreur', 'Votre ancien mot de passe saisi est incorrect.');
+                return back()->with('erreur-update-password-old', "Une erreur s'est produite lors de la modification de votre mot de passe. Vous avez entré un ancien mot de passe incorrect.");
             }
 
             else{
@@ -295,11 +295,11 @@
                 ]);
 
                 if($compte){
-                    return back()->with('success', 'Votre photo de profil a été modifié avec succès.');
+                    return back()->with('success-update-password', 'Votre mot de passe a été changé avec succès. Vous pouvez le modifier à nouveau à tout moment.');
                 }
 
                 else{
-                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier votre mot de passe.');
+                    return back()->with('erreur-update-password', "Pour des raisons techniques, il n'est actuellement pas possible de modifier votre mot de passe.");
                 }
             }
         }
@@ -320,11 +320,11 @@
             ]);
 
             if($user){
-                return back()->with('success', 'Vos informations ont été modifié avec succès.');
+                return back()->with('success', 'Vos informations ont été modifiées avec succès. Vous pouvez les consulter, les gérer ou les modifier une autre fois.');
             }
 
             else{
-                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier vos informations.');
+                return back()->with('erreur', "Pour des raisons techniques, vos informations ne peuvent pas être modifiées. Il est possible que vous avez saisi des informations interdites par nos restrictions ou que vous n'avez modifié aucune information.");
             }
         }
 

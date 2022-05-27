@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/notification.css')}}">
         <link rel = "stylesheet" href = "{{asset('css/profil.css')}}">
     </head>
     <body>
@@ -33,29 +34,47 @@
                                     </div>
                                 </div>
                                 <div class = "col-md-9">
-                                    @if (Session::has('erreur'))
-                                        <div class = "container">
-                                            <div class = "alert alert-danger alert-dismissible fade show" role = "alert">
-                                                <p><strong>Désolé !</strong> {{session()->get('erreur')}}</p>
-                                                <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                    <span aria-hidden = "true">&times;</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    @elseif (Session::has('success'))
-                                        <div class = "container">
-                                            <div class = "alert alert-success alert-dismissible fade show" role = "alert">
-                                                <p><strong>Trés bien !</strong> {{session()->get('success')}}</p>
-                                                <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                    <span aria-hidden = "true">&times;</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    @endif
                                     <div class = "osahan-account-page-right shadow-sm bg-white p-4 h-100">
                                         <div class = "tab-content" id = "myTabContent">
                                             <div class = "tab-pane fade active show" id = "payments" role = "tabpanel" aria-labelledby = "payments-tab">
-                                                <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/update-password')}}">
+                                                @if (Session::has('erreur-update-password-old'))
+                                                    <div class = "container">
+                                                        <div class = "alert bg-danger mb-5 py-4" role = "alert">
+                                                            <div class = "d-flex">
+                                                                <div class = "px-3">
+                                                                    <h5 class = "alert-heading">Ancien mot de passe est incorrect !</h5>
+                                                                    <p>{{session()->get('erreur-update-password-old')}}</p>
+                                                                    <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @elseif (Session::has('success-update-password'))
+                                                    <div class = "container">
+                                                        <div class = "alert bg-success mb-5 py-4" role = "alert">
+                                                            <div class = "d-flex">
+                                                                <div class = "px-3">
+                                                                    <h5 class = "alert-heading">Mot de passe modifié !</h5>
+                                                                    <p>{{session()->get('success-update-password')}}</p>
+                                                                    <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @elseif (Session::has('erreur-update-password'))
+                                                    <div class = "container">
+                                                        <div class = "alert bg-danger mb-5 py-4" role = "alert">
+                                                            <div class = "d-flex">
+                                                                <div class = "px-3">
+                                                                    <h5 class = "alert-heading">Mot de passe non modifié !</h5>
+                                                                    <p>{{session()->get('erreur-update-password')}}</p>
+                                                                    <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                                <form class = "forms-sample mt-4" id = "f" name = "f" method = "post" action = "{{url('/update-password')}}">
                                                     @csrf
                                                     <div class = "form-group row">
                                                         <label for = "exampleInputUsername2" class = "col-sm-3 col-form-label">Ancien mot de passe</label>
