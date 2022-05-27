@@ -31,13 +31,29 @@
             return Facture::where('referenceF', $request->referenceF)->get()->isEmpty();
         }
 
-        public function storeEnteteFacture(Request $request){
-            if(!$this->creerEnteteFacture($request->nom,$request->referenceF,$request->date,$request->heure,$request->type,$request->par,$request->matricule)){
-                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
+        public function verifyReferenceFacture2($referenceF){
+            return Facture::where('referenceF', $referenceF)->get()->isEmpty();
+        }
+
+        public function gestionStoreFacture(Request $request){
+            if(!$this->verifyReferenceFacture2($request->nom.'/'.$request->referenceF)){
+                return back()->with('erreur', 'Une autre facture est déjà créé avec cette référence..');
             }
 
             else{
-                return redirect()->route('continue-add-facture', ['referenceF' => $request->nom.'/'.$request->referenceF]);
+                if(!$this->creerEnteteFacture($request->nom,$request->referenceF,$request->date,$request->heure,$request->type,$request->par,$request->matricule)){
+                    return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
+                }
+    
+                else{
+                    if($this->getArticleController()->storeArticleToFacture($request)){
+                        return back()->with('success', 'Une nouvelle facture a été créé avec succès.');
+                    }
+    
+                    else{
+                        return back()->with('erreur', 'Pour des raisons techniques, il est impossible de créer un nouvelle facture.');
+                    }
+                }
             }
         }
 
@@ -50,12 +66,6 @@
             $facture->setParAttribute($par);
             $facture->setMatriculeAttribute($matricule);
             return $facture->save();
-        }
-
-        public function openContinueCreerAchat(Request $request){
-            $informations = $this->getInformationsUser();
-            $newReference = $request->Input('referenceF');
-            return view('achat.continue_add_achat',compact('informations','newReference'));
         }
     
         public function getReferenceFactureSearch(Request $request){
@@ -84,8 +94,8 @@
         }
 
         public function gestionDeleteFacture(Request $request){
+            $this->getStockController()->gestionDeleteStock($request->Input('reference'));
             if($this->deleteFacture($request->Input('reference'))){
-                $this->getStockController()->gestionDeleteStock($request->Input('reference'));
                 return back()->with('success', 'Cette facture a été supprimée avec succès.');
             }
 

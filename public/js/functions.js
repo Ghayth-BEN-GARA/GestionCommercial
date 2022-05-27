@@ -136,6 +136,33 @@ function questionSupprimerUser(cin){
     });
 }
 
+function verifierReferenceFacture(){
+    if(document.getElementById('referenceF').value == ''){
+        $('#referenceF_error').html('Veuillez entrer une référence..');
+        $('#btn_submit').prop('disabled', true);
+    }
+
+    else{
+        $.ajax({
+            url: '/verify-reference-facture',
+            type: "get",
+            cache: true,
+            data: { referenceF: $('#referenceF').val() },
+            success: function(data) {
+                if(data.trim() == false){
+                    $('#referenceF_error').html('Une autre facture est déjà créé avec cette référence..');
+                    $('#btn_submit').prop('disabled', true);
+                }   
+    
+                else{
+                    $('#referenceF_error').val('');
+                    $('#btn_submit').prop('disabled', false);
+                }
+            }
+        })
+    }
+}
+
 function initialiserMatricule(){
     $('#matricule_error').html('');
     $('#btn-submit').prop('disabled', true);
@@ -192,34 +219,7 @@ function enabledDisabledMontantPaye(){
 
 function initialiserReferenceF(){
     $('#referenceF_error').html('');
-    $('#btn_submit').prop('disabled', true);
-}
-
-function verifierReferenceFacture(){
-    if(document.getElementById('referenceF').value == ''){
-        $('#referenceF_error').html('Veuillez entrer une référence..');
-        $('#btn_submit').prop('disabled', true);
-    }
-
-    else{
-        $.ajax({
-            url: '/verify-reference-facture',
-            type: "get",
-            cache: true,
-            data: { referenceF: $('#referenceF').val() },
-            success: function(data) {
-                if(data.trim() == false){
-                    $('#referenceF_error').html('Une autre facture est déjà créé avec cette référence..');
-                    $('#btn_submit').prop('disabled', true);
-                }   
-    
-                else{
-                    $('#referenceF_error').val('');
-                    $('#btn_submit').prop('disabled', false);
-                }
-            }
-        })
-    }
+    $('#referenceF_error2').html('');
 }
 
 function validerFacture(){
@@ -530,6 +530,7 @@ function checkIfButtonActive(){
         $('#btn_submit').prop('disabled', false);
     }
 }
+
 
 
 
