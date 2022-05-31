@@ -72,7 +72,7 @@
                                                     <a href = "{{url('/edit-image-profil')}}">Photo</a>
                                                 </li>
                                                 @if (session('type') == 'Admin')
-                                                    <li class = "sendMsg">
+                                                    <li class = "sendMsg" onclick = "questionDeleteCompte()">
                                                         <i class = "mdi mdi-account-remove"></i>
                                                         <a href = "#">Supprimer</a>
                                                     </li>
@@ -174,7 +174,7 @@
                                                             <div class = "col-sm-8">
                                                                 <select class = "nice-select" name = "type" id = "type" disabled required>
                                                                     <option selected disabled>type</option>
-                                                                    <option value = "Utilisateur">Utilisateur</option>
+                                                                    <option value = "User">Utilisateur</option>
                                                                     <option value = "Admin">Admin</option>
                                                                 </select>
                                                                 <input type = "hidden" id = "t" value = "{{$informations['type']}}">

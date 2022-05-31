@@ -72,7 +72,7 @@
                                                     <a href = "{{url('/edit-image-profil')}}">Photo</a>
                                                 </li>
                                                 @if (session('type') == 'Admin')
-                                                    <li class = "sendMsg">
+                                                    <li class = "sendMsg" onclick = "questionDeleteCompte()">
                                                         <i class = "mdi mdi-account-remove"></i>
                                                         <a href = "#">Supprimer</a>
                                                     </li>
