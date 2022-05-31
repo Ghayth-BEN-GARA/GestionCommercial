@@ -24,8 +24,7 @@
             }
 
             else if(Session()->has('username') && (Session()->get('type') == "Administrateur") && 
-            (($request->url() == url('/profil')) || ($request->url() == url('/edit-image-profil')) ||
-            ($request->url() == url('/edit-password-profil')) || ($request->url() == url('/edit-user'))
+            (($request->url() == url('/profil')) || ($request->url() == url('/edit-image-profil'))
             )){
                 return view('errors.500');
             }

@@ -29,9 +29,7 @@
     Route::get('/edit-image-profil', [UserController::class, 'openEditImageProfil'])->middleware('notsession');
     Route::get('/delete-image', [UserController::class, 'deleteImage']);
     Route::post('/update-image', [UserController::class, 'updateImage']);
-    Route::get('/edit-password-profil', [UserController::class, 'openEditPasswordProfil'])->middleware('notsession');
     Route::post('/update-password', [UserController::class, 'updatePassword']);
-    Route::get('/edit-user', [UserController::class, 'openEditUser'])->middleware('notsession');
     Route::post('/update-user', [UserController::class, 'updateUser']);
     Route::get('/delete-user', [UserController::class, 'gestionDeleteUser']);
     Route::get('/list-user', [UserController::class, 'openListUser'])->middleware('notsession');

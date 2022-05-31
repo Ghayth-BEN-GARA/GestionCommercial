@@ -185,6 +185,14 @@
             return Personne::where('cin', $cin)->first()->getPrenomAttribute();
         }
 
+        public function getDateCreationCompte($cin){
+            return Compte::where('cin', $cin)->first()->getDateCreationAttribute();
+        }
+
+        public function getTempsCreationCompte($cin){
+            return Compte::where('cin', $cin)->first()->getHeureCreationAttribute();
+        }
+
         public function getPhotoPersonne($cin){
             $image = Image::where('cin', $cin)->first();
             if($image == null){
@@ -279,14 +287,9 @@
             }
         }
 
-        public function openEditPasswordProfil(){
-            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
-            return view('user.edit_password_user',compact('informations'));
-        }
-
         public function updatePassword(Request $request){
             if(md5($request->old) != $this->getPasswordCompte($this->getUsernameSessionActive())){
-                return back()->with('erreur-update-password-old', "Une erreur s'est produite lors de la modification de votre mot de passe. Vous avez entré un ancien mot de passe incorrect.");
+                return back()->with('erreur', "Une erreur s'est produite lors de la modification de votre mot de passe. Vous avez entré un ancien mot de passe incorrect.");
             }
 
             else{
@@ -295,18 +298,13 @@
                 ]);
 
                 if($compte){
-                    return back()->with('success-update-password', 'Votre mot de passe a été changé avec succès. Vous pouvez le modifier à nouveau à tout moment.');
+                    return back()->with('success', 'Votre mot de passe a été changé avec succès. Vous pouvez le modifier à nouveau à tout moment.');
                 }
 
                 else{
-                    return back()->with('erreur-update-password', "Pour des raisons techniques, il n'est actuellement pas possible de modifier votre mot de passe.");
+                    return back()->with('erreur', "Pour des raisons techniques, il n'est actuellement pas possible de modifier votre mot de passe.");
                 }
             }
-        }
-
-        public function openEditUser(){
-            $informations = $this->getInformationSessionActive($this->getTypeSessionActive());
-            return view('user.edit_user',compact('informations'));
         }
 
         public function updateUser(Request $request){

@@ -1,18 +1,15 @@
 .phrase{
-    color:#fff;
+    color:white;
     font-size:1.1em;
-}
-
-.alert-heading{
-    color:#fff;
+    font-weight: 700;
 }
 
 .bg-danger {
-   background-color: #f0715f!important;
+   background-color: #fbc98e!important;
 } 
 
 .bg-success {
-    background-color: #3CB371!important;
+    background-color: #99dcb7!important;
  } 
  
 .btn-white {
