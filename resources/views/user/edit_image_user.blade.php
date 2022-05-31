@@ -4,7 +4,6 @@
         @include ('layouts.head')
         <link rel = "stylesheet" href = "{{asset('css/user.css')}}">
         <link rel = "stylesheet" href = "{{asset('css/notification.css')}}">
-        <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -51,10 +50,6 @@
                                     <section class = "userDetails card">
                                         <div class = "userName">
                                             <h1 class = "name">{{$informations['fullname']}}</h1>
-                                            <div class = "map">
-                                                <i class = "mdi mdi-crosshairs-gps"></i>
-                                                <span>{{$informations['adresse']}}, Tunisia</span>
-                                            </div>
                                             <p>{{$informations['type']}} de l'application</p>
                                         </div>
                                         <div class = "rank">
