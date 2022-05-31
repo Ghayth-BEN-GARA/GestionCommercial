@@ -178,7 +178,7 @@
   border-radius: 0.4rem;
 }
 
-.work_skills .work .primary p {
+.work_skills .work .primary p, .delete-im {
   margin-bottom: var(--m-1-8);
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.6);

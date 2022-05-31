@@ -2,8 +2,9 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/user.css')}}">
         <link rel = "stylesheet" href = "{{asset('css/notification.css')}}">
-        <link rel = "stylesheet" href = "{{asset('css/profil.css')}}">
+        <link rel = "stylesheet" href = "{{asset('css/nice-select.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -12,86 +13,79 @@
                 @include ('layouts.vertical_nav')
                 <div class = "main-panel">
                     <div class = "content-wrapper">
-                        <div class = "row">
-                            <div class = "col-md-12 grid-margin stretch-card">
-                                <div class = "col-md-3">
-                                    <div class = "osahan-account-page-left shadow-sm bg-white h-100">
-                                        <div class = "border-bottom p-4">
-                                            <div class = "osahan-user text-center">
-                                                <div class = "osahan-user-media">
-                                                    <img class = "mb-3 rounded-pill shadow-sm mt-1" src = "{{$informations['image']}}" alt = "gurdeep singh osahan">
-                                                    <div class = "osahan-user-media-body">
-                                                        <h6 class = "mb-2">{{$informations['fullname']}}</h6>
-                                                        <p class = "mb-1">{{$informations['tel']}}</p>
-                                                        <p>{{$informations['cin']}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul class = "nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id = "myTab" role = "tablist">
-                                            @include ('layouts.profil_nav')
-                                        </ul>
+                        @if (Session::has('erreur'))
+                            <div class = "alert bg-danger mb-5 py-4" role = "alert">
+                                <div class = "d-flex">
+                                    <div class = "px-3">
+                                        <p class = "phrase">{{session()->get('erreur')}}</p>
                                     </div>
                                 </div>
-                                <div class = "col-md-9">
-                                    <div class = "osahan-account-page-right shadow-sm bg-white p-4 h-100">
-                                        <div class = "tab-content" id = "myTabContent">
-                                            <div class = "tab-pane fade active show" id = "payments" role = "tabpanel" aria-labelledby = "payments-tab">
-                                                <h5 class = "delete-im">Si vous le souhaitez, vous pouvez supprimer votre photo de profil en cliquant sur<a href = "javascript:void(0)" onclick = "questionDeleteImage()"> Supprimer l'image</a></b></h5>
+                            </div>
+                        @elseif (Session::has('success'))
+                            <div class = "alert bg-success mb-5 py-4" role = "alert">
+                                <div class = "d-flex">
+                                    <div class = "px-3">
+                                        <p class = "phrase">{{session()->get('success')}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        <div class = "row">
+                            <div class = "col-md-12 grid-margin stretch-card user">
+                                <span class = "main_bg"></span>
+                                <div class = "container">
+                                    <section class = "userProfile card">
+                                        <div class="profile">
+                                            <figure><img src = "{{$informations['image']}}" alt = "Photo de profil" width = "250px" height = "250px"></figure>
+                                        </div>
+                                    </section>
+                                    <section class = "work_skills card">
+                                        <div class = "work">
+                                            <h1 class = "heading">Bio</h1>
+                                            <div class = "primary">
+                                                <h1>Détails de profil</h1>
+                                                <p>Ce profil est personnel. Vous pouvez modifier les informations et la photo de profil ainsi que supprimer ce compte à tout moment.</p>
                                             </div>
-                                            @if (Session::has('erreur-delete-image'))
-                                                <div class = "container">
-                                                    <div class = "alert bg-danger mb-5 py-4" role = "alert">
-                                                        <div class = "d-flex">
-                                                            <div class = "px-3">
-                                                                <h5 class = "alert-heading">Photo de profil non supprimée !</h5>
-                                                                <p class = "phrase">{{session()->get('erreur-delete-image')}}</p>
-                                                                <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @elseif (Session::has('success-delete-image'))
-                                                <div class = "container">
-                                                    <div class = "alert bg-success mb-5 py-4" role = "alert">
-                                                        <div class = "d-flex">
-                                                            <div class = "px-3">
-                                                                <h5 class = "alert-heading">Photo de profil supprimée !</h5>
-                                                                <p class = "phrase">{{session()->get('success-delete-image')}}</p>
-                                                                <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @elseif (Session::has('success-update-image'))
-                                                <div class = "container">
-                                                    <div class = "alert bg-success mb-5 py-4" role = "alert">
-                                                        <div class = "d-flex">
-                                                            <div class = "px-3">
-                                                                <h5 class = "alert-heading">Photo de profil modifiée !</h5>
-                                                                <p>{{session()->get('success-update-image')}}</p>
-                                                                <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @elseif (Session::has('erreur-update-image'))
-                                                <div class = "container">
-                                                    <div class = "alert bg-danger mb-5 py-4" role = "alert">
-                                                        <div class = "d-flex">
-                                                            <div class = "px-3">
-                                                                <h5 class = "alert-heading">Photo de profil non modifiée !</h5>
-                                                                <p>{{session()->get('erreur-update-image')}}</p>
-                                                                <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
+                                        </div>
+                                    </section>
+                                    <section class = "userDetails card">
+                                        <div class = "userName">
+                                            <h1 class = "name">{{$informations['fullname']}}</h1>
+                                            <div class = "map">
+                                                <i class = "mdi mdi-crosshairs-gps"></i>
+                                                <span>{{$informations['adresse']}}, Tunisia</span>
+                                            </div>
+                                            <p>{{$informations['type']}} de l'application</p>
+                                        </div>
+                                        <div class = "rank">
+                                            <h1 class = "heading">Mobile</h1>
+                                            <i>(+216) {{$informations['tel']}}</i>
+                                        </div>
+                                        <div class = "btns">
+                                            <ul>
+                                                <li class = "sendMsg">
+                                                    <i class = "mdi mdi-account-circle"></i>
+                                                    <a href = "{{url('/profil')}}">Profil</a>
+                                                </li>
+                                                <li class = "sendMsg active">
+                                                    <i class = "mdi mdi-tooltip-edit"></i>
+                                                    <a href = "{{url('/edit-image-profil')}}">Photo</a>
+                                                </li>
+                                                @if (session('type') == 'Admin')
+                                                    <li class = "sendMsg">
+                                                        <i class = "mdi mdi-account-remove"></i>
+                                                        <a href = "#">Supprimer</a>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class = "timeline_about card">
+                                        <div class = "basic_info tab">
+                                            <p class = "delete-im mt-4">Si vous le souhaitez, vous pouvez supprimer votre photo de profil en cliquant sur<a href = "javascript:void(0)" onclick = "questionDeleteImage()" style = "text-decoration: none; color:#F7941E;font-weight:bold;"> Supprimer l'image</a></p>
                                             <form class = "forms-sample mt-4" id = "f" name = "f" method = "post" action = "{{url('/update-image')}}" enctype = "multipart/form-data">
                                                 @csrf    
                                                 <div class = "form-group">
-                                                    <label>Image de profil</label>
                                                     <input type = "file" class = "file-upload-default" name = "image" id = "image" required required accept = "image/jpeg">
                                                     <div class = "input-group col-xs-12">
                                                         <input type = "text" class = "form-control file-upload-info" disabled placeholder = "Modifier l'image de profil..">
@@ -104,7 +98,7 @@
                                                 <button type = "reset" class = "btn btn-light">Annuler</button>
                                             </form>
                                         </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
                         </div>       

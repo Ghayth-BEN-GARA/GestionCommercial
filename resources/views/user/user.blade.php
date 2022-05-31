@@ -49,36 +49,36 @@
                                             </div>
                                     </section>
                                     <section class = "userDetails card">
-                                    <div class = "userName">
-                                        <h1 class = "name">{{$informations['fullname']}}</h1>
-                                        <div class = "map">
-                                            <i class = "mdi mdi-crosshairs-gps"></i>
-                                            <span>{{$informations['adresse']}}, Tunisia</span>
+                                        <div class = "userName">
+                                            <h1 class = "name">{{$informations['fullname']}}</h1>
+                                            <div class = "map">
+                                                <i class = "mdi mdi-crosshairs-gps"></i>
+                                                <span>{{$informations['adresse']}}, Tunisia</span>
+                                            </div>
+                                            <p>{{$informations['type']}} de l'application</p>
                                         </div>
-                                        <p>{{$informations['type']}} de l'application</p>
-                                    </div>
-                                    <div class = "rank">
-                                        <h1 class = "heading">Mobile</h1>
-                                        <i>(+216) {{$informations['tel']}}</i>
-                                    </div>
-                                    <div class = "btns">
-                                        <ul>
-                                            <li class = "sendMsg active">
-                                                <i class = "mdi mdi-account-circle"></i>
-                                                <a href = "{{url('/profil')}}">Profil</a>
-                                            </li>
-                                            <li class = "sendMsg">
-                                                <i class = "mdi mdi-tooltip-edit"></i>
-                                                <a href = "#">Photo</a>
-                                            </li>
-                                            @if (session('type') == 'Admin')
-                                                <li class = "sendMsg">
-                                                    <i class = "mdi mdi-account-remove"></i>
-                                                    <a href = "#">Supprimer</a>
+                                        <div class = "rank">
+                                            <h1 class = "heading">Mobile</h1>
+                                            <i>(+216) {{$informations['tel']}}</i>
+                                        </div>
+                                        <div class = "btns">
+                                            <ul>
+                                                <li class = "sendMsg active">
+                                                    <i class = "mdi mdi-account-circle"></i>
+                                                    <a href = "{{url('/profil')}}">Profil</a>
                                                 </li>
-                                            @endif
-                                        </ul>
-                                    </div>
+                                                <li class = "sendMsg">
+                                                    <i class = "mdi mdi-tooltip-edit"></i>
+                                                    <a href = "{{url('/edit-image-profil')}}">Photo</a>
+                                                </li>
+                                                @if (session('type') == 'Admin')
+                                                    <li class = "sendMsg">
+                                                        <i class = "mdi mdi-account-remove"></i>
+                                                        <a href = "#">Supprimer</a>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
                                     </section>
                                     <section class = "timeline_about card">
                                         <div class = "tabs">

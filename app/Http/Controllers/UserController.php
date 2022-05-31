@@ -243,11 +243,11 @@
             File::copy('images/faces/user.png', 'images/uploads/'.$this->getUsernameSessionActive().'/user.png');
                         
             if(Image::where('cin',$this->getUsernameSessionActive())->update(['photo' => 'user.png'])){
-                return back()->with('success-delete-image', "Votre photo de profil a été supprimée avec succès. Vous pouvez ajouter une autre photo à tout moment.");
+                return back()->with('success', "Votre photo de profil a été supprimée avec succès. Vous pouvez ajouter une autre photo à tout moment.");
             }
 
             else{
-                return back()->with('erreur-delete-image', "Pour des raisons techniques, vous ne pouvez pas supprimer une photo de profil qui n'existe pas ou qu'elle a déjà été supprimée.");
+                return back()->with('erreur', "Pour des raisons techniques, vous ne pouvez pas supprimer une photo de profil qui n'existe pas ou qu'elle a déjà été supprimée.");
             }
         }
 
@@ -268,21 +268,21 @@
                         'cin'=>$this->getUsernameSessionActive()
                     ]);
                     if($image){
-                        return back()->with('success-update-image', 'Votre photo de profil a été modifiée avec succès. Vous pouvez la consulter ou la modifier une autre fois.');
+                        return back()->with('success', 'Votre photo de profil a été modifiée avec succès. Vous pouvez la consulter ou la modifier une autre fois.');
                     }
 
                     else{
-                        return back()->with('erreur-update-image', "Pour des raisons techniques, vous ne pouvez pas supprimer votre photo de profil.");
+                        return back()->with('erreur', "Pour des raisons techniques, vous ne pouvez pas supprimer votre photo de profil.");
                     }
                 }
             }
             else{
                 if($this->creerImage($request,$this->getUsernameSessionActive())){
-                    return back()->with('success-update-image', 'Votre photo de profil a été modifiée avec succès. Vous pouvez la consulter ou la modifier une autre fois.');
+                    return back()->with('success', 'Votre photo de profil a été modifiée avec succès. Vous pouvez la consulter ou la modifier une autre fois.');
                 }
 
                 else{
-                    return back()->with('erreur-update-image', "Pour des raisons techniques, vous ne pouvez pas supprimer votre photo de profil.");
+                    return back()->with('erreur', "Pour des raisons techniques, vous ne pouvez pas supprimer votre photo de profil.");
                 }
             }
         }
