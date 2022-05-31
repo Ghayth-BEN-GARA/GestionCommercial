@@ -115,20 +115,20 @@
 
         public function storeCompte(Request $request){
             if(!$this->creerCompte($request->cin,$request->password,$request->type)){
-                return back()->with("erreur-add-user', 'Pour des raisons techniques, il n'est pas possible de créer un nouvel utilisateur.");
+                return back()->with("erreur', 'Pour des raisons techniques, il n'est pas possible de créer un nouvel utilisateur.");
             }
 
             else{
                 if(!$this->creerPersonne($request->nom,$request->prenom,$request->genre,$request->naissance,$request->mobile,$request->adresse,$request->cin)){
-                    return back()->with('erreur-add-user', "Pour des raisons techniques, il n'est pas possible de créer un nouvel utilisateur. Certaines informations peuvent être incorrectes.");
+                    return back()->with('erreur', "Pour des raisons techniques, il n'est pas possible de créer un nouvel utilisateur. Certaines informations peuvent être incorrectes.");
                 }
     
                 else if(!$this->creerImage($request,$request->cin)){
-                    return back()->with('erreur-add-image', "Pour des raisons techniques, il n'est pas possible de créer un nouvel utilisateur en raison d'erreurs lors de l'enregistrement de la photo de profil.");
+                    return back()->with('erreur', "Pour des raisons techniques, il n'est pas possible de créer un nouvel utilisateur en raison d'erreurs lors de l'enregistrement de la photo de profil.");
                 }
 
                 else{
-                    return back()->with('success-add-user', 'Un nouvel utilisateur a été créé avec succès. Il peut utiliser son compte et les services normalement.');
+                    return back()->with('success', 'Un nouvel utilisateur a été créé avec succès. Il peut utiliser son compte normalement.');
                 }
             }         
         }

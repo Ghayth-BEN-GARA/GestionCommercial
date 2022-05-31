@@ -18,39 +18,19 @@
                                     <div class = "card-body">
                                         <h4 class = "card-title">Compte</h4>
                                         <p class = "card-description">Créer un compte</p>
-                                        @if (Session::has('success-add-user'))
-                                            <div class = "container">
-                                                <div class = "alert bg-success mb-5 py-4" role = "alert">
-                                                    <div class = "d-flex">
-                                                        <div class = "px-3">
-                                                            <h5 class = "alert-heading">Nouvel utilisateur créé !</h5>
-                                                            <p class = "phrase">{{session()->get('success-add-user')}}</p>
-                                                            <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                        </div>
+                                        @if (Session::has('erreur'))
+                                            <div class = "alert bg-danger mb-5 py-4" role = "alert">
+                                                <div class = "d-flex">
+                                                    <div class = "px-3">
+                                                        <p class = "phrase">{{session()->get('erreur')}}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        @elseif (Session::has('erreur-add-user'))
-                                            <div class = "container">
-                                                <div class = "alert bg-erreur mb-5 py-4" role = "alert">
-                                                    <div class = "d-flex">
-                                                        <div class = "px-3">
-                                                            <h5 class = "alert-heading">Photo de profil supprimée !</h5>
-                                                            <p class = "phrase">{{session()->get('erreur-delete-image')}}</p>
-                                                            <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @elseif (Session::has('erreur-add-image'))
-                                            <div class = "container">
-                                                <div class = "alert bg-erreur mb-5 py-4" role = "alert">
-                                                    <div class = "d-flex">
-                                                        <div class = "px-3">
-                                                            <h5 class = "alert-heading">Photo de profil supprimée !</h5>
-                                                            <p class = "phrase">{{session()->get('erreur-delete-image')}}</p>
-                                                            <a href = "#" class = "btn text-white" data-dismiss = "alert" aria-label = "Close" data-abc = "true">Fermer</a>
-                                                        </div>
+                                        @elseif (Session::has('success'))
+                                            <div class = "alert bg-success mb-5 py-4" role = "alert">
+                                                <div class = "d-flex">
+                                                    <div class = "px-3">
+                                                        <p class = "phrase2">{{session()->get('success')}}</p>
                                                     </div>
                                                 </div>
                                             </div>
