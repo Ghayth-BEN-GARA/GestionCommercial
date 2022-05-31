@@ -25,7 +25,7 @@
                             <div class = "alert bg-success mb-5 py-4" role = "alert">
                                 <div class = "d-flex">
                                     <div class = "px-3">
-                                        <p class = "phrase">{{session()->get('success')}}</p>
+                                        <p class = "phrase2">{{session()->get('success')}}</p>
                                     </div>
                                 </div>
                             </div>

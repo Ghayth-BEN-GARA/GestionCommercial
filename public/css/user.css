@@ -303,13 +303,13 @@
 }
 
 .userDetails .btns ul .active {
-  background: #fbc98e;
+  background: #FCF6DD;
   padding: var(--p-0-5) var(--p-1-5);
 }
 
 .userDetails .btns ul .active a,
 .userDetails .btns ul .active .mdi {
-  color: white;
+  color: #F7941E;
 }
 
 .timeline_about {

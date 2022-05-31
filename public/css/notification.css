@@ -1,11 +1,17 @@
 .phrase{
-    color:white;
+    color:#F7941E;
+    font-size:1.1em;
+    font-weight: 700;
+}
+
+.phrase2{
+    color:#013719;
     font-size:1.1em;
     font-weight: 700;
 }
 
 .bg-danger {
-   background-color: #fbc98e!important;
+   background-color: #FCF6DD!important;
 } 
 
 .bg-success {
