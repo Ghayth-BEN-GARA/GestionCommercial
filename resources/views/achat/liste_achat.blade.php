@@ -3,6 +3,7 @@
     <head>
         @include ('layouts.head')
         <link rel = "stylesheet" href = "{{asset('css/pagination.css')}}">
+        <link rel = "stylesheet" href = "{{asset('css/notification.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -17,21 +18,19 @@
                                     <div class = "card-body">
                                         <h4 class = "card-title">Factures</h4>
                                         @if (Session::has('erreur'))
-                                            <div class = "container">
-                                                <div class = "alert alert-danger alert-dismissible fade show" role = "alert">
-                                                    <p><strong>Désolé !</strong> {{session()->get('erreur')}}</p>
-                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                        <span aria-hidden = "true">&times;</span>
-                                                    </button>
+                                            <div class = "alert bg-danger mb-5 py-4" role = "alert">
+                                                <div class = "d-flex">
+                                                    <div class = "px-3">
+                                                        <p class = "phrase">{{session()->get('erreur')}}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         @elseif (Session::has('success'))
-                                            <div class = "container">
-                                                <div class = "alert alert-success alert-dismissible fade show" role = "alert">
-                                                    <p><strong>Trés bien !</strong> {{session()->get('success')}}</p>
-                                                    <button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
-                                                        <span aria-hidden = "true">&times;</span>
-                                                    </button>
+                                            <div class = "alert bg-success mb-5 py-4" role = "alert">
+                                                <div class = "d-flex">
+                                                    <div class = "px-3">
+                                                        <p class = "phrase2">{{session()->get('success')}}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endif
