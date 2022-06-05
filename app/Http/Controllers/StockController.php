@@ -69,7 +69,7 @@
         }
 
         public function getPrixAttribute($reference){
-            return Stock::where('reference', $reference)->first()->getPrixAttribute();
+            return Stock::where('reference', $reference)->firstOrFail()->getPrixAttribute();
         }
 
         public function updatePrixStock($reference,$prix){

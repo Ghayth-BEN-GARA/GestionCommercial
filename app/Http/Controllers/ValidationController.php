@@ -65,17 +65,22 @@
         }
 
         public function openValidationArticle(Request $request){
-            $informations = $this->getFactureController()->getInformationsUser();
-            $validations = $this->getValidationInformations($request->Input('reference'));
-            $prixActuel = $this->getStockController()->getPrixAttribute($request->Input('reference'));
-            $reference = $request->Input('reference');
-            return view('stock.validation_article',compact('informations','validations','prixActuel','reference'));
+            try {
+                $informations = $this->getFactureController()->getInformationsUser();
+                $validations = $this->getValidationInformations($request->Input('reference'));
+                $prixActuel = $this->getStockController()->getPrixAttribute($request->Input('reference'));
+                $reference = $request->Input('reference');
+                return view('stock.validation_article',compact('informations','validations','prixActuel','reference'));
+            } catch (ModelNotFoundException $e) {
+                return view('errors.404');
+            }
+           
         }
 
         public function getValidationInformations($reference){
             return Validation::join('articles', 'articles.reference', '=', 'validations.reference')
             ->where('validations.reference','=',$reference)
-            ->first(['articles.*','validations.*']);
+            ->firstOrFail(['articles.*','validations.*']);
         }
 
         public function getStockController(){
