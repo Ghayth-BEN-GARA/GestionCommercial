@@ -104,7 +104,7 @@
                                                                 <table class = "table table-bordered">
                                                                     <tr>
                                                                         <td>Brut T.T.C :</td>
-                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($somme);}}</td>
+                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($somme)}}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Remise</td>
@@ -112,7 +112,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Total T.T.C</td>
-                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($somme);}}</td>
+                                                                        <td>{{App\Http\Controllers\FactureController::stylingPrix($somme)}}</td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
