@@ -3,7 +3,7 @@
     use Illuminate\Database\Eloquent\Model;
 
     class Validation extends Model{
-        protected $table = 'validation';
+        protected $table = 'validations';
         protected $primaryKey = 'id';
         public $timestamps = false;
         public $incrementing = false;
@@ -17,6 +17,7 @@
             'min_prix',
             'max_prix',
             'prix',
+            'date_creation',
             'reference'
         ];
 
@@ -46,6 +47,14 @@
 
         public function setPrixAttribute($value){
             $this->attributes['prix'] = $value;
+        }
+
+        public function getDateCreationAttribute(){
+            return $this->attributes['date_creation'];
+        }
+
+        public function setDateCreationAttribute($value){
+            $this->attributes['date_creation'] = $value;
         }
 
         public function getReferenceAttribute(){

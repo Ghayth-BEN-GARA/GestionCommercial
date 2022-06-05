@@ -15,6 +15,7 @@
                 $table->string('min_prix',999);
                 $table->string('max_prix',999);
                 $table->string('prix',999);
+                $table->date('date_creation');
                 $table->bigInteger('reference')->unsigned();
                 $table->foreign('reference')->references('reference')->on('articles')->onDelete('cascade')->onUpdate('cascade');
             });

@@ -38,6 +38,54 @@
                     </div>
                 <li>
             @else
+                @if (session('type') == 'Admin')
+                    <li class = "nav-item dropdown">
+                        @if(App\Http\Controllers\ValidationController::getCountValidation() == 0)
+                            <a class = "nav-link count-indicator dropdown-toggle" id = "notificationDropdown" href = "#" data-toggle = "dropdown">
+                                <i class = "icon-bell mx-0"></i>
+                            </a>
+                            <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "notificationDropdown">
+                                <p class = "mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                                <a class = "dropdown-item preview-item">
+                                    <div class = "preview-thumbnail">
+                                        <div class = "preview-icon bg-success">
+                                            <i class = "ti-info-alt mx-0"></i>
+                                        </div>
+                                    </div>
+                                    <div class = "preview-item-content">
+                                        <h6 class = "preview-subject font-weight-normal">Aucun prix à vérifier </h6>
+                                        <p class = "font-weight-light small-text mb-0 text-muted">
+                                            Maintenant
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        @else
+                            <a class = "nav-link count-indicator dropdown-toggle" id = "notificationDropdown" href = "#" data-toggle = "dropdown">
+                                <i class = "icon-bell mx-0"></i>
+                                <span class = "count"></span>
+                            </a>
+                            <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "notificationDropdown">
+                                <p class = "mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                                @foreach(App\Http\Controllers\ValidationController::getAllValidation() as $element)
+                                    <a class = "dropdown-item preview-item">
+                                        <div class = "preview-thumbnail">
+                                            <div class = "preview-icon bg-success">
+                                                <i class = "ti-info-alt mx-0"></i>
+                                            </div>
+                                        </div>
+                                        <div class = "preview-item-content">
+                                            <h6 class = "preview-subject font-weight-normal">Vous devez vérifier l'article numéro <b>{{$element->reference}}</b> avec le nouveau prix <b>{{$element->prix}}</b></h6>
+                                            <p class = "font-weight-light small-text mb-0 text-muted">
+                                                {{$element->date_creation}}
+                                            </p>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endif
+                    </li>
+                @endif
             <li class = "nav-item nav-profile dropdown">
                     <a class = "nav-link dropdown-toggle" href = "javascript:void(0)" data-toggle = "dropdown" id = "profil">
                         @if (Illuminate\Support\Facades\Route::is('user-search') || (Illuminate\Support\Facades\Route::is('fournisseur-edit')) || (Illuminate\Support\Facades\Route::is('fournisseur')) || (Illuminate\Support\Facades\Route::is('consult-achat')) || (Illuminate\Support\Facades\Route::is('consult-reglement')) || (Illuminate\Support\Facades\Route::is('reglement-edit')) || (Illuminate\Support\Facades\Route::is('reglement-facture-consult')))
