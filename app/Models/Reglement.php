@@ -17,7 +17,8 @@
             'id',
             'net',
             'paye',
-            'referenceF'
+            'referenceF',
+            'matriucle',
         ];
 
         public function getIdAttribute(){
@@ -46,6 +47,14 @@
 
         public function setMatriculeAttribute($value){
             $this->attributes['matricule'] = $value;
+        }
+
+        public function getReferenceFAttribute(){
+            return $this->attributes['referenceF'];
+        }
+
+        public function setReferenceFAttribute($value){
+            $this->attributes['referenceF'] = $value;
         }
     }
 ?>

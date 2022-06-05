@@ -12,8 +12,6 @@
         public function up(){
             Schema::create('validations', function (Blueprint $table) {
                 $table->id();
-                $table->string('min_prix',999);
-                $table->string('max_prix',999);
                 $table->string('prix',999);
                 $table->date('date_creation');
                 $table->bigInteger('reference')->unsigned();

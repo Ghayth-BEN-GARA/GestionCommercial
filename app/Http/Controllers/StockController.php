@@ -60,5 +60,9 @@
             $informations = $this->getFactureController()->getInformationsUser();
             return view('stock.liste_article_disponible',compact('informations'));
         }
+
+        public function getPrixAttribute($reference){
+            return Stock::where('reference', $reference)->first()->getPrixAttribute();
+        }
     }
 ?>

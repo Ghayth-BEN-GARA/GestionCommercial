@@ -11,4 +11,11 @@
         public static function  getAllValidation(){
             return Validation::all();
         }
+
+        public function storeValidation($prix, $reference){
+            $validation = new Validation();
+            $validation->setPrixAttribute($prix);
+            $validation->setReferenceAttribute($reference);
+            return $validation->save();
+        }
     }

@@ -82,6 +82,10 @@
             return new StockController();
         }
 
+        public function getValidationController(){
+            return new ValidationController();
+        }
+
         public function storeArticleToFacture($request){
             $paye = 0;
             $somme = 0;
@@ -110,14 +114,22 @@
                 FactureArticle::insert([$enregistrementListeArticles]);  
                 
                 $somme += ($prix[$key] * $quantite[$key]);
+
                 if($this->getStockController()->verifyStock($reference[$key])){
                     $this->getStockController()->creerStock($quantite[$key],$prix[$key],$reference[$key]);
                 }
 
                 else{
-                    $this->getStockController()->updateStock($quantite[$key],$prix[$key],$reference[$key]);
+                    if($prix[$key] == $this->getStockController()->getPrixAttribute($reference)){
+                        $this->getStockController()->updateStock($quantite[$key],$prix[$key],$reference[$key]);
+                    }
+                    
+                    else{
+                        $this->getValidationController()->storeValidation($prix[$key],$reference[$key]);
+                    }
                 }
             }
+
             if($request->paye == null){
                 $paye = $somme;
             }
@@ -126,7 +138,7 @@
                 $paye = $request->paye;
             }
 
-            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->nom.'/'.$request->referenceF)){
+            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->nom.'/'.$request->referenceF, $request->matricule)){
                 return true;
             }
 

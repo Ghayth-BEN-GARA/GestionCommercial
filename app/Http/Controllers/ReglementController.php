@@ -6,10 +6,11 @@
     use App\Models\Fournisseur;
 
     class ReglementController extends Controller{
-        public function creerReglement($net,$paye,$reference){
+        public function creerReglement($net,$paye,$reference,$matricule){
             $reglement = new Reglement();
             $reglement->setNetAttribute($net);
             $reglement->setPayeAttribute($paye);
+            $reglement->setMatriculeAttribute($matricule);
             $reglement->setReferenceFAttribute($reference);
             return $reglement->save();
         }

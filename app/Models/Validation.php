@@ -14,8 +14,6 @@
          */
         protected $fillable = [
             'id',
-            'min_prix',
-            'max_prix',
             'prix',
             'date_creation',
             'reference'
@@ -23,22 +21,6 @@
 
         public function getIdAttribute(){
             return $this->attributes['id'];
-        }
-
-        public function getMinPrixAttribute(){
-            return $this->attributes['min_prix'];
-        }
-
-        public function setMinPrixAttribute($value){
-            $this->attributes['min_prix'] = $value;
-        }
-
-        public function getMaxPrixAttribute(){
-            return $this->attributes['max_prix'];
-        }
-
-        public function setMaxPrixAttribute($value){
-            $this->attributes['max_prix'] = $value;
         }
 
         public function getPrixAttribute(){
@@ -53,8 +35,8 @@
             return $this->attributes['date_creation'];
         }
 
-        public function setDateCreationAttribute($value){
-            $this->attributes['date_creation'] = $value;
+        public function setDateCreationAttribute(){
+            $this->attributes['date_creation'] = date('Y/m/d');
         }
 
         public function getReferenceAttribute(){
