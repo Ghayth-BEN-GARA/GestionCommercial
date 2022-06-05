@@ -16,8 +16,8 @@
                 $table->id();
                 $table->string('net',999);
                 $table->string('paye',999);
-                $table->string('referenceF',999);
-                $table->foreign('referenceF')->references('referenceF')->on('factures')->onDelete('cascade')->onUpdate('cascade');
+                $table->string('matricule',999);
+                $table->foreign('matricule')->references('matricule')->on('fournisseurs')->onDelete('cascade')->onUpdate('cascade');
             });
         }
 

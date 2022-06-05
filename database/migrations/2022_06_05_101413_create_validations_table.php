@@ -3,20 +3,18 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Support\Facades\Schema;
 
-    class CreateStocks extends Migration{
+    class CreateValidationsTable extends Migration{
         /**
          * Run the migrations.
          *
          * @return void
          */
         public function up(){
-            Schema::create('stocks', function (Blueprint $table) {
-                $table->collation = 'utf8_general_ci';
-                $table->charset = 'utf8';
+            Schema::create('validations', function (Blueprint $table) {
                 $table->id();
-                $table->integer('qteStock');
+                $table->string('min_prix',999);
+                $table->string('max_prix',999);
                 $table->string('prix',999);
-                $table->integer('marge')->default(5);
                 $table->bigInteger('reference')->unsigned();
                 $table->foreign('reference')->references('reference')->on('articles')->onDelete('cascade')->onUpdate('cascade');
             });
@@ -28,7 +26,7 @@
          * @return void
          */
         public function down(){
-            Schema::dropIfExists('stocks');
+            Schema::dropIfExists('validations');
         }
     }
 ?>

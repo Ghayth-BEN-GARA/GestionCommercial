@@ -40,12 +40,12 @@
             $this->attributes['paye'] = $value;
         }
 
-        public function getReferenceFAttribute(){
-            return $this->attributes['referenceF'];
+        public function getMatriculeAttribute(){
+            return $this->attributes['matricule'];
         }
 
-        public function setReferenceFAttribute($value){
-            $this->attributes['referenceF'] = $value;
+        public function setMatriculeAttribute($value){
+            $this->attributes['matricule'] = $value;
         }
     }
 ?>

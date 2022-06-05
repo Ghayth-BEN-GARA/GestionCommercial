@@ -2,12 +2,11 @@
     namespace App\Models;
     use Illuminate\Database\Eloquent\Model;
 
-    class Stock extends Model{
-        protected $table = 'stocks';
+    class Validation extends Model{
+        protected $table = 'validation';
         protected $primaryKey = 'id';
         public $timestamps = false;
         public $incrementing = false;
-
         /**
          * The attributes that are mass assignable.
          *
@@ -15,9 +14,9 @@
          */
         protected $fillable = [
             'id',
-            'qteStock',
+            'min_prix',
+            'max_prix',
             'prix',
-            'marge',
             'reference'
         ];
 
@@ -25,12 +24,20 @@
             return $this->attributes['id'];
         }
 
-        public function getQteStockAttribute(){
-            return $this->attributes['qteStock'];
+        public function getMinPrixAttribute(){
+            return $this->attributes['min_prix'];
         }
 
-        public function setQteStockAttribute($value){
-            $this->attributes['qteStock'] = $value;
+        public function setMinPrixAttribute($value){
+            $this->attributes['min_prix'] = $value;
+        }
+
+        public function getMaxPrixAttribute(){
+            return $this->attributes['max_prix'];
+        }
+
+        public function setMaxPrixAttribute($value){
+            $this->attributes['max_prix'] = $value;
         }
 
         public function getPrixAttribute(){
@@ -39,14 +46,6 @@
 
         public function setPrixAttribute($value){
             $this->attributes['prix'] = $value;
-        }
-
-        public function getMargeAttribute(){
-            return $this->attributes['marge'];
-        }
-
-        public function setMargeAttribute($value){
-            $this->attributes['marge'] = $value;
         }
 
         public function getReferenceAttribute(){
