@@ -68,14 +68,14 @@
                             <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "notificationDropdown">
                                 <p class = "mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                                 @foreach(App\Http\Controllers\ValidationController::getAllValidation() as $element)
-                                    <a class = "dropdown-item preview-item">
+                                    <a class = "dropdown-item preview-item" href = "{{url('validation-article/'.$element->id)}}">
                                         <div class = "preview-thumbnail">
                                             <div class = "preview-icon bg-success">
                                                 <i class = "ti-info-alt mx-0"></i>
                                             </div>
                                         </div>
                                         <div class = "preview-item-content">
-                                            <h6 class = "preview-subject font-weight-normal">Vous devez vérifier l'article numéro <b>{{$element->getReferenceAttribute()}}</b> avec le nouveau prix <b>{{App\Http\Controllers\FactureController::stylingPrix($element->getPrixAttribute())}}</b>.</h6>
+                                            <h6 class = "preview-subject font-weight-normal">Vous devez vérifier l'article <b>{{$element->designation}}</b> avec le nouveau prix <b>{{App\Http\Controllers\FactureController::stylingPrix($element->getPrixAttribute())}}</b>.</h6>
                                             <p class = "font-weight-light small-text mb-0 text-muted">
                                                 {{App\Http\Controllers\ValidationController::getDifferenceBetweenDates($element->getDateCreationAttribute())}}
                                             </p>

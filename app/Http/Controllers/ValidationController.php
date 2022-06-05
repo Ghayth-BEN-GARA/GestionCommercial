@@ -10,15 +10,38 @@
         }
 
         public static function  getAllValidation(){
-            return Validation::all();
+            return Validation::join('articles', 'articles.reference', '=', 'validations.reference')
+            ->orderBy('date_creation','desc')
+            ->get(['validations.*', 'articles.*']);
         }
 
-        public function storeValidation($prix, $reference){
+        public function verifyArticle($reference){
+            return Validation::where('reference', $reference)->get()->isEmpty();
+        }
+
+        public function gestionStoreValidation($prix,$reference){
+            if($this->verifyArticle($reference)){
+                $this->storeValidation($prix,$reference);
+            }
+
+            else{
+                $this->updateValidation($prix,$reference);
+            }
+        }
+
+        public function storeValidation($prix,$reference){
             $validation = new Validation();
             $validation->setPrixAttribute($prix);
             $validation->setReferenceAttribute($reference);
             $validation->setDateCreationAttribute();
             return $validation->save();
+        }
+
+        public function updateValidation($prix,$reference){
+            return Validation::where('reference',$reference)->update([
+                'prix' => $prix,
+                'date_creation' => date('Y/m/d')
+            ]);
         }
 
         public static function getDifferenceBetweenDates($date){
