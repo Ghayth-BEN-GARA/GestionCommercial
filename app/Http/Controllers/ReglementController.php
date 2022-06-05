@@ -156,5 +156,9 @@
             ->orderBy('facturesarticles.referenceF')
             ->get(['factures.*', 'facturesarticles.*','fournisseurs.*','articles.*']);
         }
+
+        public function deleteReglement($referenceF){
+            return Reglement::where('referenceF',$referenceF)->delete();
+        }
     }
 ?>

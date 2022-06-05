@@ -96,6 +96,7 @@
         public function gestionDeleteFacture(Request $request){
             $this->getStockController()->gestionDeleteStock($request->Input('reference'));
             if($this->deleteFacture($request->Input('reference'))){
+                $this->getReglementController()->deleteReglement($request->Input('reference'));
                 return back()->with('success', 'Cette facture a été supprimée avec succès.');
             }
 

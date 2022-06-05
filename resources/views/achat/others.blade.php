@@ -45,9 +45,9 @@
                                         <p class = "card-description">Créer un article</p>
                                         <form class = "form-inline" name = "f2" id = "f2" method = "get" action = "{{url('/add-article')}}">
                                             <label class = "sr-only" for = "inlineFormInputName2">Référence</label>    
-                                            <input type = "number" class = "form-control mb-2 mr-sm-2" id = "reference" name = "reference" placeholder = "Saisissez la référence.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                            <input type = "number" class = "form-control mb-2 mr-sm-2" id = "reference" name = "reference" placeholder = "Saisissez la référence.." onKeyPress = "return (event.charCode>=48 && event.charCode<=57)" required>
                                             <label class = "sr-only" for = "inlineFormInputName2">Désignation</label> 
-                                            <input type = "text" class = "form-control mb-2 mr-sm-2" id = "designation" name = "designation" placeholder = "Saisissez la désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
+                                            <input type = "text" class = "form-control mb-2 mr-sm-2" id = "designation" name = "designation" placeholder = "Saisissez la désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>=48 && event.charCode<=57)" required>
                                             <label class = "sr-only" for = "inlineFormInputName2" >Catégorie</label>
                                             <select id = "categorie" name = "categorie" class = "nice-select mb-2 mr-sm-2 col-md-2" required>
                                                 <option value = "Catégorie" selected disabled>Catégorie</option>

@@ -25,6 +25,13 @@
             ]);
         }
 
+        public function updateStockWithoutPrix($qte,$reference){
+            $stock = Stock::where('reference', $reference)->first();
+            return Stock::where('reference',$reference)->update([
+                'qteStock' => $stock->getQteStockAttribute() + $qte
+            ]);
+        }
+
         public function getFactureController(){
             return new FactureController();
         }

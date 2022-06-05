@@ -182,7 +182,7 @@
                                                         </div>
                                                         <div class = "row margin-top" id = "content_div">
                                                             <div class = "col-md-2 styleInput">
-                                                                <input type = "search" class = "form-control" name = "designationAdd" id = "designationAdd" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
+                                                                <input type = "search" class = "form-control" name = "designationAdd" id = "designationAdd" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>=48 && event.charCode<=57)" required>
                                                             </div>
                                                             <div class = "col-md-2 styleInput">
                                                                 <input type = "search" class = "form-control" name = "referenceAdd" id = "referenceAdd" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>

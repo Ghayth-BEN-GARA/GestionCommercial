@@ -126,6 +126,7 @@
                     
                     else{
                         $this->getValidationController()->storeValidation($prix[$key],$reference[$key]);
+                        $this->getStockController()->updateStockWithoutPrix($quantite[$key],$reference[$key]);
                     }
                 }
             }
