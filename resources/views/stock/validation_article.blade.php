@@ -2,6 +2,7 @@
 <html lang = "en">
     <head>
         @include ('layouts.head')
+        <link rel = "stylesheet" href = "{{asset('css/notification.css')}}">
     </head>
     <body>
         <div class = "container-scroller">
@@ -16,6 +17,15 @@
                                     <div class = "card-body">
                                         <h4 class = "card-title">Stock</h4>
                                         <p class = "card-description">Consulter la validation des prix</p>
+                                        @if (Session::has('erreur'))
+                                            <div class = "alert bg-danger mb-5 py-4" role = "alert">
+                                                <div class = "d-flex">
+                                                    <div class = "px-3">
+                                                        <p class = "phrase">{{session()->get('erreur')}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                         <div class = "card data-icon-card-primary">
                                             <div class = "card-body">
                                                 <p class = "card-title text-white">Référence de l'article</p>                      
@@ -23,7 +33,7 @@
                                                     <div class = "col-8 text-white">
                                                         <h3>{{$validations->reference}}</h3>
                                                         <p class = "text-white font-weight-500 mb-0">Veuillez indiquer le nouveau prix de l'article <b>{{$validations->designation}}</b> et validez ce prix afin que vous aurez la meilleure gestion de vos achats.</p>
-                                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('valider-prix')}}">
+                                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/valider-prix')}}">
                                                             @csrf
                                                             <div class = "row">
                                                                 <div class = "col-md-6">
@@ -55,7 +65,8 @@
                                                                 <div class = "col-md-6">
                                                                     <div class = "form-group row mt-3">
                                                                         <div class = "col-sm-6">
-                                                                            <button type = "submit" class = "btn btn-primary" id = "btn_submit">Valider</button>
+                                                                            <input type = "hidden" name = "reference" id = "reference" value = "{{$reference}}">
+                                                                            <button type = "submit" class = "btn btn-light" id = "btn_submit">Valider</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>

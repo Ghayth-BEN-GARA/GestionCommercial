@@ -68,7 +68,8 @@
             $informations = $this->getFactureController()->getInformationsUser();
             $validations = $this->getValidationInformations($request->Input('reference'));
             $prixActuel = $this->getStockController()->getPrixAttribute($request->Input('reference'));
-            return view('stock.validation_article',compact('informations','validations','prixActuel'));
+            $reference = $request->Input('reference');
+            return view('stock.validation_article',compact('informations','validations','prixActuel','reference'));
         }
 
         public function getValidationInformations($reference){
@@ -79,6 +80,21 @@
 
         public function getStockController(){
             return new StockController();
+        }
+
+        public function gestionValidationPrix(Request $request){
+            if($this->getStockController()->updatePrixStock($request->reference,$request->prix)){
+                $this->removeValidationPrix($request->reference);
+                return redirect()->route('open-stock')->with('success', "Vous avez bien validé le nouveau prix d'achat de l'article.");
+            }
+
+            else{
+                return back()->with('erreur', "Pour des raisons techniques, il est impossible de valider le nouveau prix d'achat.");
+            }
+        }
+
+        public function removeValidationPrix($reference){
+            return Validation::where('reference',$reference)->delete();
         }
     }
 ?>

@@ -61,12 +61,13 @@
     Route::get('/facture', [FactureController::class, 'openAchat'])->middleware('notsession')->name('consult-achat');
     Route::get('/list-reglement', [ReglementController::class, 'openListReglement'])->middleware('notsession');
     Route::get('/reglement', [ReglementController::class, 'openReglement'])->middleware('notsession')->name('consult-reglement');
-    Route::get('/list-stock', [StockController::class, 'openListStock'])->middleware('notsession');
+    Route::get('/list-stock', [StockController::class, 'openListStock'])->middleware('notsession')->name('open-stock');
     Route::get('/article-disponible', [StockController::class, 'openListArticleDisponibleStock'])->middleware('notsession');
     Route::get('/edit-reglement', [ReglementController::class, 'openEditReglement'])->middleware('notsession')->name('reglement-edit');
     Route::post('/edit-paye-reglement', [ReglementController::class, 'gestionEditReglement']);
     Route::get('/facture-reglement', [ReglementController::class, 'openFactureReglement'])->middleware('notsession')->name('reglement-facture-consult');
     Route::get('/verify-reference-facture-add', [FactureController::class, 'verifyReferenceAddFacture']);
     Route::get('/validation-article', [ValidationController::class, 'openValidationArticle'])->middleware('notsession');
+    Route::post('/valider-prix', [ValidationController::class, 'gestionValidationPrix']);
 ?>
 
