@@ -7,6 +7,7 @@
     use App\Http\Controllers\FactureController;
     use App\Http\Controllers\ReglementController;
     use App\Http\Controllers\StockController;
+    use App\Http\Controllers\ValidationController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -66,5 +67,6 @@
     Route::post('/edit-paye-reglement', [ReglementController::class, 'gestionEditReglement']);
     Route::get('/facture-reglement', [ReglementController::class, 'openFactureReglement'])->middleware('notsession')->name('reglement-facture-consult');
     Route::get('/verify-reference-facture-add', [FactureController::class, 'verifyReferenceAddFacture']);
+    Route::get('/validation-article', [ValidationController::class, 'openValidationArticle'])->middleware('notsession');
 ?>
 

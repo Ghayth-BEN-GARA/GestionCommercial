@@ -68,7 +68,7 @@
                             <div class = "dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby = "notificationDropdown">
                                 <p class = "mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                                 @foreach(App\Http\Controllers\ValidationController::getAllValidation() as $element)
-                                    <a class = "dropdown-item preview-item" href = "{{url('validation-article/'.$element->id)}}">
+                                    <a class = "dropdown-item preview-item" href = "{{url('/validation-article?reference='.$element->reference)}}">
                                         <div class = "preview-thumbnail">
                                             <div class = "preview-icon bg-success">
                                                 <i class = "ti-info-alt mx-0"></i>

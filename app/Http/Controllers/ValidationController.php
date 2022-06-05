@@ -2,6 +2,7 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\Models\Validation;
+    use App\Models\Article;
     use DateTime;
 
     class ValidationController extends Controller{
@@ -58,4 +59,26 @@
                 return "Il y a ".$final_days." jours.";
             }
         }
+
+        public function getFactureController(){
+            return new FactureController();
+        }
+
+        public function openValidationArticle(Request $request){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $validations = $this->getValidationInformations($request->Input('reference'));
+            $prixActuel = $this->getStockController()->getPrixAttribute($request->Input('reference'));
+            return view('stock.validation_article',compact('informations','validations','prixActuel'));
+        }
+
+        public function getValidationInformations($reference){
+            return Validation::join('articles', 'articles.reference', '=', 'validations.reference')
+            ->where('validations.reference','=',$reference)
+            ->first(['articles.*','validations.*']);
+        }
+
+        public function getStockController(){
+            return new StockController();
+        }
     }
+?>
