@@ -28,11 +28,11 @@
                                         @endif
                                         <div class = "card data-icon-card-primary">
                                             <div class = "card-body">
-                                                <p class = "card-title text-white">Référence de l'article</p>                      
+                                                <p class = "card-title text-orange">Référence de l'article</p>                      
                                                 <div class = "row">
-                                                    <div class = "col-8 text-white">
+                                                    <div class = "col-8 text-gris">
                                                         <h3>{{$validations->reference}}</h3>
-                                                        <p class = "text-white font-weight-500 mb-0">Veuillez indiquer le nouveau prix de l'article <b>{{$validations->designation}}</b> et validez ce prix afin que vous aurez la meilleure gestion de vos achats.</p>
+                                                        <p class = "text-gris font-weight-500 mb-0">Veuillez indiquer le nouveau prix de l'article <b>{{$validations->designation}}</b> et validez ce prix afin que vous aurez la meilleure gestion de vos achats.</p>
                                                         <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/valider-prix')}}">
                                                             @csrf
                                                             <div class = "row">
@@ -66,7 +66,7 @@
                                                                     <div class = "form-group row mt-3">
                                                                         <div class = "col-sm-6">
                                                                             <input type = "hidden" name = "reference" id = "reference" value = "{{$reference}}">
-                                                                            <button type = "submit" class = "btn btn-light" id = "btn_submit">Valider</button>
+                                                                            <button type = "submit" class = "btn btn-primary" id = "btn_submit">Valider</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>

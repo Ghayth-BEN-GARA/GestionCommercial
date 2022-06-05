@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                         <div class = "preview-item-content">
-                                            <h6 class = "preview-subject font-weight-normal">Vous devez vérifier l'article <b>{{$element->designation}}</b> avec le nouveau prix <b>{{App\Http\Controllers\FactureController::stylingPrix($element->getPrixAttribute())}}</b>.</h6>
+                                            <h6 class = "preview-subject font-weight-normal">Vous devez valider l'article <b>{{$element->designation}}</b> avec le nouveau prix <b>{{App\Http\Controllers\FactureController::stylingPrix($element->getPrixAttribute())}}</b>.</h6>
                                             <p class = "font-weight-light small-text mb-0 text-muted">
                                                 {{App\Http\Controllers\ValidationController::getDifferenceBetweenDates($element->getDateCreationAttribute())}}
                                             </p>

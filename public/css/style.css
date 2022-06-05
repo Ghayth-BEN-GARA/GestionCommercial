@@ -22161,16 +22161,24 @@ code {
 }
 
 .data-icon-card-primary {
-  background: #4B49AC;
-  color: #ffffff;
+  background: #FCF6DD;
+  color: #F7941E;
 }
 
 .data-icon-card-primary .card-title {
-  color: #ffffff;
+  color: #F7941E;
+}
+
+.text-orange{
+  color: #F7941E;
+}
+
+.text-gris{
+  color: #555;
 }
 
 .data-icon-card-primary .background-icon::before {
-  content: url("../../images/dashboard/shape-4.svg");
+  content: url("../../images/svg/prix.svg");
   position: absolute;
 }
 
