@@ -29,7 +29,7 @@
                     @else
                         @foreach($stocks as $row)
                             <tr>
-                                <td>{{$row->designation}}</td>
+                                <td><a href = "{{url('/description-article?reference='.$row->reference)}}" class = "art-color">{{$row->designation}}</a></td>
                                 <td>{{$row->reference}}</td>
                                 <td>{{$row->categorie}}</td>
                                 <td>{{$row->qteStock}}</td>

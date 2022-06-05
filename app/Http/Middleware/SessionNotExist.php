@@ -33,7 +33,8 @@
             (($request->url() == url('/add-fournisseur')) || ($request->url() == url('/list-fournisseur')) || ($request->url() == url('/edit-fournisseur')) ||
             ($request->url() == url('/fournisseur')) || ($request->url() == url('/others')) || ($request->url() == url('/add-achat')) || ($request->url() == url('/list-achat')) || 
             ($request->url() == url('/facture')) || ($request->url() == url('/list-reglement')) || ($request->url() == url('/reglement')) || ($request->url() == url('/list-stock')) ||
-            ($request->url() == url('/article-disponible')) || ($request->url() == url('/edit-reglement')) || ($request->url() == url('/facture-reglement')) || ($request->url() == url('/validation-article'))
+            ($request->url() == url('/article-disponible')) || ($request->url() == url('/edit-reglement')) || ($request->url() == url('/facture-reglement')) || ($request->url() == url('/validation-article')) ||
+            ($request->url() == url('/description-article'))
             )
                 
             

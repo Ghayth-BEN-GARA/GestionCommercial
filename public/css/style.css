@@ -30630,3 +30630,13 @@ td,tr{
   float: right;
 }
 
+.art-color{
+  text-decoration: none;
+  font-weight: 600;
+  color: #555;
+}
+
+.art-color:hover{
+  color: #F7941E;
+}
+

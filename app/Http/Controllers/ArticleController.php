@@ -5,6 +5,8 @@
     use App\Models\Categorie;
     use App\Models\Reglement;
     use App\Models\FactureArticle;
+    use App\Models\Stock;
+    use App\Models\Facture;
 
     class ArticleController extends Controller{
         public function storeArticle(Request $request){
@@ -156,6 +158,22 @@
             else{
                 return $paiement;
             }
+        }
+
+        public function getAllInformationsArticle($reference){
+            return Article::join('stocks', 'articles.reference', '=', 'stocks.reference')
+            ->join('facturesarticles','articles.reference','=','facturesarticles.reference')
+            ->where('articles.reference','=',$reference)
+            ->firstOrFail(['articles.*','stocks.*','facturesarticles.*']);
+        }
+
+        public function getOtherDescriptionArticle($reference){
+            return Facture::join('facturesarticles', 'facturesarticles.referenceF', '=', 'factures.referenceF')
+            ->join('fournisseurs','fournisseurs.matricule','=','factures.matricule')
+            ->where('facturesarticles.reference','=',$reference)
+            ->groupBy('fournisseurs.matricule')
+            ->orderBy('facturesarticles.id','desc')
+            ->get(['facturesarticles.*','factures.*','fournisseurs.*']);
         }
     }
 ?>

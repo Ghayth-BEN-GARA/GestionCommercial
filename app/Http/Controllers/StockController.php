@@ -77,5 +77,22 @@
                 'prix' => $prix
             ]);
         }
+
+        public function getArticleController(){
+            return new ArticleController();
+        }
+
+        public function openDescriptionArticle(Request $request){
+            try {
+                $informations = $this->getFactureController()->getInformationsUser();
+                $reference = $request->Input('reference');
+                $descriptionArticle = $this->getArticleController()->getAllInformationsArticle($reference);
+                $other = $this->getArticleController()->getOtherDescriptionArticle($reference);
+                return view('stock.description_article',compact('informations','reference','descriptionArticle','other'));
+            } catch (ModelNotFoundException $e) {
+                return view('errors.404');
+            }
+        
+        }
     }
 ?>

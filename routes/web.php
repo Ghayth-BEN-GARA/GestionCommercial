@@ -69,5 +69,6 @@
     Route::get('/verify-reference-facture-add', [FactureController::class, 'verifyReferenceAddFacture']);
     Route::get('/validation-article', [ValidationController::class, 'openValidationArticle'])->middleware('notsession');
     Route::post('/valider-prix', [ValidationController::class, 'gestionValidationPrix']);
+    Route::get('/description-article', [StockController::class, 'openDescriptionArticle'])->middleware('notsession');
 ?>
 
