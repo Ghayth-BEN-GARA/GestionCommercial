@@ -120,7 +120,7 @@
 
         public function openEditReglement(Request $request){
             $informations = $this->getFactureController()->getInformationsUser();
-            $listeReglements = $this->getAllInformationsReglements($request->Input('matricule'));
+            $listeReglements = $this->getAllInformationsReglementsEdit($request->Input('matricule'));
             
             return view('reglement.edit_reglement',compact('informations','listeReglements'));
         }
@@ -179,6 +179,13 @@
                 $somme += $value->paye;
             }
             return $somme;
+        }
+
+        public function getAllInformationsReglementsEdit($matricule){
+            return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
+                ->where('factures.matricule', '=', $matricule)
+                ->orderBy('date','desc')
+                ->paginate(10,array('factures.*','reglements.*'));
         }
     }
 ?>
