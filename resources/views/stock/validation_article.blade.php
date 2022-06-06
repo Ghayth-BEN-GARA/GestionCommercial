@@ -32,7 +32,7 @@
                                                 <div class = "row">
                                                     <div class = "col-8 text-gris">
                                                         <h3>{{$validations->reference}}</h3>
-                                                        <p class = "text-gris font-weight-500 mb-0">Veuillez indiquer le nouveau prix de l'article <b>{{$validations->designation}}</b> et validez ce prix afin que vous aurez la meilleure gestion de vos achats.</p>
+                                                        <p class = "text-gris font-weight-500 mb-0">Veuillez indiquer le nouvel prix de l'article <b>{{$validations->designation}}</b> et validez ce prix afin que vous aurez la meilleure gestion de vos achats.</p>
                                                         <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/valider-prix')}}">
                                                             @csrf
                                                             <div class = "row">
@@ -56,7 +56,7 @@
                                                             <div class = "row">
                                                                 <div class = "col-md-6">
                                                                     <div class = "form-group row mt-3">
-                                                                        <label class = "col-sm-6 col-form-label">Nouveau prix</label>
+                                                                        <label class = "col-sm-6 col-form-label">Nouvel prix</label>
                                                                         <div class = "col-sm-6">
                                                                             <input type = "number" class = "form-control" name = "prix" id = "prix" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                                         </div>
