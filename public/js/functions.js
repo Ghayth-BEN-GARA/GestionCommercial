@@ -531,6 +531,18 @@ function checkIfButtonActive(){
     }
 }
 
+function saisieAutomatiquePrix(){
+   if($('#select').is(':checked')){
+    $('#prix').val($('#default').val());
+    $('#prix').prop('readonly', true);
+    }
+
+    else{
+        $('#prix').val('');
+        $('#prix').prop('readonly', false);
+    }
+}
+
 
 
   

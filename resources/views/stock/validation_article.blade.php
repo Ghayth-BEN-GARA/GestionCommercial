@@ -48,7 +48,7 @@
                                                                     <div class = "form-group row mt-3">
                                                                         <label class = "col-sm-6 col-form-label">Prix ​​suggéré</label>
                                                                         <div class = "col-sm-6">
-                                                                            <b class = "form-control">{{App\Http\Controllers\FactureController::stylingPrix($validations->prix)}}</b>
+                                                                            <b class = "form-control" id = "prix_s">{{App\Http\Controllers\FactureController::stylingPrix($validations->prix)}}</b>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -58,6 +58,7 @@
                                                                     <div class = "form-group row mt-3">
                                                                         <label class = "col-sm-6 col-form-label">Nouvel prix</label>
                                                                         <div class = "col-sm-6">
+                                                                            <input type = "hidden" name = "default" id = "default" value = "{{$validations->prix}}">
                                                                             <input type = "number" class = "form-control" name = "prix" id = "prix" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                                         </div>
                                                                     </div>
@@ -66,9 +67,17 @@
                                                                     <div class = "form-group row mt-3">
                                                                         <div class = "col-sm-6">
                                                                             <input type = "hidden" name = "reference" id = "reference" value = "{{$reference}}">
-                                                                            <button type = "submit" class = "btn btn-primary" id = "btn_submit">Valider</button>
+                                                                            <div class = "form-check mx-sm-2">
+                                                                                <label class = "form-check-label">
+                                                                                    <input type = "checkbox" class = "form-check-input" name = "select" id = "select">
+                                                                                    Automatique
+                                                                                </label>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                                <div class = "col-md-12 text-center">
+                                                                    <button type = "submit" class = "btn btn-primary" id = "btn_submit">Valider</button>
                                                                 </div>
                                                             </div>
                                                         </form>
@@ -87,5 +96,10 @@
             </div>
         </div>
         @include ('layouts.script')
+        <script>
+            $('#select').on('click',function(){
+                saisieAutomatiquePrix();
+            });  
+        </script>
     </body>
 </html>

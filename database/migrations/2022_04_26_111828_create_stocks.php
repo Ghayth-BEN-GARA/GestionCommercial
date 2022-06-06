@@ -16,7 +16,7 @@
                 $table->id();
                 $table->integer('qteStock');
                 $table->string('prix',999);
-                $table->integer('marge')->default(5);
+                $table->integer('marge')->default(20);
                 $table->bigInteger('reference')->unsigned();
                 $table->foreign('reference')->references('reference')->on('articles')->onDelete('cascade')->onUpdate('cascade');
             });
