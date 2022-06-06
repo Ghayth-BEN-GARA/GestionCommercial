@@ -119,8 +119,7 @@
                                                         </div>
                                                     </div>
                                                 </section>
-                                                <br>
-                                                <div class = "col-md-12 text-center">
+                                                <div class = "col-md-12 text-center mt-4">
                                                     <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer la facture</button>
                                                 </div>
                                             </div>

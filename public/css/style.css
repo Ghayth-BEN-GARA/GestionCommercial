@@ -30648,3 +30648,48 @@ td,tr{
   color: #F7941E;
 }
 
+@media print{
+    body *{
+        visibility: hidden;
+    }
+
+    #print-reglement, #print-reglement *{
+        visibility: visible;
+    }
+
+    #infos *{
+      overflow: hidden;
+    }
+
+    #infos table tr th *{
+      visibility: hidden;
+    }
+
+    #tit{
+      visibility: hidden;
+    }
+
+    #desc{
+      visibility: hidden;
+    }
+
+    #print-reglement{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+    } 
+
+    #print{
+        visibility: hidden;
+    }
+
+    th{
+        color: #F7941E;
+    }
+}
+
+#print-reglement{
+    margin-top: -5%;
+}
+

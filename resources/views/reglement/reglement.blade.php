@@ -13,11 +13,11 @@
                 <div class = "main-panel">
                     <div class = "content-wrapper">
                         <div class = "row">
-                            <div class = "col-md-12 grid-margin stretch-card">
+                            <div class = "col-md-12 grid-margin stretch-card" id = "print-reglement">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "card-title">Réglements</h4>
-                                        <p class = "card-description">Consulter le réglements des fournisseurs</p>
+                                        <h4 class = "card-title" id = "tit">Réglements</h4>
+                                        <p class = "card-description" id = "desc">Consulter le réglements des fournisseurs</p>
                                         <div class = "container">
                                             <div class = "row">
                                                 <div class = "col-md-12">
@@ -43,7 +43,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class = "col-md-7 col-sm-6">
+                                                        <div class = "col-md-7 col-sm-6" id = "infos">
                                                             <div class = "p-4 d-flex flex-column light-yellow-bg-color round-corner">
                                                                 <div class = "table-responsive">
                                                                     <table class = "table table-borderless">
@@ -152,7 +152,6 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <?php $somme = 0;?>
                                                                     @foreach ($listeReglements as $value)
                                                                         <tr>
                                                                             <td>{{$value->getDateAttribute()}}</td>
@@ -164,8 +163,8 @@
                                                                     @endforeach
                                                                 </tbody>
                                                             </table>       
-                                                            <div class = "container" id = "pg">
-                                                                {{$listeReglements->links('vendor.pagination.normal_pagination')}}
+                                                            <div class = "col-md-12 text-center mt-4">
+                                                                <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer le réglement</button>
                                                             </div>
                                                         </div>
                                                     </div>
