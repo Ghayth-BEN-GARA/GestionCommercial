@@ -59,7 +59,9 @@
             $listeReglements = $this->getAllInformationsReglements($request->Input('matricule'));
             $fournisseur = $this->getFournisseurController()->getInformationsFournisseurs($request->Input('matricule'));
             $matricule = $request->Input('matricule');
-            return view('reglement.reglement',compact('informations','reglements','listeReglements','fournisseur','matricule'));
+            $soldeCredit = $this->getCreditReglementFournisseur($matricule);
+            $montantReglement = $this->getSommeMontantPaye($matricule);
+            return view('reglement.reglement',compact('informations','reglements','listeReglements','fournisseur','matricule','soldeCredit','montantReglement'));
         }
 
         public function getFournisseurController(){
@@ -159,6 +161,24 @@
 
         public function deleteReglement($referenceF){
             return Reglement::where('referenceF',$referenceF)->delete();
+        }
+
+        public function getCreditReglementFournisseur($matricule){
+            $credits = $this->getAllInformationsReglements($matricule);
+            $somme = 0;
+            foreach ($credits as $value) {
+                $somme += $value->net - $value->paye;
+            }
+            return $somme;
+        }
+
+        public function getSommeMontantPaye($matricule){
+            $credits = $this->getAllInformationsReglements($matricule);
+            $somme = 0;
+            foreach ($credits as $value) {
+                $somme += $value->paye;
+            }
+            return $somme;
         }
     }
 ?>
