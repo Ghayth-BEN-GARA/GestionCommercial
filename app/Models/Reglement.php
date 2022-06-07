@@ -17,6 +17,7 @@
             'id',
             'net',
             'paye',
+            'date',
             'referenceF',
             'matriucle',
         ];
@@ -39,6 +40,14 @@
 
         public function setPayeAttribute($value){
             $this->attributes['paye'] = $value;
+        }
+
+        public function getDateAttribute(){
+            return (date('D d F Y',strtotime($this->attributes['date'])));
+        }
+
+        public function setDateAttribute($value){
+            $this->attributes['date'] = $value;
         }
 
         public function getMatriculeAttribute(){

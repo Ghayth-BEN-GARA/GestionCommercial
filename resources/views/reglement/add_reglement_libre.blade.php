@@ -34,7 +34,8 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        <form class = "forms-sample" id = "f" name = "f" method = "get" action = "{{url('/store-reglement-libre')}}">
+                                        <form class = "forms-sample" id = "f" name = "f" method = "post" action = "{{url('/store-reglement-libre')}}">
+                                            @csrf
                                             <div class = "form-group row">
                                                 <label for = "exampleInputEmail2" class = "col-sm-3 col-form-label">Nom du fournisseur</label>
                                                 <div class = "col-sm-7">
@@ -45,6 +46,12 @@
                                                 <label for = "exampleInputEmail2" class = "col-sm-3 col-form-label">Matricule du fournisseur</label>
                                                 <div class = "col-sm-7">
                                                     <input type = "text" class = "form-control" name = "matricule" id = "matricule" placeholder = "Saisissez la matricule.." value = '{{$matricule}}' required readonly />
+                                                </div>
+                                            </div>
+                                            <div class = "form-group row">
+                                                <label for = "exampleInputEmail2" class = "col-sm-3 col-form-label">Date du réglement</label>
+                                                <div class = "col-sm-7">
+                                                    <input type = "date" class = "form-control" name = "date" id = "date" required />
                                                 </div>
                                             </div>
                                             <div class = "form-group row">

@@ -6,10 +6,11 @@
     use App\Models\Fournisseur;
 
     class ReglementController extends Controller{
-        public function creerReglement($net,$paye,$reference,$matricule){
+        public function creerReglement($net,$paye,$reference,$matricule,$date){
             $reglement = new Reglement();
             $reglement->setNetAttribute($net);
             $reglement->setPayeAttribute($paye);
+            $reglement->setDateAttribute($date);
             $reglement->setMatriculeAttribute($matricule);
             $reglement->setReferenceFAttribute($reference);
             return $reglement->save();
@@ -25,8 +26,10 @@
             $ch = "";
 
             foreach ($this->getReglementFacture($referenceF) as $value) {
-                $sommeAPaye = $sommeAPaye + $value->getNetAttribute();
-                $sommePaye = $sommePaye + $value->getPayeAttribute();
+                if (is_numeric($value->getNetAttribute()) && is_numeric($value->getPayeAttribute())){
+                    $sommeAPaye = $sommeAPaye + $value->getNetAttribute();
+                    $sommePaye = $sommePaye + $value->getPayeAttribute();
+                }
             }
 
             $montant = $sommeAPaye - $sommePaye;
@@ -68,10 +71,14 @@
             return new FournisseurController();
         }
 
+        public function getLastDate($matricule){
+            return Reglement::where('matricule',$matricule)->orderBy('date','desc')->first();
+        }
+
         public function getInformationsReglements($matricule){
             return [
                 'nom' => $this->getFournisseurController()->getInformationsFournisseurs($matricule)->getNomAttribute(),
-                'lastData' => $this->getFactureController()->getLastDate($matricule)->getDateAttribute(),
+                'lastData' => $this->getLastDate($matricule)->getDateAttribute(),
                 'firstData' => $this->getFactureController()->getFirstDate($matricule)->getDateAttribute(),
                 'matricule' => $matricule,
                 'solde' => $this->getSoldeReglements($matricule),
@@ -96,25 +103,25 @@
         }
 
         public function getAllInformationsReglements($matricule){
-            return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
-                ->where('factures.matricule', '=', $matricule)
-                ->orderBy('date','desc')
-                ->get(array('factures.*','reglements.*'));
+            return Reglement::where('reglements.matricule', '=', $matricule)
+                ->orderBy('reglements.date','desc')
+                ->get(array('reglements.*'));
         }
 
         public static function getCreditReglement($net,$paye){
             $fact = new FactureController;
-
-            if($paye < $net){
-                return ('Vous devez payé '.$fact->stylingPrix($net - $paye));
-            }
-
-            else if($paye > $net){
-                return ('Le fourniseur doit payé '.$fact->stylingPrix($paye - $net));
-            }
-
-            else{
-                return ('Pas de crédit.');
+            if (is_numeric($paye) && is_numeric($net)){
+                if($paye < $net){
+                    return ('Vous devez payé '.$fact->stylingPrix($net - $paye));
+                }
+    
+                else if($paye > $net){
+                    return ('Le fourniseur doit payé '.$fact->stylingPrix($paye - $net));
+                }
+    
+                else{
+                    return ('Pas de crédit.');
+                }
             }
         }
 
@@ -167,7 +174,9 @@
             $credits = $this->getAllInformationsReglements($matricule);
             $somme = 0;
             foreach ($credits as $value) {
-                $somme += $value->net - $value->paye;
+                if (is_numeric($value->net) && is_numeric($value->paye)){
+                    $somme += $value->net - $value->paye;
+                }
             }
             return $somme;
         }
@@ -176,7 +185,9 @@
             $credits = $this->getAllInformationsReglements($matricule);
             $somme = 0;
             foreach ($credits as $value) {
-                $somme += $value->paye;
+                if (is_numeric($value->paye)){
+                    $somme += $value->paye;
+                }
             }
             return $somme;
         }
@@ -184,7 +195,7 @@
         public function getAllInformationsReglementsEdit($matricule){
             return Facture::join('reglements', 'reglements.referenceF', '=', 'factures.referenceF')
                 ->where('factures.matricule', '=', $matricule)
-                ->orderBy('date','desc')
+                ->orderBy('reglements.date','desc')
                 ->paginate(10,array('factures.*','reglements.*'));
         }
 
@@ -196,7 +207,7 @@
         }
 
         public function gestionStoreReglementLibre(Request $request){
-            if($this->storeReglementLibre($request->matricule,$request->paye,$request->nom)){
+            if($this->storeReglementLibre($request->matricule,$request->paye,$request->nom,$request->date)){
                 return back()->with('success', 'Le réglement libre a été ajouté avec succès.');
             }
 
@@ -205,12 +216,13 @@
             }
         }
 
-        public function storeReglementLibre($matricule,$paye,$nom){
+        public function storeReglementLibre($matricule,$paye,$nom,$date){
             $reglement = new Reglement();
             $reglement->setNetAttribute("0");
             $reglement->setPayeAttribute($paye);
             $reglement->setMatriculeAttribute($matricule);
-            $reglement->setReferenceFAttribute($nom."/");
+            $reglement->setDateAttribute($date);
+            $reglement->setReferenceFAttribute($nom."/Libre");
             return $reglement->save();
         }
     }

@@ -52,7 +52,7 @@
                                             <select id = "categorie" name = "categorie" class = "nice-select mb-2 mr-sm-2 col-md-2" required>
                                                 <option value = "Catégorie" selected disabled>Catégorie</option>
                                                 @if($categories->count() == null)
-                                                    <option value = "Aucun" selected disabled>Pas de catégorie disponible pour le moment !</option>
+                                                    <option value = "Aucun" selected disabled>Pas de catégorie</option>
                                                 @else
                                                     @foreach($categories as $row)
                                                         <option value = "{{$row->nom}}">{{$row->nom}}</option>

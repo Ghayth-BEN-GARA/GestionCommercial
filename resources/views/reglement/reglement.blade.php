@@ -148,7 +148,6 @@
                                                                         <th>Libellé</th>
                                                                         <th>Net</th>
                                                                         <th>Payé</th>
-                                                                        <th>Crédit</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -158,7 +157,6 @@
                                                                             <td>FACTURE N° {{$value->getReferenceFAttribute()}}</td>
                                                                             <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
                                                                             <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
-                                                                            <td>{{App\Http\Controllers\ReglementController::getCreditReglement($value->net,$value->paye)}}</td>
                                                                         </tr>
                                                                     @endforeach
                                                                 </tbody>

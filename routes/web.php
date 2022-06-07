@@ -72,6 +72,6 @@
     Route::get('/description-article', [StockController::class, 'openDescriptionArticle'])->middleware('notsession');
     Route::post('/update-marge', [ArticleController::class, 'gestionUpdateMargePrix']);
     Route::get('/add-reglement-libre', [ReglementController::class, 'openAddReglementLibre'])->middleware('notsession');
-    Route::get('/store-reglement-libre', [ReglementController::class, 'gestionStoreReglementLibre']);
+    Route::post('/store-reglement-libre', [ReglementController::class, 'gestionStoreReglementLibre']);
 ?>
 

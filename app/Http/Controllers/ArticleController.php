@@ -141,7 +141,7 @@
                 $paye = $request->paye;
             }
 
-            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->nom.'/'.$request->referenceF, $request->matricule)){
+            if($this->getReglementController()->creerReglement($somme,$this->verifierEtatPayement($paye,$somme),$request->nom.'/'.$request->referenceF, $request->matricule,$request->date)){
                 return true;
             }
 
