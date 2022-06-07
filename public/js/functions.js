@@ -543,6 +543,10 @@ function saisieAutomatiquePrix(){
     }
 }
 
+function setDataToUpdateMarge(reference){
+    $('#reference').val(reference);
+}
+
 
 
   

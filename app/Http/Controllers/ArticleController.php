@@ -181,5 +181,21 @@
             $marge = ($article->getPrixAttribute() * $article->getMargeAttribute()) / 100;
             return ($article->getPrixAttribute() + $marge);
         }
+
+        public function gestionUpdateMargePrix(Request $request){
+            if($this->updateMarge($request->reference,$request->marge)){
+                return redirect()->route('open-stock')->with('success','Le marge de prix souhaitée a été mise à jour avec succès.');
+            }
+
+            else{
+                return redirect()->route('open-stock')->with('erreur',"Pour des raisons techniques, la marge de prix souhaitée n'a pas été mise à jour.");
+            }
+        }
+
+        public function updateMarge($reference,$marge){
+            return Stock::where('reference',$reference)->update([
+                'marge' => $marge
+            ]);
+        }
     }
 ?>
