@@ -187,5 +187,31 @@
                 ->orderBy('date','desc')
                 ->paginate(10,array('factures.*','reglements.*'));
         }
+
+        public function openAddReglementLibre(Request $request){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $nom = $this->getFournisseurController()->getInformationsFournisseurs($request->Input('matricule'))->getNomAttribute();
+            $matricule = $request->Input('matricule');
+            return view('reglement.add_reglement_libre',compact('informations','nom','matricule'));
+        }
+
+        public function gestionStoreReglementLibre(Request $request){
+            if($this->storeReglementLibre($request->matricule,$request->paye,$request->nom)){
+                return back()->with('success', 'Le réglement libre a été ajouté avec succès.');
+            }
+
+            else{
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier ce réglement.');
+            }
+        }
+
+        public function storeReglementLibre($matricule,$paye,$nom){
+            $reglement = new Reglement();
+            $reglement->setNetAttribute("0");
+            $reglement->setPayeAttribute($paye);
+            $reglement->setMatriculeAttribute($matricule);
+            $reglement->setReferenceFAttribute($nom."/");
+            return $reglement->save();
+        }
     }
 ?>

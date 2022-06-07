@@ -71,5 +71,7 @@
     Route::post('/valider-prix', [ValidationController::class, 'gestionValidationPrix']);
     Route::get('/description-article', [StockController::class, 'openDescriptionArticle'])->middleware('notsession');
     Route::post('/update-marge', [ArticleController::class, 'gestionUpdateMargePrix']);
+    Route::get('/add-reglement-libre', [ReglementController::class, 'openAddReglementLibre'])->middleware('notsession');
+    Route::get('/store-reglement-libre', [ReglementController::class, 'gestionStoreReglementLibre']);
 ?>
 

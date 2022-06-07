@@ -38,7 +38,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class = "d-flex flex-row mt-4">
-                                                                    <button type = "button" class = "flex-grow-1 me-1 py-2 text-uppercase font-12 weight-700 purple-color-2 grey-bg-color" onclick = "ouvrirRoot('/add-reglement-libre')">Ajouter</button>
+                                                                    <button type = "button" class = "flex-grow-1 me-1 py-2 text-uppercase font-12 weight-700 purple-color-2 grey-bg-color" onclick = "ouvrirRoot('/add-reglement-libre?matricule={{$matricule}}')">Ajouter</button>
                                                                     <button type = "button" class = "flex-grow-1 ms-1 py-2 text-uppercase font-12 weight-700 white-color-2 orange-bg-color margin-left-1" onclick = "ouvrirRootEditReglement('{{$matricule}}')">Modifier</button>
                                                                 </div>
                                                             </div>
