@@ -99,6 +99,13 @@
             $prix = $request->prix;
             
             foreach($request->designation as $key => $insert){
+                if($this->getCategorieController()->verifyCategorie($categorie[$key])){
+                    $enregistrementCategorie = [
+                        'nom' => $categorie[$key]
+                    ];
+                    Categorie::insert([$enregistrementCategorie]);  
+                }
+
                 if($this->verifyArticle($reference[$key])){
                     $enregistrementArticle = [
                         'designation' => $designation[$key],

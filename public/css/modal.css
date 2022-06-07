@@ -452,6 +452,7 @@ h3 {
     -webkit-animation: fadeIn 2s; /* Safari and Chrome */
     -o-animation: fadeIn 2s; /* Opera */
 }
+
 @keyframes fadeIn {
     from {
         opacity:0;
@@ -460,6 +461,7 @@ h3 {
         opacity:1;
     }
 }
+
 @-moz-keyframes fadeIn { /* Firefox */
     from {
         opacity:0;
@@ -468,6 +470,7 @@ h3 {
         opacity:1;
     }
 }
+
 @-webkit-keyframes fadeIn { /* Safari and Chrome */
     from {
         opacity:0;
@@ -476,6 +479,7 @@ h3 {
         opacity:1;
     }
 }
+
 @-o-keyframes fadeIn { /* Opera */
     from {
         opacity:0;
