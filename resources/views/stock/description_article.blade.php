@@ -80,6 +80,15 @@
                                                                                 </td>
                                                                                 <td><h5 class = "font-weight-bold mb-0">{{App\Http\Controllers\FactureController::stylingPrix($descriptionArticle->prix)}}</h5></td>
                                                                             </tr>
+                                                                            <tr>
+                                                                                <td class = "text-muted">Prix de vente</td>
+                                                                                <td class = "w-100 px-0">
+                                                                                    <div class = "progress progress-md mx-4">
+                                                                                        <div class = "progress-bar bg-success" role = "progressbar" style = "width: 100%" aria-valuenow = "100" aria-valuemin = "0" aria-valuemax = "100"></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><h5 class = "font-weight-bold mb-0">{{App\Http\Controllers\FactureController::stylingPrix(App\Http\Controllers\ArticleController::calculeMargePrix($reference))}}</h5></td>
+                                                                            </tr>
                                                                         </table>
                                                                     </div>
                                                                 </div>

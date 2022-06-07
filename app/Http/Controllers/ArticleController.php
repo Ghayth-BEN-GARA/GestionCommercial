@@ -175,5 +175,11 @@
             ->orderBy('facturesarticles.id','desc')
             ->get(['facturesarticles.*','factures.*','fournisseurs.*']);
         }
+
+        public static function calculeMargePrix($reference){
+            $article = Stock::where('reference', $reference)->first();
+            $marge = ($article->getPrixAttribute() * $article->getMargeAttribute()) / 100;
+            return ($article->getPrixAttribute() + $marge);
+        }
     }
 ?>
