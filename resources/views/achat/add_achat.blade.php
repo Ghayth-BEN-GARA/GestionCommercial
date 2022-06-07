@@ -182,21 +182,24 @@
                                                         </div>
                                                         <div class = "row margin-top" id = "content_div">
                                                             <div class = "col-md-2 styleInput">
-                                                                <input type = "search" class = "form-control" name = "designationAdd" id = "designationAdd" placeholder = "Désignation.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>=48 && event.charCode<=57)" required>
+                                                                <input type = "search" class = "form-control" name = "designationAdd" id = "designationAdd" placeholder = "Désignation.." value = "Désignation" onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>=48 && event.charCode<=57)" required>
                                                             </div>
                                                             <div class = "col-md-2 styleInput">
-                                                                <input type = "search" class = "form-control" name = "referenceAdd" id = "referenceAdd" placeholder = "Référence.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                                <input type = "search" class = "form-control" name = "referenceAdd" id = "referenceAdd" placeholder = "Référence.." value = "Référence" onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                             </div>
                                                             <div class = "col-md-2 styleInput">
-                                                                <input type = "search" class = "form-control" name = "categorieAdd" id = "categorieAdd" placeholder = "Catégorie.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
+                                                                <input type = "search" class = "form-control" name = "categorieAdd" id = "categorieAdd" placeholder = "Catégorie.." value = "Catégorie" onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32)" required>
                                                             </div>
                                                             <div class = "col-md-2">
-                                                                <input type = "number" class = "form-control" name = "quantiteAdd" id = "quantiteAdd" placeholder = "Quantité.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                                <input type = "number" class = "form-control" name = "quantiteAdd" id = "quantiteAdd" placeholder = "Quantité.." value = "0" onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                             </div>
                                                             <div class = "col-md-2">
-                                                                <input type = "number" class = "form-control" name = "prixAdd" id = "prixAdd" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                                <input type = "number" class = "form-control" name = "prixAdd" id = "prixAdd" placeholder = "Prix.." value = "0.000" onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                             </div>
-                                                            <div class = "col-md-2">
+                                                            <div class = "mt-3">
+                                                                <span> DT</span>
+                                                            </div>
+                                                            <div class = "col-md-1">
                                                                 <button type = "button" class = "btn btn-success mr-2" name = "button_add" id = "button_add">Ajouter</button>
                                                             </div>
                                                         </div>

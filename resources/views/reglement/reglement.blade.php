@@ -152,15 +152,19 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     @foreach ($listeReglements as $value)
-                                                                        <tr>
-                                                                            <td>{{$value->getDateAttribute()}}</td>
-                                                                            <td>FACTURE N° {{$value->getReferenceFAttribute()}}</td>
-                                                                            <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
-                                                                            <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
-                                                                        </tr>
+                                                                        @if($value->net != 0)
+                                                                            <tr class = "table-warning">
+                                                                        @else
+                                                                            <tr class = "table-danger">
+                                                                        @endif
+                                                                                <td>{{$value->getDateAttribute()}}</td>
+                                                                                <td>FACTURE N° {{$value->getReferenceFAttribute()}}</td>
+                                                                                <td>{{App\Http\Controllers\FactureController::stylingPrix($value->net)}}</td>
+                                                                                <td>{{App\Http\Controllers\FactureController::stylingPrix($value->paye)}}</td>
+                                                                            </tr>
                                                                     @endforeach
                                                                 </tbody>
-                                                            </table>       
+                                                            </table>      
                                                             <div class = "col-md-12 text-center mt-4">
                                                                 <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer le réglement</button>
                                                             </div>
