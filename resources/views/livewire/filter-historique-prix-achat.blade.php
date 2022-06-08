@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th>Fournisseur</th>
-                        <th>Facture</th>
+                        <th>Date</th>
                         <th>Article</th>
                         <th>Prix d'achat</th>
                     </tr>  
@@ -29,7 +29,7 @@
                         @foreach($historiques as $row)
                             <tr>
                                 <td class = "font-weight-bold"><div class = "badge badge-danger">{{$row->nom}}</div></td>
-                                <td>{{$row->referenceF}}</td>
+                                <td>{{App\Http\Controllers\FactureController::getDateAttribute($row->date)}}</td>
                                 <td class = "font-weight-bold"><div class = "badge badge-warning">{{$row->designation}}</div></td>
                                 <td class = "font-weight-bold"><div class = "badge badge-success">{{App\Http\Controllers\FactureController::stylingPrix($row->prixU)}}</div></td>
                             </tr>

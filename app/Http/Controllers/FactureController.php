@@ -172,5 +172,9 @@
             $reference = $request->Input('reference');
             return view('achat.historique_prix_achat',compact('informations','reference'));
         }
+
+        public static function getDateAttribute($date){
+            return (date('D d F Y',strtotime($date)));
+        }
     }   
 ?>
