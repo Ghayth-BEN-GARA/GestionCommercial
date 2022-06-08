@@ -73,5 +73,6 @@
     Route::post('/update-marge', [ArticleController::class, 'gestionUpdateMargePrix']);
     Route::get('/add-reglement-libre', [ReglementController::class, 'openAddReglementLibre'])->middleware('notsession');
     Route::post('/store-reglement-libre', [ReglementController::class, 'gestionStoreReglementLibre']);
+    Route::get('/historique-prix-achat', [FactureController::class, 'openHistoriquePrixAchat'])->middleware('notsession');
 ?>
 

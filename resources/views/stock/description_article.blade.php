@@ -99,6 +99,7 @@
                                                                                 <td><h5 class = "font-weight-bold mb-0">{{$descriptionArticle->marge}}%</h5></td>
                                                                             </tr>
                                                                         </table>
+                                                                        <a href = "{{url('/historique-prix-achat?reference='.$reference)}}" class = "text-info">Voir l'historique des prix d'achat..</a>
                                                                     </div>
                                                                 </div>
                                                                 <div class = "col-md-6 mt-3">

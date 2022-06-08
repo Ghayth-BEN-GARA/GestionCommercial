@@ -166,5 +166,11 @@
         public function getFirstDate($matricule){
             return Facture::where('matricule',$matricule)->orderBy('date','asc')->first();
         }
+
+        public function openHistoriquePrixAchat(Request $request){
+            $informations = $this->getInformationsUser();
+            $reference = $request->Input('reference');
+            return view('achat.historique_prix_achat',compact('informations','reference'));
+        }
     }   
 ?>

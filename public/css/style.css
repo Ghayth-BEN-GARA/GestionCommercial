@@ -18919,7 +18919,7 @@ a.text-success:hover, a.text-success:focus {
 }
 
 .text-info {
-  color: #248AFD !important;
+  color: #F7941E !important;
 }
 
 a.text-info:hover, a.text-info:focus {
@@ -20568,10 +20568,10 @@ code {
 
 /* Badges */
 .badge {
-  border-radius: 20px;
-  font-size: 12px;
+  border-radius: 25px;
+  font-size: 14px;
   line-height: 1;
-  padding: .375rem .5625rem;
+  padding: .575rem .7625rem;
   font-weight: normal;
 }
 
