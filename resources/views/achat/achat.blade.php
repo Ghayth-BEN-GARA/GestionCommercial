@@ -120,7 +120,7 @@
                                                     </div>
                                                 </section>
                                                 <div class = "col-md-12 text-center mt-4">
-                                                    <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer la facture</button>
+                                                    <button type = "button" class = "btn btn-primary me-2 btn-icon-text" id = "print" onclick = "imprimFacture()"> <i class = "ti-printer btn-icon-append"></i> Imprimer la facture</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -167,7 +167,7 @@
                                                                 </tbody>
                                                             </table> 
                                                             <div class = "col-md-12 text-center mt-4">
-                                                                <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer le réglement</button>
+                                                                <button type = "button" class = "btn btn-primary me-2 btn-icon-text" id = "print" onclick = "imprimFacture()"><i class = "ti-printer btn-icon-append"></i>  Imprimer le réglement</button>
                                                             </div>
                                                         </div>
                                                     </div>

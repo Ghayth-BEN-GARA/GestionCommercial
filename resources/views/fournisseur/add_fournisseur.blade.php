@@ -44,7 +44,7 @@
                                                             <div class = "input-group">
                                                                 <input type = "text" class = "form-control" name = "matricule" id = "matricule" placeholder = "Saisissez la matricule fiscale.." onkeypress = "return (event.charCode>64 && event.charCode<91) || (event.charCode>96 && event.charCode<123) || (event.charCode == 32) || (event.charCode>=47 && event.charCode<=57)" required/>
                                                                 <div class = "input-group-append">
-                                                                    <button class = "btn btn-sm btn-primary" type = "button" onclick = "verifierMatriculeFournisseur()">Vérifier</button>
+                                                                    <button class = "btn btn-sm btn-primary btn-icon-text" type = "button" onclick = "verifierMatriculeFournisseur()"><i class = "ti-reload btn-icon-prepend"></i> Vérifier</button>
                                                                 </div>
                                                             </div>
                                                             <span class = "error" id = "matricule_error"></span>

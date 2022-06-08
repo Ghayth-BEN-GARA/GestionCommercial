@@ -85,7 +85,7 @@
                                                     <div class = "input-group col-xs-12">
                                                         <input type = "text" class = "form-control file-upload-info" disabled placeholder = "Modifier l'image de profil..">
                                                         <span class = "input-group-append">
-                                                            <button class = "file-upload-browse btn btn-primary" type = "button">Modifier</button>
+                                                            <button class = "file-upload-browse btn btn-primary btn-icon-text" type = "button"><i class = "ti-upload btn-icon-prepend"></i>  Modifier</button>
                                                         </span>
                                                     </div>
                                                 </div>

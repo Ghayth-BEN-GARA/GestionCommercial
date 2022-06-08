@@ -27,7 +27,7 @@
                         </div>
 		      		</div>
                     <div class = "col-md-12 text-center">
-	            	    <button type = "submit" class = "btn btn-primary me-2" id = "btn_submit">Mettre à jour</button>
+	            	    <button type = "submit" class = "btn btn-primary me-2 btn-icon-text" id = "btn_submit"> <i class = "ti-pencil btn-icon-append"></i> Mettre à jour</button>
                     </div>
 	            </form>
 		    </div>

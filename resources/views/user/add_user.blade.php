@@ -103,7 +103,7 @@
                                                             <div class = "input-group">
                                                                 <input type = "number" class = "form-control" name = "cin" id = "cin" onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" placeholder = "Saisissez le CIN.." required/>
                                                                 <div class = "input-group-append">
-                                                                    <button class = "btn btn-sm btn-primary" type = "button" onclick = "verifierCompte()">Vérifier</button>
+                                                                    <button class = "btn btn-sm btn-primary btn-icon-text" type = "button" onclick = "verifierCompte()"><i class = "ti-reload btn-icon-prepend"></i> Vérifier</button>
                                                                 </div>
                                                             </div>
                                                             <span class = "error" id = "cin_error"></span>
@@ -140,7 +140,7 @@
                                                             <div class = "input-group col-xs-12">
                                                                 <input type = "text" class ="form-control file-upload-info" disabled placeholder = "Séléctionner une image">
                                                                 <span class = "input-group-append">
-                                                                    <button class = "file-upload-browse btn btn-primary" type = "button">Séléctionner</button>
+                                                                    <button class = "file-upload-browse btn btn-primary  btn-icon-text" type = "button"><i class = "ti-upload btn-icon-prepend"></i> Séléctionner</button>
                                                                 </span>
                                                             </div>
                                                             <br>
