@@ -30,15 +30,19 @@
                         </tr>
                     @else
                         @foreach($stocks as $row)
-                            <tr>
-                                <td><a href = "{{url('/description-article?reference='.$row->reference)}}" class = "art-color">{{$row->designation}}</a></td>
-                                <td>{{$row->reference}}</td>
-                                <td>{{$row->categorie}}</td>
-                                <td>{{$row->qteStock}}</td>
-                                <td>{{App\Http\Controllers\FactureController::stylingPrix($row->prix)}}</td>
-                                <td>{{$row->marge}}%</td>
-                                <td class = "art-color" data-toggle = "modal" data-target = "#exampleModalCenter" onclick = "setDataToUpdateMarge('{{$row->reference}}')">{{App\Http\Controllers\FactureController::stylingPrix(App\Http\Controllers\ArticleController::calculeMargePrix($row->reference))}}</td>
-                            </tr>
+                            @if($row->reference == session()->get('ref'))
+                                <tr id = "{{$row->reference}}" style = "background:#ffeeb8;">
+                            @else
+                                <tr id = "{{$row->reference}}">
+                            @endif
+                                    <td><a href = "{{url('/description-article?reference='.$row->reference)}}" class = "art-color">{{$row->designation}}</a></td>
+                                    <td>{{$row->reference}}</td>
+                                    <td>{{$row->categorie}}</td>
+                                    <td>{{$row->qteStock}}</td>
+                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($row->prix)}}</td>
+                                    <td>{{$row->marge}}%</td>
+                                    <td class = "art-color" data-toggle = "modal" data-target = "#exampleModalCenter" onclick = "setDataToUpdateMarge('{{$row->reference}}')">{{App\Http\Controllers\FactureController::stylingPrix(App\Http\Controllers\ArticleController::calculeMargePrix($row->reference))}}</td>
+                                </tr>
                         @endforeach
                     @endif
                 </tbody>

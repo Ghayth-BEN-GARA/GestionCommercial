@@ -191,7 +191,7 @@
 
         public function gestionUpdateMargePrix(Request $request){
             if($this->updateMarge($request->reference,$request->marge)){
-                return redirect()->route('open-stock')->with('success','Le marge de prix souhaitée a été mise à jour avec succès.');
+                return redirect()->route('open-stock')->with('success','Le marge de prix souhaitée a été mise à jour avec succès.')->with('ref',$request->reference);
             }
 
             else{

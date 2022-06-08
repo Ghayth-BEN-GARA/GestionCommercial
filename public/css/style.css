@@ -18927,7 +18927,7 @@ a.text-info:hover, a.text-info:focus {
 }
 
 .text-warning {
-  color: #FFC100 !important;
+  color: #ffe89f !important;
 }
 
 a.text-warning:hover, a.text-warning:focus {
@@ -18935,7 +18935,7 @@ a.text-warning:hover, a.text-warning:focus {
 }
 
 .text-danger {
-  color: #FF4747 !important;
+  color: #ffcbcb !important;
 }
 
 a.text-danger:hover, a.text-danger:focus {
@@ -30688,8 +30688,14 @@ td,tr{
     th{
         color: #F7941E;
     }
+    
+    #caption, #caption *{
+      visibility: hidden;
+    }
 }
 
 #print-reglement{
     margin-top: -5%;
 }
+
+
