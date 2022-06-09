@@ -547,7 +547,89 @@ function setDataToUpdateMarge(reference){
     $('#reference').val(reference);
 }
 
+function validerInputPrix(id){
+    if($('#prix_'+id).val() == ''){
+        afficherErreur("Veuillez entrer le nouveau prix d'achat..");
+    }
 
+    else{
+        gestionValiderPrixAchat(id);
+    }
+}
+
+function gestionValiderPrixAchat(id){
+    validerPrixAchat(id);
+}
+
+function validerPrixAchat(id){
+    $.ajax({
+        url: '/set-new-prix-achat',
+        type: 'get',
+        cache: true,
+        data:   { 
+                    reference: $('#ref_'+id).val(),
+                    prix: $('#prix_'+id).val()
+                },
+        success: function(data) {
+            if(data == true){
+                showSuccessNotification();
+                removeRowUpdated();
+            }
+
+            else{
+                showErrorNotification();
+            }
+        }
+    });
+}
+
+async function showSuccessNotification(){
+    const sucesss = document.querySelector('.ss');
+    const close = document.querySelector('.close');
+    const progress = document.querySelector('.progress-toast-ss');
+    setTimeout(() => {
+        sucesss.classList.remove('active');
+    },4000 );
+    setTimeout(() => {
+        progress.classList.remove('active');
+    },4300 );
+
+    sucesss.classList.add('active');
+    progress.classList.add('active');
+    close.addEventListener("click",() =>{
+        sucesss.classList.remove('active');
+        setTimeout(() => {
+            progress.classList.remove('active');
+        },300 );
+    });
+}
+
+function showErrorNotification(){
+    const erreur = document.querySelector('.err');
+    const close = document.querySelector('.close');
+    const progress = document.querySelector('.progress-toast-err');
+    setTimeout(() => {
+        erreur.classList.remove('active');
+    },4000 );
+    setTimeout(() => {
+        progress.classList.remove('active');
+    },4300 );
+
+    erreur.classList.add('active');
+    progress.classList.add('active');
+    close.addEventListener("click",() =>{
+        erreur.classList.remove('active');
+        setTimeout(() => {
+            progress.classList.remove('active');
+        },300 );
+    });
+}
+
+function removeRowUpdated(){
+    setTimeout(function() {
+        location.reload();
+    }, 3000);
+}
 
 
   

@@ -1,0 +1,135 @@
+.card.card-toast{
+    background-color: #f2f2f2;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    position:absolute;
+	top:5%;
+	right:10px;
+	border-radius:12px;
+	padding:20px 35px 20px 25px;
+    overflow: hidden;
+    transform: translateX(calc(100% + 90px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.65, 1.35);
+}
+
+.card.card-toast.active{
+    transform: translateX(0%);
+}
+
+.card.ss{
+    border-left: 6px solid #013719;
+}
+
+.card.err{
+    border-left: 6px solid #FF4747;
+}
+
+.toast-content{
+	display:flex;
+	align-items:center;
+}
+
+.check{
+    display:flex;
+	align-items:center;
+	justify-content:center;
+	height:35px;
+	width:35px;
+	background-color:#013719;
+	color:white;
+	font-size:20px;
+	border-radius:50%;
+}
+
+.error{
+    display:flex;
+	align-items:center;
+	justify-content:center;
+	height:35px;
+	width:35px;
+	background-color:#FF4747;
+	color:white;
+	font-size:20px;
+	border-radius:50%;
+}
+
+.message{
+	display:flex;
+	flex-direction:column;
+	margin:0 20px;
+}
+
+.text{
+	font-size:15px;
+	font-weight:400;
+	color:#666666
+}
+
+.text-1{
+	font-weight:600;
+	color:#333;
+}
+
+.text-2{
+	font-size: 14px;
+}
+
+.close{
+	position:absolute;
+	top:10px;
+	right:15px;
+	padding:5px;
+	cursor:pointer;
+	opacity:0.7;
+}
+
+.close:hover{
+	opacity:1;
+}
+
+.progress-toast-ss{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+}
+
+.progress-toast-ss::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    height: 100%;
+    width: 100%;
+    background-color: #013719
+}
+
+.progress-toast-err{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+}
+
+.progress-toast-err::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    height: 100%;
+    width: 100%;
+    background-color: #FF4747
+}
+
+.progress-toast-ss.active::before,.progress-toast-err.active::before{
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    100%{
+        right: 100%;
+    }
+}

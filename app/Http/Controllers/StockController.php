@@ -82,6 +82,10 @@
             return new ArticleController();
         }
 
+        public function getValidationController(){
+            return new ValidationController();
+        }
+
         public function openDescriptionArticle(Request $request){
             try {
                 $informations = $this->getFactureController()->getInformationsUser();
@@ -93,6 +97,22 @@
                 return view('errors.404');
             }
         
+        }
+
+        public function gestionUpdatePrixStockInstantane(Request $request){
+            if($this->updatePrixStock($request->reference,$request->prix)){
+                if($this->getValidationController()->removeValidationPrix($request->reference)){
+                    return true;
+                }
+
+                else{
+                    return false;
+                }
+            }
+
+            else{
+                return false;
+            }
         }
     }
 ?>

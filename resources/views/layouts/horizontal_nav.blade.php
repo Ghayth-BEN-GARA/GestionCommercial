@@ -82,6 +82,11 @@
                                         </div>
                                     </a>
                                 @endforeach
+                                @if(App\Http\Controllers\ValidationController::getCountValidation() > 1)
+                                    <div class = "col-md-12 text-center">
+                                        <a href = "{{url('/all-notifications')}}" class = "mb-0 font-weight-normal dropdown-header">Afficher toutes les notifications</a>
+                                    </div>
+                                @endif
                             </div>
                         @endif
                     </li>

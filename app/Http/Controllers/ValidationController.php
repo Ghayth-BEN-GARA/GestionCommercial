@@ -6,7 +6,7 @@
     use DateTime;
 
     class ValidationController extends Controller{
-        public static function  getCountValidation(){
+        public static function getCountValidation(){
             return Validation::count();
         }
 
@@ -100,6 +100,23 @@
 
         public function removeValidationPrix($reference){
             return Validation::where('reference',$reference)->delete();
+        }
+
+        public function openShowAllNotifications(){
+            try {
+                $informations = $this->getFactureController()->getInformationsUser();
+                $listeNotifications = $this->showAllNotificationsSameTime();
+                return view('stock.all_notifications',compact('informations','listeNotifications'));
+            } catch (ModelNotFoundException $e) {
+                return view('errors.404');
+            }
+        }
+
+        public function showAllNotificationsSameTime(){
+            return Article::join('stocks', 'stocks.reference', '=', 'articles.reference')
+            ->join('validations', 'validations.reference', '=', 'articles.reference')
+            ->orderBy('designation','asc')
+            ->paginate(3, array('validations.*', 'articles.*','stocks.*','validations.prix as p'));
         }
     }
 ?>

@@ -74,5 +74,7 @@
     Route::get('/add-reglement-libre', [ReglementController::class, 'openAddReglementLibre'])->middleware('notsession');
     Route::post('/store-reglement-libre', [ReglementController::class, 'gestionStoreReglementLibre']);
     Route::get('/historique-prix-achat', [FactureController::class, 'openHistoriquePrixAchat'])->middleware('notsession');
+    Route::get('/all-notifications', [ValidationController::class, 'openShowAllNotifications'])->middleware('notsession');
+    Route::get('/set-new-prix-achat', [StockController::class, 'gestionUpdatePrixStockInstantane']);
 ?>
 
