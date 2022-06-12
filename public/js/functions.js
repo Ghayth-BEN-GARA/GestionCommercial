@@ -572,6 +572,7 @@ function validerPrixAchat(id){
                 },
         success: function(data) {
             if(data == true){
+                disabledInputsForm();
                 showSuccessNotification();
                 removeRowUpdated();
             }
@@ -583,7 +584,12 @@ function validerPrixAchat(id){
     });
 }
 
-async function showSuccessNotification(){
+function disabledInputsForm(){
+    $("#f :input").attr("disabled", true);
+    $("#f :button").attr("disabled", true);
+}
+
+function showSuccessNotification(){
     const sucesss = document.querySelector('.ss');
     const close = document.querySelector('.close');
     const progress = document.querySelector('.progress-toast-ss');
@@ -628,7 +634,7 @@ function showErrorNotification(){
 function removeRowUpdated(){
     setTimeout(function() {
         location.reload();
-    }, 3000);
+    }, 4000);
 }
 
 

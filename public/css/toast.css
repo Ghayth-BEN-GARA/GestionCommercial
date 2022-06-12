@@ -16,7 +16,7 @@
 }
 
 .card.ss{
-    border-left: 6px solid #013719;
+    border-left: 6px solid #57B657;
 }
 
 .card.err{
@@ -34,7 +34,7 @@
 	justify-content:center;
 	height:35px;
 	width:35px;
-	background-color:#013719;
+	background-color:#57B657;
 	color:white;
 	font-size:20px;
 	border-radius:50%;
@@ -102,7 +102,7 @@
     right: 100px;
     height: 100%;
     width: 100%;
-    background-color: #013719
+    background-color: #57B657
 }
 
 .progress-toast-err{
@@ -125,7 +125,7 @@
 }
 
 .progress-toast-ss.active::before,.progress-toast-err.active::before{
-    animation: progress 5s linear forwards;
+    animation: progress 4s linear forwards;
 }
 
 @keyframes progress {
