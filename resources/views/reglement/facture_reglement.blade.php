@@ -84,8 +84,8 @@
                                                     </div>
                                                 </section>
                                                 <section class = "balance-info">
-                                                    <div class = "row">
-                                                        <div class = "col-5">
+                                                    <div class = "row" style = "float:right">
+                                                        <div class = "table-responsive">
                                                             <table class = "table table-bordered">
                                                                 <tr>
                                                                     <td>Brut T.T.C :</td>
@@ -103,9 +103,8 @@
                                                         </div>
                                                     </div>
                                                 </section>
-                                                <br>
-                                                <div class = "col-md-12 text-center">
-                                                    <button type = "button" class = "btn btn-primary me-2" id = "print" onclick = "imprimFacture()">Imprimer la facture</button>
+                                                <div class = "col-md-12 text-center" style = "margin-top:200px">
+                                                    <button type = "button" class = "btn btn-primary me-2 btn-icon-text" id = "print" onclick = "imprimFacture()"><i class = "ti-printer btn-icon-append"></i> Imprimer la facture</button>
                                                 </div>
                                             </div>
                                         </div>

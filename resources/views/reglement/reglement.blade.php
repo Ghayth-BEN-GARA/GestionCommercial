@@ -142,7 +142,7 @@
                                                     <div class = "row">
                                                         <div class = "table-responsive">
                                                             <table class = "table table-borderless table-striped table-hover">
-                                                                <caption id = "caption" class = "mt-4 text-center" style = "font-weight:bolder; text-transform:uppercase; 2px 2px #ff0000;"><span class = "text-danger">Réglement libre</span> | <span class = "text-warning">Réglement intégré</span></caption>
+                                                                <caption id = "caption" class = "mt-2 text-center" style = "font-weight:bolder; text-transform:uppercase; 2px 2px #ff0000;"><b class = "text-danger" style = "font-size:40px">.</b> Réglement libre | <b class = "text-warning" style = "font-size:40px">.</b> Réglement intégré</caption>
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Date</th>
@@ -166,7 +166,7 @@
                                                                     @endforeach
                                                                 </tbody>
                                                             </table> 
-                                                            <div class = "col-md-12 text-center mt-4">
+                                                            <div class = "col-md-12 text-center mt-3">
                                                                 <button type = "button" class = "btn btn-primary me-2 btn-icon-text" id = "print" onclick = "imprimFacture()"><i class = "ti-printer btn-icon-append"></i>  Imprimer le réglement</button>
                                                             </div>
                                                         </div>
