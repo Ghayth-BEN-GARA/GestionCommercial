@@ -51,7 +51,6 @@
                                                                                     </div>
                                                                                 </td>
                                                                                 <td><h5 class = "font-weight-bold mb-0">{{$descriptionArticle->designation}}</h5></td>
-
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class = "text-muted">Catégorie</td>
@@ -99,24 +98,41 @@
                                                                                 <td><h5 class = "font-weight-bold mb-0">{{$descriptionArticle->marge}}%</h5></td>
                                                                             </tr>
                                                                         </table>
-                                                                        <a href = "{{url('/historique-prix-achat?reference='.$reference)}}" class = "text-info">Voir l'historique des prix d'achat..</a>
                                                                     </div>
                                                                 </div>
                                                                 <div class = "col-md-6 mt-3">
-                                                                    <p class = "card-title">Derniers prix des fournisseurs</p>
-                                                                    <ul class = "icon-data-list">
-                                                                        @foreach($other as $row)
-                                                                            <li>
-                                                                                <div class = "d-flex">
-                                                                                    <img src = "{{asset('images/faces/user.png')}}" alt = "user">
-                                                                                    <div>
-                                                                                        <p class = "text-info mb-1">{{$row->nom}}</p>
-                                                                                        <p class = "mb-0">{{App\Http\Controllers\FactureController::stylingPrix($row->prixU)}}</p>         
-                                                                                    </div>
-                                                                                </div>
+                                                                    <nav class = "sidebar sidebar-offcanvas" id = "sidebar">
+                                                                        <ul class = "nav">
+                                                                            <li class = "nav-item">
+                                                                                <a class = "nav-link" href = "{{url('/historique-prix-achat?reference='.$reference)}}">
+                                                                                    <i class = "mdi mdi-history menu-icon"></i>
+                                                                                    <span class = "menu-title">Historique des prix</span>
+                                                                                </a>
                                                                             </li>
-                                                                        @endforeach
-                                                                    </ul>
+                                                                            <li class = "nav-item">
+                                                                                <a class = "nav-link" href = "{{url('/meilleur-prix-achat?reference='.$reference)}}">
+                                                                                    <i class = "mdi mdi-maxcdn menu-icon"></i>
+                                                                                    <span class = "menu-title">Meilleur prix</span>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </nav>
+                                                                    <div class = "pos-content">
+                                                                        <p class = "card-title">Derniers prix (Des fournisseurs)</p>
+                                                                        <ul class = "icon-data-list">
+                                                                            @foreach($other as $row)
+                                                                                <li>
+                                                                                    <div class = "d-flex">
+                                                                                        <img src = "{{asset('images/faces/user.png')}}" alt = "user">
+                                                                                        <div>
+                                                                                            <p class = "text-info mb-1">{{$row->nom}}</p>
+                                                                                            <p class = "mb-0">{{App\Http\Controllers\FactureController::stylingPrix($row->prixU)}}</p>         
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

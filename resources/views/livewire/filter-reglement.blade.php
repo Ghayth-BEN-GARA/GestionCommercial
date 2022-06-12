@@ -3,7 +3,7 @@
         <div class = "form-group">
             <div class = "input-group">
                 <div class = "input-group-prepend">
-                    <span class = "input-group-text" style = "color:black"><i class = "mdi mdi-account-search-outline"></i></span>
+                    <span class = "input-group-text" style = "color:black"><i class = "ti ti-search"></i></span>
                 </div>
                 <input type = "text" class = "form-control" placeholder = "Rechercher des réglements.." wire:model = "search">
             </div>

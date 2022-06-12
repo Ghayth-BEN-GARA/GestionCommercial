@@ -3,9 +3,9 @@
         <div class = "form-group">
             <div class = "input-group">
                 <div class = "input-group-prepend">
-                    <span class = "input-group-text" style = "color:black"><i class = "mdi mdi-search-web"></i></span>
+                    <span class = "input-group-text" style = "color:black"><i class = "ti ti-search"></i></span>
                 </div>
-                <input type = "text" class = "form-control" placeholder = "Rechercher des factures.." wire:model = "search">
+                <input type = "text" class = "form-control" placeholder = "Rechercher des achats.." wire:model = "search">
             </div>
         </div>
     </div>
