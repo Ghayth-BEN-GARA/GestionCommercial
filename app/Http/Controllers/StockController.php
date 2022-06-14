@@ -120,5 +120,15 @@
             $reference = $request->Input('reference');
             return view('stock.meilleur_prix',compact('informations','reference'));
         }
+
+        public function gestionUpdatePrixStock(Request $request){
+            if($this->updatePrixStock($request->reference,$request->prix)){
+                return redirect()->route('open-stock')->with('success','Le marge de prix souhaitée a été mise à jour avec succès.')->with('ref',$request->reference);
+            }
+
+            else{
+                return redirect()->route('open-stock')->with('erreur',"Pour des raisons techniques, la marge de prix souhaitée n'a pas été mise à jour.");
+            }
+        }
     }
 ?>

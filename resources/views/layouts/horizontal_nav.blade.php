@@ -11,7 +11,7 @@
             <li class = "nav-item nav-search d-none d-lg-block">
                 <div class = "input-group">
                     <div class = "input-group-prepend hover-cursor" id="navbar-search-icon">
-                        <span class = "input-group-text" id="search">
+                        <span class = "input-group-text" id = "search">
                             <i class = "icon-search"></i>
                         </span>
                     </div>
@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                         <div class = "preview-item-content">
-                                            <h6 class = "preview-subject font-weight-normal">Vous devez valider l'article <b>{{$element->designation}}</b> avec le nouveau prix <b>{{App\Http\Controllers\FactureController::stylingPrix($element->getPrixAttribute())}}</b>.</h6>
+                                            <h6 class = "preview-subject font-weight-normal">Valider l'article <b>{{$element->designation}}</b> avec le nouveau prix <b>{{App\Http\Controllers\FactureController::stylingPrix($element->getPrixAttribute())}}</b>.</h6>
                                             <p class = "font-weight-light small-text mb-0 text-muted">
                                                 {{App\Http\Controllers\ValidationController::getDifferenceBetweenDates($element->getDateCreationAttribute())}}
                                             </p>
@@ -112,5 +112,8 @@
                 <li>
             @endif
         </ul>
+        <button class = "navbar-toggler navbar-toggler-right d-lg-none align-self-center" type = "button" data-toggle = "offcanvas">
+          <span class = "icon-menu"></span>
+        </button>
     </div>
 </nav>

@@ -472,7 +472,7 @@ function ajouterLigne(designation,reference,categorie,quantite,prix,prixTotale){
             '<td><input type = "text" class = "form-control" name = "categorie[]" value = "'+categorie+'" readonly></td>' +
             '<td><input type = "text" class = "form-control" name = "quantite[]" value = "'+quantite+'" readonly></td>' +
             '<td><input type = "text" class = "form-control" name = "prix[]" value = "'+prix+'" readonly></td>' +
-            '<td class = "styleInput"><span id = "prixTotale" name = "prixT[]">'+prixTotale+' DT</span></td>'+
+            '<td class = "styleInput"><span id = "prixTotale" name = "prixT[]">'+prixTotale+' Millime(s)</span></td>'+
             '<td><button type = "button" class = "btn btn-danger float-right mr-2 mt-4" name = "button_delete" onclick = "gestionDeleteLigne(this)">Supprimer</button></td>'+
         '</tr>'
     );
@@ -547,6 +547,10 @@ function setDataToUpdateMarge(reference){
     $('#reference').val(reference);
 }
 
+function setDataToUpdatePrix(reference){
+    $('#reference2').val(reference);
+}
+
 function validerInputPrix(id){
     if($('#prix_'+id).val() == ''){
         afficherErreur("Veuillez entrer le nouveau prix d'achat..");
@@ -573,12 +577,11 @@ function validerPrixAchat(id){
         success: function(data) {
             if(data == true){
                 disabledInputsForm();
-                showSuccessNotification();
-                removeRowUpdated();
+                scrollToTop().then(showSuccessNotification()).then(removeRowUpdated());
             }
 
             else{
-                showErrorNotification();
+                scrollToTop().then(showErrorNotification());
             }
         }
     });
@@ -589,7 +592,11 @@ function disabledInputsForm(){
     $("#f :button").attr("disabled", true);
 }
 
-function showSuccessNotification(){
+async function scrollToTop(){
+    $("html, body").animate({ scrollTop: 0 }, "fast");
+}
+
+async function showSuccessNotification(){
     const sucesss = document.querySelector('.ss');
     const close = document.querySelector('.close');
     const progress = document.querySelector('.progress-toast-ss');
@@ -610,7 +617,7 @@ function showSuccessNotification(){
     });
 }
 
-function showErrorNotification(){
+async function showErrorNotification(){
     const erreur = document.querySelector('.err');
     const close = document.querySelector('.close');
     const progress = document.querySelector('.progress-toast-err');
@@ -631,7 +638,7 @@ function showErrorNotification(){
     });
 }
 
-function removeRowUpdated(){
+async function removeRowUpdated(){
     setTimeout(function() {
         location.reload();
     }, 4000);
@@ -649,5 +656,3 @@ function fetchListeMeilleurPrix(){
         }
     })
 }
-
-  

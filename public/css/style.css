@@ -19721,6 +19721,11 @@ code {
     margin-left: 0;
     width: 100%;
   }
+
+  .preview-item-content{
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 /* Utilities */
@@ -20232,7 +20237,7 @@ code {
 }
 
 .fs-30 {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .chartjs-legend ul {
@@ -24606,6 +24611,8 @@ dl li {
   border-bottom: 0;
 }
 
+
+
 /* Tables */
 .table, .jsgrid .jsgrid-table {
   margin-bottom: 0;
@@ -28645,8 +28652,11 @@ div.tagsinput span.tag a {
   color: #fff;
 }
 
-.sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] .menu-icon {
+.sidebar-dark .sidebar .nav .nav-item .nav-link i.menu-icon {
+  color: #FFFFFF;
+}
 
+.sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] .menu-icon {
   color: #fff;
 }
 
@@ -28896,6 +28906,10 @@ div.tagsinput span.tag a {
   }
 }
 
+.sidebar-dark .navbar .navbar-menu-wrapper .navbar-toggler {
+  padding-left: 2.375rem;
+}
+
 .sidebar-icon-only .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
   transform: rotate(180deg);
 }
@@ -28905,10 +28919,6 @@ div.tagsinput span.tag a {
     padding-left: 15px;
     padding-right: 0;
   }
-}
-
-.sidebar-dark .navbar .navbar-menu-wrapper .navbar-toggler {
-  padding-left: 2.375rem;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item {
@@ -30710,4 +30720,7 @@ td,tr{
   }
 }
 
+#button_add{
+  padding: 0.875rem 1rem;
+}
 

@@ -58,7 +58,7 @@
                                                 <tbody>
                                                     @if($listeNotifications->count() == null)
                                                         <tr>
-                                                            <td colspan = "5">Malheureusement, pas des notifications n'est enregistré dans votre application..</td>
+                                                            <td colspan = "5">Pas des notifications n'est enregistré dans votre application..</td>
                                                         </tr>
                                                     @else
                                                         @foreach($listeNotifications as $row)
@@ -72,11 +72,11 @@
                                                                         @csrf
                                                                         <div class = "col-md-12">
                                                                             <div class = "form-group row">
-                                                                                <div class = "col-sm-6">
+                                                                                <div class = "col-sm-5">
                                                                                     <input type = "number" class = "form-control" name = "prix" id = "prix_{{$row->id}}" placeholder = "Prix.." onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                                                 </div>
-                                                                                <div class = "col-sm-2 mt-3">
-                                                                                    DT
+                                                                                <div class = "col-sm-3 mt-3">
+                                                                                    Millime(s)
                                                                                 </div>
                                                                                 <div class = "col-sm-3">
                                                                                     <button type = "button" class = "btn btn-primary" id = "btn_{{$row->id}}" onclick = "validerInputPrix('{{$row->id}}')">Valider</button>

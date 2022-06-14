@@ -78,5 +78,6 @@
     Route::get('/set-new-prix-achat', [StockController::class, 'gestionUpdatePrixStockInstantane']);
     Route::get('/meilleur-prix-achat', [StockController::class, 'openMeilleurPrixAchat'])->middleware('notsession');
     Route::get('/get-liste-meilleur-prix', [FactureController::class, 'meilleurPrixParFournisseur']);
+    Route::post('/update-prix-stock', [StockController::class, 'gestionUpdatePrixStock']);
 ?>
 

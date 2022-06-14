@@ -17,7 +17,7 @@
                         <th>Désignation</th>
                         <th>Référence</th>
                         <th>Catégorie</th>
-                        <th>Quantité en stock</th>
+                        <th>Quantité</th>
                         <th>Prix d'achat</th>
                         <th>Prix de vente</th>
                         <th>Marge des prix</th>
@@ -39,9 +39,9 @@
                                     <td>{{$row->reference}}</td>
                                     <td>{{$row->categorie}}</td>
                                     <td>{{$row->qteStock}}</td>
-                                    <td>{{App\Http\Controllers\FactureController::stylingPrix($row->prix)}}</td>
-                                    <td class = "art-color" data-toggle = "modal" data-target = "#exampleModalCenter" onclick = "setDataToUpdateMarge('{{$row->reference}}')">{{App\Http\Controllers\FactureController::stylingPrix(App\Http\Controllers\ArticleController::calculeMargePrix($row->reference))}}</td>
-                                    <td>{{$row->marge}}%</td>
+                                    <td class = "art-color" data-toggle = "modal" data-target = "#exampleModalCenter" onclick = "setDataToUpdateMarge('{{$row->reference}}')">{{App\Http\Controllers\FactureController::stylingPrix($row->prix)}}</td>
+                                    <td>{{App\Http\Controllers\FactureController::stylingPrix(App\Http\Controllers\ArticleController::calculeMargePrix($row->reference))}}</td>
+                                    <td class = "art-color" data-toggle = "modal" data-target = "#exampleModalCenter2" onclick = "setDataToUpdatePrix('{{$row->reference}}')">{{$row->marge}}%</td>
                                 </tr>
                         @endforeach
                     @endif
@@ -52,5 +52,6 @@
             {{$stocks->links('vendor.pagination.livewire_pagination')}}
         </div>
         @extends('layouts.modal_update_marge')
+        @extends('layouts.modal_update_prix_achat')
     </div>
 </div>

@@ -31,7 +31,7 @@
                                                         </div>
                                                         <div class = "col-md-12 col-xl-9">
                                                             <div class = "row">
-                                                                <div class = "col-md-6 border-right">
+                                                                <div class = "col-md-7 border-right">
                                                                     <div class = "table-responsive mb-3 mb-md-0 mt-3">
                                                                         <table class = "table table-borderless report-table">
                                                                             <tr>
@@ -62,7 +62,7 @@
                                                                                 <td><h5 class = "font-weight-bold mb-0">{{$descriptionArticle->categorie}}</h5></td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td class = "text-muted">Quantité en stock</td>
+                                                                                <td class = "text-muted">Quantité</td>
                                                                                 <td class = "w-100 px-0">
                                                                                     <div class = "progress progress-md mx-4">
                                                                                         <div class = "progress-bar bg-primary" role = "progressbar" style = "width: 100%" aria-valuenow = "100" aria-valuemin = "0" aria-valuemax = "100"></div>
@@ -100,7 +100,7 @@
                                                                         </table>
                                                                     </div>
                                                                 </div>
-                                                                <div class = "col-md-6">
+                                                                <div class = "col-md-5">
                                                                     <nav class = "sidebar sidebar-offcanvas" id = "sidebar">
                                                                         <ul class = "nav">
                                                                             <li class = "nav-item">

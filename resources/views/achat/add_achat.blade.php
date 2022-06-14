@@ -196,10 +196,10 @@
                                                             <div class = "col-md-2">
                                                                 <input type = "number" class = "form-control" name = "prixAdd" id = "prixAdd" placeholder = "Prix.." value = "0.000" onkeypress = "return event.charCode>=48 && event.charCode<=57" required>
                                                             </div>
-                                                            <div class = "mt-3">
-                                                                <span> DT</span>
+                                                            <div class = "mt-2">
+                                                                <span> Millime(s)</span>
                                                             </div>
-                                                            <div class = "col-md-1">
+                                                            <div class = "col-sm-1">
                                                                 <button type = "button" class = "btn btn-success mr-2" name = "button_add" id = "button_add">Ajouter</button>
                                                             </div>
                                                         </div>

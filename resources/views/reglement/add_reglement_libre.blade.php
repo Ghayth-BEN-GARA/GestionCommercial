@@ -60,7 +60,7 @@
                                                     <input type = "number" class = "form-control" name = "paye" id = "paye" placeholder = "Saisissez le montant payé.." required />
                                                 </div>
                                                 <div class = "mt-3">
-                                                    <span> DT</span>
+                                                    <span> Millime(s)</span>
                                                 </div>
                                             </div>
                                             <div class = "col-md-12">

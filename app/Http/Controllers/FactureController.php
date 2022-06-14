@@ -146,17 +146,17 @@
 
         public static function stylingPrix($prix){
             if($prix == 0){
-                return "0 DT";
+                return "0 Millime(s)";
             }
 
             else if(strlen($prix) < 4){
-                return ("0.".$prix." DT");
+                return ("0.".$prix." Millime(s)");
             }
 
             else{
                 $ch1 = substr($prix,strlen($prix)-3,3);
                 $ch2 = substr($prix,0,-3);
-                return ($ch2.".".$ch1." DT");
+                return ($ch2.".".$ch1." Millime(s)");
             }
         }
 
