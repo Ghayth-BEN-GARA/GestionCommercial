@@ -100,7 +100,7 @@
                                                                         </table>
                                                                     </div>
                                                                 </div>
-                                                                <div class = "col-md-6 mt-3">
+                                                                <div class = "col-md-6">
                                                                     <nav class = "sidebar sidebar-offcanvas" id = "sidebar">
                                                                         <ul class = "nav">
                                                                             <li class = "nav-item">

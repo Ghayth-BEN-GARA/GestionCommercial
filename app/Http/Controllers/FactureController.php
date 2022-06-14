@@ -4,6 +4,7 @@
     use App\Models\Facture;
     use App\Models\FactureArticle;
 
+
     class FactureController extends Controller{
         public function getUserController(){
             return new UserController();
@@ -175,6 +176,14 @@
 
         public static function getDateAttribute($date){
             return (date('D d F Y',strtotime($date)));
+        }
+
+        public function meilleurPrixParFournisseur(Request $request){
+            
+            
+            return response()->json([
+                'lignes' => $lignes,
+            ]);
         }
     }   
 ?>

@@ -637,5 +637,17 @@ function removeRowUpdated(){
     }, 4000);
 }
 
+function fetchListeMeilleurPrix(){
+    $.ajax({
+        url: '/get-liste-meilleur-prix',
+        type: 'get',
+        dataType:'json',
+        cache: true,
+        data: { reference: $('#reference').val() },
+        success: function(data) {
+            console.log(data.lignes);
+        }
+    })
+}
 
   

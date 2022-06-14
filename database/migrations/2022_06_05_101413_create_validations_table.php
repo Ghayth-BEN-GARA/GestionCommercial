@@ -11,6 +11,8 @@
          */
         public function up(){
             Schema::create('validations', function (Blueprint $table) {
+                $table->collation = 'utf8_general_ci';
+                $table->charset = 'utf8';
                 $table->id();
                 $table->string('prix',999);
                 $table->date('date_creation');

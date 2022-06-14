@@ -34,9 +34,10 @@
             ($request->url() == url('/fournisseur')) || ($request->url() == url('/others')) || ($request->url() == url('/add-achat')) || ($request->url() == url('/list-achat')) || 
             ($request->url() == url('/facture')) || ($request->url() == url('/list-reglement')) || ($request->url() == url('/reglement')) || ($request->url() == url('/list-stock')) ||
             ($request->url() == url('/article-disponible')) || ($request->url() == url('/edit-reglement')) || ($request->url() == url('/facture-reglement')) || ($request->url() == url('/validation-article')) ||
-            ($request->url() == url('/description-article')) || ($request->url() == url('/add-reglement-libre')) || ($request->url() == url('/historique-prix-achat')) || ($request->url() == url('/all-notifications'))
+            ($request->url() == url('/description-article')) || ($request->url() == url('/add-reglement-libre')) || ($request->url() == url('/historique-prix-achat')) || ($request->url() == url('/all-notifications')) ||
+            ($request->url() == url('/meilleur-prix-achat'))
             )
-                
+         
             
             ){
                 return view('errors.404');

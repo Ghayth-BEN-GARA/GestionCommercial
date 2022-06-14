@@ -114,5 +114,11 @@
                 return false;
             }
         }
+
+        public function openMeilleurPrixAchat(Request $request){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $reference = $request->Input('reference');
+            return view('stock.meilleur_prix',compact('informations','reference'));
+        }
     }
 ?>

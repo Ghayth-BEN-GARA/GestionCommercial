@@ -76,5 +76,7 @@
     Route::get('/historique-prix-achat', [FactureController::class, 'openHistoriquePrixAchat'])->middleware('notsession');
     Route::get('/all-notifications', [ValidationController::class, 'openShowAllNotifications'])->middleware('notsession');
     Route::get('/set-new-prix-achat', [StockController::class, 'gestionUpdatePrixStockInstantane']);
+    Route::get('/meilleur-prix-achat', [StockController::class, 'openMeilleurPrixAchat'])->middleware('notsession');
+    Route::get('/get-liste-meilleur-prix', [FactureController::class, 'meilleurPrixParFournisseur']);
 ?>
 
