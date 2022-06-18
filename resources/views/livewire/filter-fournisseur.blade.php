@@ -17,7 +17,7 @@
                         <th>Nom</th>
                         <th>Matricule</th>
                         <th>Adresse e-mail</th>
-                        <th colspan = "2">Actions sur les fournisseurs</th>
+                        <th colspan = "2">Actions</th>
                     </tr>  
                 </thead>
                 <tbody>

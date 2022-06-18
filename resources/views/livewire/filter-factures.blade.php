@@ -18,7 +18,7 @@
                         <th>Fournisseur</th>
                         <th>Date et heure</th>
                         <th>Type</th>
-                        <th colspan = "2">Actions sur les fournisseurs</th>
+                        <th colspan = "2">Actions</th>
                     </tr>  
                 </thead>
                 <tbody>

@@ -181,6 +181,18 @@
             return $somme;
         }
 
+        public static function getCreditReglementListeFournisseur($matricule){
+            $c =  new ReglementController();
+            $credits = $c->getAllInformationsReglements($matricule);
+            $somme = 0;
+            foreach ($credits as $value) {
+                if (is_numeric($value->net) && is_numeric($value->paye)){
+                    $somme += $value->net - $value->paye;
+                }
+            }
+            return $somme;
+        }
+
         public function getSommeMontantPaye($matricule){
             $credits = $this->getAllInformationsReglements($matricule);
             $somme = 0;

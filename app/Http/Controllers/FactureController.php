@@ -179,11 +179,45 @@
         }
 
         public function meilleurPrixParFournisseur(Request $request){
-            
-            
-            return response()->json([
-                'lignes' => $lignes,
-            ]);
+            $text = '';
+            $rows = FactureArticle::join('factures', 'factures.referenceF', '=', 'facturesarticles.referenceF')
+            ->join('articles', 'articles.reference', '=', 'facturesarticles.reference')
+            ->join('fournisseurs','factures.matricule','=','fournisseurs.matricule')
+            ->where('facturesarticles.reference','=', $request->reference)
+            ->orderBy('nom','desc')
+            ->get();
+
+            $collection = collect($rows);
+
+            if($rows->isNotEmpty()){
+                $collection = $rows->groupBy('nom');
+                
+                foreach ($collection as $items) {
+                    $min = $items->min('prixU');
+                    foreach ($items as $value) {
+                        if($value['prixU'] == $min){
+                            $text .= '<tr style = "background:#ffeeb8;">';
+                        }
+
+                        else{
+                            $text .= '<tr style = "background:#EAEAF1">';
+                        }
+                        $text .= '
+                                    <td>'.$value['nom'].'</td>
+                                    <td>'.$this->getArticleController()->getDesignationAttribute($request->reference).'</td>
+                                    <td>'.$this->stylingPrix($value['prixU']).'</td>
+                                    <td>'.$this->getDateAttribute($value['date']).'</td>';
+                    }
+                }
+            }
+
+            else{
+                $text.= "
+                        <tr>
+                            td colspan = '5'>Malheureusement, aucune informations n'est enregistré sur votre application..</td>
+                        </tr>"; 
+            }       
+            echo json_encode($text);
         }
     }   
 ?>

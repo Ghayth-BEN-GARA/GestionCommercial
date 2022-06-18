@@ -652,7 +652,7 @@ function fetchListeMeilleurPrix(){
         cache: true,
         data: { reference: $('#reference').val() },
         success: function(data) {
-            console.log(data.lignes);
+            $('tbody').append(data);
         }
     })
 }

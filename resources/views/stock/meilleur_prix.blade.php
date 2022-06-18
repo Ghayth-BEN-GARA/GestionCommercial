@@ -17,15 +17,15 @@
                                         <h4 class = "card-title">Stock</h4>
                                         <p class = "card-description">Consulter les meilleurs prix par fournisseur</p>
                                         <div class = "form-group row">
-                                            <div class = "col-sm-6">
+                                            <div class = "col-sm-8">
                                                 <div class = "table-responsive">
                                                     <table class = "table table-borderless table-striped table-hover">
                                                         <thead>
                                                             <tr>
                                                                 <th>Fournisseur</th>
                                                                 <th>Article</th>
-                                                                <th>Meilleur prix</th>
-                                                                <th>Action</th>
+                                                                <th>Prix</th>
+                                                                <th>Date</th>
                                                             </tr>  
                                                         </thead>
                                                         <tbody>
@@ -34,8 +34,8 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                            <div class = "col-sm-6">
-                        
+                                            <div class = "col-sm-4 mt-4">
+                                                <caption id = "caption" class = "mt-2 text-center" style = "font-weight:bolder; text-transform:uppercase; 2px 2px #ff0000;"><b class = "text-warning" style = "font-size:40px">.</b> Meilleurs prix par fournisseur <br> <b style = "color:#EAEAF1;font-size:40px">.</b> Historique des prix</caption>
                                             </div>
                                         </div>
                                     </div>

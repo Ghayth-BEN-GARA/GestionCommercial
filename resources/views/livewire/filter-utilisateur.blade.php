@@ -18,7 +18,7 @@
                         <th>Nom et prénom</th>
                         <th>CIN</th>
                         <th>Mobile</th>
-                        <th colspan = "4">Actions sur l'utilisateur</th>
+                        <th colspan = "4">Actions</th>
                     <tr>
                 </thead>
                 <tbody>

@@ -204,5 +204,9 @@
                 'marge' => $marge
             ]);
         }
+
+        public static function getDesignationAttribute($reference){
+            return Article::where('reference', $reference)->first()->getDesignationAttribute();
+        }
     }
 ?>
