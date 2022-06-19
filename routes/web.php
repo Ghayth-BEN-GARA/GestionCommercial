@@ -81,5 +81,7 @@
     Route::get('/get-liste-meilleur-prix', [FactureController::class, 'meilleurPrixParFournisseur']);
     Route::post('/update-prix-stock', [StockController::class, 'gestionUpdatePrixStock']);
     Route::get('/add-client', [ClientController::class, 'openAddClient'])->middleware('sessionadministrateur');
+    Route::get('/verify-matricule-cin', [ClientController::class, 'verifyMatriculeCinClient']);
+    Route::post('/creer-client', [ClientController::class, 'gestionCreerClient']);
 ?>
 
