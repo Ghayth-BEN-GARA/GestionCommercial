@@ -8,6 +8,7 @@
     use App\Http\Controllers\ReglementController;
     use App\Http\Controllers\StockController;
     use App\Http\Controllers\ValidationController;
+    use App\Http\Controllers\ClientController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -79,5 +80,6 @@
     Route::get('/meilleur-prix-achat', [StockController::class, 'openMeilleurPrixAchat'])->middleware('notsession');
     Route::get('/get-liste-meilleur-prix', [FactureController::class, 'meilleurPrixParFournisseur']);
     Route::post('/update-prix-stock', [StockController::class, 'gestionUpdatePrixStock']);
+    Route::get('/add-client', [ClientController::class, 'openAddClient'])->middleware('sessionadministrateur');
 ?>
 
