@@ -12,9 +12,11 @@
          * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
          */
         public function handle(Request $request, Closure $next){
-            if(Session()->has('username') && ((Session()->get('type') == "Administrateur") && ($request->url() == url('/add-client'))
+            if(Session()->has('username') && ((Session()->get('type') == "Administrateur") && (($request->url() == url('/add-client')) ||
+                ($request->url() == url('/list-clients'))
             
-            )){
+            
+            ))){
                 return view('errors.404');
             }
             return $next($request);

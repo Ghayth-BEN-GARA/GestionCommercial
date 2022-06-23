@@ -43,5 +43,10 @@
             }
             return $client->save();
         }
+
+        public function openListClients(){
+            $informations = $this->getFactureController()->getInformationsUser();
+            return view('client.liste_client',compact('informations'));
+        }
     }
 ?>

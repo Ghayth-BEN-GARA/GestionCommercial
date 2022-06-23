@@ -54,7 +54,7 @@
                         <li class = "nav-item"><a class = "nav-link" href = "#">Caisse</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les ventes</a></li>
                         <li class = "nav-item"><a class = "nav-link" href = "{{url('/add-client')}}">Ajouter des clients</a></li>
-                        <li class = "nav-item"><a class = "nav-link" href = "#">Consulter les clients</a></li>
+                        <li class = "nav-item"><a class = "nav-link" href = "{{url('/list-clients')}}">Consulter les clients</a></li>
                     </ul>
                 </div>
             </li>
