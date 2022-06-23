@@ -28,11 +28,11 @@
                     @else
                         @foreach($clients as $row)
                             <tr>
-                                <td>{{$row->fullname}}</td>
-                                <td>{{$row->matricule}}</td>
-                                <td>{{$row->email}}</td>
-                                <td><a href = "{{url('/client?matricule='.$row->matricule)}}" class = "consult-user">Consulter</a></td>
-                                <td><a href = "{{url('/edit-client?matricule='.$row->matricule)}}" class = "consult-user">Modifier</a></td>
+                                <td>{{$row->getFullnameAttribute()}}</td>
+                                <td>{{$row->getMatriculeAttribute()}}</td>
+                                <td>{{$row->getEmailAttribute()}}</td>
+                                <td><a href = "{{url('/client?matricule='.$row->getMatriculeAttribute())}}" class = "consult-user">Consulter</a></td>
+                                <td><a href = "{{url('/edit-client?matricule='.$row->getMatriculeAttribute())}}" class = "consult-user">Modifier</a></td>
                             </tr>
                         @endforeach
                     @endif

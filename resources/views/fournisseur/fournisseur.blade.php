@@ -11,35 +11,89 @@
                 <div class = "main-panel">
                     <div class = "content-wrapper">
                         <div class = "row">
-                            <div class = "col-md-12 grid-margin stretch-card">
+                            <div class = "col-md-4 grid-margin stretch-card">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "card-title">Informations de fournisseur <b style = "color:#F7941E">{{$fournisseurs['nom']}}</b></h4>  
-                                        <div class = "table-responsive">
-                                            <table class = "table table-bordered">
-                                                <thead style = "text-align:center">
-                                                    <tr>
-                                                        <th>Nom</th>
-                                                        <th>Matricule fiscale</th>
-                                                        <th>Adresse email</th>
-                                                        <th>Adresse</th>
-                                                        <th colspan = "2">Numéro mobile </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody style = "text-align:center">
-                                                    <tr>
-                                                        <td>{{$fournisseurs['nom']}}</td>
-                                                        <td>{{$fournisseurs['matricule']}}</td> 
-                                                        <td>{{$fournisseurs['email']}}</td> 
-                                                        <td>{{$fournisseurs['adresse']}}</td> 
-                                                        <td>{{$fournisseurs->getTel1Attribute()}}</td> 
-                                                        <td>{{$fournisseurs->getTel2Attribute()}}</td> 
-                                                    </tr> 
-                                                </tbody>
-                                            </table>
+                                        <h4 class = "card-title">Nom et prénom</h4>
+                                        <div class = "media"> 
+                                            <i class = "ti-user icon-md text-info d-flex align-self-start mr-3 mt-2"></i>
+                                            <div class = "media-body">
+                                                <p class = "card-text">{{$fournisseurs->getNomAttribute()}}</p>
+                                                <p>(Le nom complet du fournisseur)</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
+                            </div>
+                            <div class = "col-md-4 grid-margin stretch-card">
+                                <div class = "card">
+                                    <div class = "card-body">
+                                        <h4 class = "card-title">Matricule</h4>
+                                        <div class = "media"> 
+                                            <i class = "ti-id-badge icon-md text-info d-flex align-self-start mr-3 mt-2"></i>
+                                            <div class = "media-body">
+                                                <p class = "card-text">{{$fournisseurs->getMatriculeAttribute()}}</p>
+                                                <p>(L'identifiant du fournisseur)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "col-md-4 grid-margin stretch-card">
+                                <div class = "card">
+                                    <div class = "card-body">
+                                        <h4 class = "card-title">Adresse ou ville</h4>
+                                        <div class = "media"> 
+                                            <i class = "ti-home icon-md text-info d-flex align-self-start mr-3 mt-2"></i>
+                                            <div class = "media-body">
+                                                <p class = "card-text">{{$fournisseurs->getAdresseAttribute()}}</p>
+                                                <p>(L'adresse ou la ville du fournisseur)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "col-md-4 grid-margin stretch-card">
+                                <div class = "card">
+                                    <div class = "card-body">
+                                        <h4 class = "card-title">Numéro mobile</h4>
+                                        <div class = "media"> 
+                                            <i class = "ti-mobile icon-md text-info d-flex align-self-start mr-3 mt-2"></i>
+                                            <div class = "media-body">
+                                                <p class = "card-text">{{$fournisseurs->getTel1Attribute()}}</p>
+                                                <p>(Le numéro obligatoire du fournisseur)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "col-md-4 grid-margin stretch-card">
+                                <div class = "card">
+                                    <div class = "card-body">
+                                        <h4 class = "card-title">Numéro mobile</h4>
+                                        <div class = "media"> 
+                                            <i class = "ti-mobile icon-md text-info d-flex align-self-start mr-3 mt-2"></i>
+                                            <div class = "media-body">
+                                                <p class = "card-text">{{$fournisseurs->getTel2Attribute()}}</p>
+                                                <p>(Le numéro optionnel du fournisseur)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "col-md-4 grid-margin stretch-card">
+                                <div class = "card">
+                                    <div class = "card-body">
+                                        <h4 class = "card-title">Adresse e-mail</h4>
+                                        <div class = "media"> 
+                                            <i class = "ti-email icon-md text-info d-flex align-self-start mr-3 mt-2"></i>
+                                            <div class = "media-body">
+                                                <p class = "card-text">{{$fournisseurs->getEmailAttribute()}}</p>
+                                                <p>(L'adresse e-mail du fournisseur)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
