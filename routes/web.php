@@ -84,5 +84,6 @@
     Route::get('/verify-matricule-cin', [ClientController::class, 'verifyMatriculeCinClient']);
     Route::post('/creer-client', [ClientController::class, 'gestionCreerClient']);
     Route::get('/list-clients', [ClientController::class, 'openListClients'])->middleware('sessionadministrateur');
+    Route::get('/client', [ClientController::class, 'openClient'])->middleware('sessionadministrateur')->name('client');
 ?>
 

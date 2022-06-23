@@ -48,5 +48,15 @@
             $informations = $this->getFactureController()->getInformationsUser();
             return view('client.liste_client',compact('informations'));
         }
+
+        public function openClient(Request $request){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $client = $this->getInformationsClient($request->Input('matricule'));
+            return view('client.client',compact('informations','client'));
+        }
+
+        public function getInformationsClient($matricule){
+            return Client::where('matricule',$matricule)->first();
+        }
     }
 ?>
