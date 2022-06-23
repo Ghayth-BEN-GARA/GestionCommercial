@@ -13,7 +13,7 @@
          */
         public function handle(Request $request, Closure $next){
             if(Session()->has('username') && ((Session()->get('type') == "Administrateur") && (($request->url() == url('/add-client')) ||
-                ($request->url() == url('/list-clients')) || ($request->url() == url('/client'))
+                ($request->url() == url('/list-clients')) || ($request->url() == url('/client')) || ($request->url() == url('/edit-client'))
             
             
             ))){

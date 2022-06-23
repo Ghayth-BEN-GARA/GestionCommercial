@@ -58,5 +58,31 @@
         public function getInformationsClient($matricule){
             return Client::where('matricule',$matricule)->first();
         }
+
+        public function openEditClient(Request $request){
+            $informations = $this->getFactureController()->getInformationsUser();
+            $client = $this->getInformationsClient($request->Input('matricule'));
+            return view('client.edit_client',compact('informations','client'));
+        }
+
+        public function gestionUpdateClient(Request $request){
+            if(!$this->updateClient($request->matricule,$request->nom,$request->email,$request->adresse,$request->tel1,$request->tel2)){
+                return back()->with('erreur', 'Pour des raisons techniques, il est impossible de modifier ce client.');
+            }
+
+            else{
+                return back()->with('success', 'Le client a été modifié avec succès.');
+            }
+        }
+
+        public function updateClient($matricule,$nom,$email,$adresse,$tel1,$tel2){
+            return Client::where('matricule',$matricule)->update([
+                'fullname' => $nom,
+                'email' => $email,
+                'adresse' => $adresse,
+                'tel1' => $tel1,
+                'tel2' => $tel2,
+            ]);
+        }
     }
 ?>

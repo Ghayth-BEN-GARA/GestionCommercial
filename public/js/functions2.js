@@ -29,3 +29,15 @@ function initialiserMatriculeCIN(){
     $('#matricule_cin_error').html('');
     $('#btn_submit').prop('disabled', true);
 }
+
+function viderUpdateClient() {
+    viderChamps($('#nom'));
+    viderChamps($('#email'));
+    viderChamps($('#adresse'));
+    viderChamps($('#mobile1'));
+    viderChamps($('#mobile2'));
+}
+
+function viderChamps(input){
+    input.val('');
+}
